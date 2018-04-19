@@ -1,0 +1,11 @@
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\bin\Debug\netcoreapp2.0\Project_Green_Socks.deps.json
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\bin\Debug\netcoreapp2.0\Project_Green_Socks.runtimeconfig.json
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\bin\Debug\netcoreapp2.0\Project_Green_Socks.runtimeconfig.dev.json
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\bin\Debug\netcoreapp2.0\Project_Green_Socks.dll
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\bin\Debug\netcoreapp2.0\Project_Green_Socks.pdb
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\obj\Debug\netcoreapp2.0\Project_Green_Socks.csprojResolveAssemblyReference.cache
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\obj\Debug\netcoreapp2.0\Project_Green_Socks.csproj.CoreCompileInputs.cache
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\obj\Debug\netcoreapp2.0\Project_Green_Socks.AssemblyInfoInputs.cache
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\obj\Debug\netcoreapp2.0\Project_Green_Socks.AssemblyInfo.cs
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\obj\Debug\netcoreapp2.0\Project_Green_Socks.dll
+C:\Users\weisdepp\Source\Repos\Project_Green_Socks\Project_Green_Socks\obj\Debug\netcoreapp2.0\Project_Green_Socks.pdb
