@@ -15,13 +15,21 @@ namespace GreenSocks.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Admin()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Your admin page.";
 
             return View();
         }
 
+        public IActionResult Student()
+        {
+            return View();
+        }
+        public IActionResult StSignIn()
+        {
+            return View();
+        }
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
