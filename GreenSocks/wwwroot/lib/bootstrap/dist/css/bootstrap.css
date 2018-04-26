@@ -6754,4 +6754,41 @@ button.close {
     display: none !important;
   }
 }
+
+.unit {
+    display: flex;
+}
+
+.main {
+    padding-left: 140px;
+    min-width: 75%;
+}
+
+.AdminNav {
+    background-color: #FFEE00;
+    max-width: 25%;
+    min-width: 140px;
+    float: left;
+
+    flex: 1;
+}
+
+.unit {
+    display: table;
+    width: 100%;
+}
+
+.left-half {
+    background-color: #41b3a3;
+    position: absolute;
+    left: 0px;
+    width: 25%;
+}
+
+.right-half {
+    background-color: #fbeec1;
+    position: absolute;
+    right: 0px;
+    width: 75%;
+}
 /*# sourceMappingURL=bootstrap.css.map */
