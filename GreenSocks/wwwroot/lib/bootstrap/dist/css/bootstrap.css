@@ -5263,21 +5263,22 @@ a.thumbnail.active {
   border-bottom-left-radius: 4px;
 }
 a.list-group-item,
-button.list-group-item {
+/*button.list-group-item {
   color: #555;
 }
 a.list-group-item .list-group-item-heading,
 button.list-group-item .list-group-item-heading {
   color: #333;
-}
+}*/
 a.list-group-item:hover,
 button.list-group-item:hover,
 a.list-group-item:focus,
+/*
 button.list-group-item:focus {
   color: #555;
   text-decoration: none;
   background-color: #f5f5f5;
-}
+}*/
 button.list-group-item {
   width: 100%;
   text-align: left;
@@ -5328,9 +5329,10 @@ button.list-group-item {
   background-color: #dff0d8;
 }
 a.list-group-item-success,
+/*
 button.list-group-item-success {
   color: #3c763d;
-}
+}*/
 a.list-group-item-success .list-group-item-heading,
 button.list-group-item-success .list-group-item-heading {
   color: inherit;
@@ -5338,20 +5340,22 @@ button.list-group-item-success .list-group-item-heading {
 a.list-group-item-success:hover,
 button.list-group-item-success:hover,
 a.list-group-item-success:focus,
+/*
 button.list-group-item-success:focus {
   color: #3c763d;
   background-color: #d0e9c6;
-}
+}*/
 a.list-group-item-success.active,
 button.list-group-item-success.active,
 a.list-group-item-success.active:hover,
 button.list-group-item-success.active:hover,
 a.list-group-item-success.active:focus,
+/*
 button.list-group-item-success.active:focus {
   color: #fff;
   background-color: #3c763d;
   border-color: #3c763d;
-}
+}*/
 .list-group-item-info {
   color: #31708f;
   background-color: #d9edf7;
@@ -5367,20 +5371,22 @@ button.list-group-item-info .list-group-item-heading {
 a.list-group-item-info:hover,
 button.list-group-item-info:hover,
 a.list-group-item-info:focus,
+/*
 button.list-group-item-info:focus {
   color: #31708f;
   background-color: #c4e3f3;
-}
+}*/
 a.list-group-item-info.active,
 button.list-group-item-info.active,
 a.list-group-item-info.active:hover,
 button.list-group-item-info.active:hover,
 a.list-group-item-info.active:focus,
+/*
 button.list-group-item-info.active:focus {
   color: #fff;
   background-color: #31708f;
   border-color: #31708f;
-}
+}*/
 .list-group-item-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
@@ -5425,10 +5431,11 @@ button.list-group-item-danger .list-group-item-heading {
 a.list-group-item-danger:hover,
 button.list-group-item-danger:hover,
 a.list-group-item-danger:focus,
+/*
 button.list-group-item-danger:focus {
   color: #a94442;
   background-color: #ebcccc;
-}
+}*/
 a.list-group-item-danger.active,
 button.list-group-item-danger.active,
 a.list-group-item-danger.active:hover,
@@ -6787,5 +6794,61 @@ button.close {
     left: 0px;
     height: 100%;
     padding-left: 20px;
+}
+
+#stButton {
+    background-image:url( ~/images/games.svg);
+    background-size: 100px 130px;
+    height: 134px;
+    width: 104px;
+}
+
+button:active {
+    background: #777;
+}
+
+button:focus {
+    background: #ddd
+}
+
+.specialButt {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    height: 134px;
+    width: 104px;
+    filter: grayscale(100%);
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.specialButt:hover .image {
+    opacity: 0.3;
+    filter: grayscale(0%);
+}
+
+.specialButt:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    color: #000;
+    font-size: 16px;
+    padding: 16px 32px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
