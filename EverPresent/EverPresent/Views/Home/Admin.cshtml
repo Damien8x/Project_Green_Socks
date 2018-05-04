@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="unit">
+
+    <div class="left-half">
+        <h2>@ViewData["Title"]</h2>
+        <h3>@ViewData["Message"]</h3>
+        <p>Admin Links</p>
+        <li><a asp-area="" asp-controller="Home" asp-action="StSignIn">Student Sign in Page</a></li>
+    </div>
+
+    <div class="right-half">
+        <p>Attendance stuff</p>
+        <img src="~/images/graph.svg" alt="Sample Photo" />
+    </div>
+
+</div>
