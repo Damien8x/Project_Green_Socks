@@ -8,7 +8,7 @@
         <h2>@ViewData["Title"]</h2>
         <h3>@ViewData["Message"]</h3>
         <p>Admin Links</p>
-        <li><a asp-area="" asp-controller="Home" asp-action="StSignIn">Student Sign in Page</a></li>
+        @Html.ActionLink("Student Sign In Page", "StSignIn")
     </div>
 
     <div class="right-half">
