@@ -6,14 +6,19 @@ using System.Web.Mvc;
 
 namespace EverPresent.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
 
-       
+        public ActionResult Admin()
+        {
+            ViewBag.Message = "Your admin page.";
+
+            return View();
+        }
 
         public ActionResult Student()
         {
@@ -24,6 +29,6 @@ namespace EverPresent.Controllers
         {
             return View();
         }
-    
+        
     }
 }
