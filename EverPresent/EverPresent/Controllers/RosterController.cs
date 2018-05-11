@@ -6,23 +6,12 @@ using System.Web.Mvc;
 
 namespace EverPresent.Controllers
 {
-    public class HomeController : Controller
+    public class RosterController : Controller
     {
+        // GET: Roster
         public ActionResult Index()
         {
             return View();
         }
-
-       
-        public ActionResult Student()
-        {
-            return View();
-        }
-
-        public ActionResult StSignIn()
-        {
-            return View();
-        }
-    
     }
 }
