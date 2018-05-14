@@ -13,5 +13,9 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+        public ActionResult Mogwai()
+        {
+            return View();
+        }
     }
 }
