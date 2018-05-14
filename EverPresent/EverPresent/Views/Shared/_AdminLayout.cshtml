@@ -10,23 +10,28 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-md-2">
-            <div class="navbar-default sidebar">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav in" id="side-menu">
-                        <li>@Html.ActionLink("Admin Home", "Index", "Admin")</li>
-                        <li>@Html.ActionLink("Student Sign In Page", "StSignIn")</li> 
-                    </ul>
+        <div class="unit">
+            <div class="left-half">
+                <div class="navbar-default sidebar">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav in" id="side-menu">
+                            <li>@Html.ActionLink("Admin Home", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("Student Sign In Page", "StSignIn")</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - EverPresent</p>
-            </footer>
+
+            <div class="right-half">
+                <div class="container body-content">
+                    @RenderBody()
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - EverPresent</p>
+                    </footer>
+                </div>
+            </div>
         </div>
     </div>
 
