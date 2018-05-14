@@ -8222,24 +8222,11 @@ button.close {
     padding-left: 20px;
 }
 
-#stButton {
-    background-image: url( ~/images/games.svg);
-    background-size: 100px 130px;
-    height: 134px;
-    width: 104px;
-}
-
-button:active {
-    background: #777;
-}
-
-button:focus {
-    background: #ddd
-}
 
 .specialButt {
     position: relative;
     width: 104px;
+    height: 134px;
 }
 
 .image {
@@ -8265,6 +8252,10 @@ button:focus {
 
 .specialButt:hover .image {
     opacity: 0.3;
+    filter: grayscale(0%);
+}
+
+.specialButt:active .image {
     filter: grayscale(0%);
 }
 
