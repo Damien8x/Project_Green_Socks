@@ -1,3 +1,21 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    string controllerLayout = "";
+    if (controller == "Admin")
+    {
+        controllerLayout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else if (controller == "Student")
+    {
+        controllerLayout = "~/Views/Shared/_StudentLayout.cshtml";
+    }
+    else if (controller == "Roster")
+    {
+        controllerLayout = "~/Views/Shared/_RosterLayout.cshtml";
+    }
+    else
+    {
+        controllerLayout = "~/Views/Shared/_Layout.cshtml";
+    }
+    Layout = controllerLayout;
 }
