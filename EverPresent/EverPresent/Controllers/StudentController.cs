@@ -17,5 +17,10 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+
+        public ActionResult Marketplace()
+        {
+            return View();
+        }
     }
 }
