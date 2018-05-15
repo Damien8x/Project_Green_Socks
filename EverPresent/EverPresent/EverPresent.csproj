@@ -217,6 +217,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\banner1.svg" />
+    <Content Include="image\banner2.svg" />
+    <Content Include="image\banner3.svg" />
+    <Content Include="image\banner4.svg" />
+    <Content Include="image\game.svg" />
+    <Content Include="image\graph.svg" />
+    <Content Include="image\imgres.html" />
     <Content Include="image\Login.png" />
     <Content Include="image\Admin_Landing.png" />
     <Content Include="image\Admin_Inactive_Students.png" />
@@ -226,6 +233,8 @@
     <Content Include="image\Kiosk_Create_Student.png" />
     <Content Include="image\Kiosk_Roster.png" />
     <Content Include="image\pokemon-6.svg" />
+    <Content Include="image\sing_in.jpg" />
+    <Content Include="image\stGraph.svg" />
     <Content Include="image\Student_Market.png" />
     <Content Include="image\Student_Attendance.png" />
     <Content Include="image\Student_Mogwai_Collection.png" />
