@@ -22,5 +22,9 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+        public ActionResult Attendance()
+        {
+            return View();
+        }
     }
 }
