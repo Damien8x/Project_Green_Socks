@@ -8293,4 +8293,25 @@ button.close {
         /* adjust 'height' to position overlay content vertically */
         height: 12%;
     }
+
+
+input[type=checkbox] {
+    display: none;
+}
+
+    input[type=checkbox] + cssButt {
+        background: #999;
+        height: 134px;
+        width: 104px;
+        display: inline-block;
+        padding: 0 0 0 0px;
+    }
+
+    input[type=checkbox]:checked + cssButt {
+        background: #0080FF;
+        height: 134px;
+        width: 104px;
+        display: inline-block;
+        padding: 0 0 0 0px;
+    }
 /*# sourceMappingURL=bootstrap.css.map */
