@@ -29,6 +29,11 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+
+        public ActionResult InactiveStudents()
+        {
+            return View();
+        }
         
     }
 }
