@@ -250,6 +250,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\InactiveStudents.cshtml" />
     <None Include="Views\Admin\StSignIn.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
