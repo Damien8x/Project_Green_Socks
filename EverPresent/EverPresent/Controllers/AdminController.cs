@@ -25,15 +25,15 @@ namespace EverPresent.Controllers
             return View();
         }
 
-        public ActionResult StSignIn()
-        {
-            return View();
-        }
 
         public ActionResult InactiveStudents()
         {
             return View();
         }
-        
+
+        public ActionResult Calendar()
+        {
+            return View();
+        }
     }
 }
