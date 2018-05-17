@@ -2,89 +2,88 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
 
-    <h2>Roster</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <div class="specialButt">
-                    <img src="~/image/game.svg" alt="Avatar" class="image" style="width:100%">
-                    <div class="middle">
-                        <div class="text">John Doe</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="specialButt">
-                    <a href="~/Home/Index">
-                        <img src="~/image/pokemon-6.svg" alt="Avatar" class="image" style="width:100%">
-                        <div class="middle">
-                            <div class="text">Marry Jane</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <label for="toggle-1">Do Something</label>
-                <input type="checkbox" id="toggle-1">
-                <cssButt>Control me</cssButt>
-            </div>
-            <div class="col-md-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="panel-heading"><h5>Student 4</h5></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="specialButt">
+                <img src="~/image/game.svg" alt="Avatar" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">John Doe</div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <br>
-                        <br>
-                        <br>
+        <div class="col-md-2">
+            <div class="specialButt">
+                <a href="~/Home/Index">
+                    <img src="~/image/pokemon-6.svg" alt="Avatar" class="image" style="width:100%">
+                    <div class="middle">
+                        <div class="text">Marry Jane</div>
                     </div>
-                    <div class="panel-heading"><h5>Student 5</h5></div>
-                </div>
+                </a>
             </div>
-            <div class="col-md-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="panel-heading"><h5>Student 6</h5></div>
+        </div>
+        <div class="col-md-2">
+            <label for="toggle-1">Do Something</label>
+            <input type="checkbox" id="toggle-1">
+            <cssButt>Control me</cssButt>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <br>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="panel-heading"><h5>Student 7</h5></div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="panel-heading"><h5>Student 8</h5></div>
-                </div>
+                <div class="panel-heading"><h5>Student 4</h5></div>
             </div>
         </div>
     </div>
-    <li>@Html.ActionLink("AddStudent", "AddStudent", "Roster")</li>
-    <li>@Html.ActionLink("Logout", "Index", "Home")</li>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="panel-heading"><h5>Student 5</h5></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="panel-heading"><h5>Student 6</h5></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="panel-heading"><h5>Student 7</h5></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="panel-heading"><h5>Student 8</h5></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-md-offset-5">
+        @Html.ActionLink("AddStudent", "AddStudent", "Roster", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        @Html.ActionLink("Logout", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+    </div>
