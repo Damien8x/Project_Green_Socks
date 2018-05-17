@@ -30,6 +30,8 @@ summary {
     display: block;
 }
 
+
+
 audio,
 canvas,
 progress,
@@ -50,6 +52,7 @@ template {
 
 a {
     background-color: transparent;
+
 }
 
     a:active,
@@ -4887,13 +4890,30 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     .nav > li {
         position: relative;
         display: block;
+        padding-bottom: 5px;
+    }
+    .nav_top_admin_home{
+        padding-top:110px;
     }
 
+    .nav_top_roster{
+        padding-top:30px;
+    }
+    .nav_top_inactive_students{
+        padding-top:5px;
+    }
+    .nav_top_calendar{
+        padding-top:15px;
+    }
+    .nav_top_logout{
+        padding-top:15px;
+    }
         .nav > li > a {
             position: relative;
             display: block;
-            padding: 10px 15px;
+            padding: 2px 2px;
         }
+      
 
             .nav > li > a:hover,
             .nav > li > a:focus {
