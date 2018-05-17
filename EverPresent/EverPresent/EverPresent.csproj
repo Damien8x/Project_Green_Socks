@@ -224,6 +224,7 @@
     <Content Include="image\game.svg" />
     <Content Include="image\graph.svg" />
     <Content Include="image\imgres.html" />
+    <Content Include="image\Inactive Students.png" />
     <Content Include="image\Joe_Landing_2.png" />
     <Content Include="image\Login.png" />
     <Content Include="image\Admin_Landing.png" />
