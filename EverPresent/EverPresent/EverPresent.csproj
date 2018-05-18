@@ -217,6 +217,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\Kiosk_Create_Stud.png" />
     <Content Include="image\pokemon_old_guy.svg" />
     <Content Include="image\pokemon_bee.svg" />
     <Content Include="image\pokemon_duck.svg" />
@@ -235,7 +236,6 @@
     <Content Include="image\Admin_Calendar.png" />
     <Content Include="image\Admin_Student_View.png" />
     <Content Include="image\ADMINISTRATOR.png" />
-    <Content Include="image\Kiosk_Create_Student.png" />
     <Content Include="image\Kiosk_Roster.png" />
     <Content Include="image\pokemon-6.svg" />
     <Content Include="image\sing_in.jpg" />

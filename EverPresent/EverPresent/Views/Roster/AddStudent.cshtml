@@ -3,6 +3,11 @@
     ViewBag.Title = "AddStudent";
 }
 
-<h2>AddStudent</h2>
-<img src="~/image/Kiosk_Create_Student.png" alt="Create Student" />
+    <img src="~/image/Kiosk_Create_Stud.png" alt="Create Student" class="center-block" />
+    
+    <div class="col-md-2 col-md-offset-5" display="inline">
+        @Html.ActionLink("Submit", "Index", "Roster", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        @Html.ActionLink("Cancel", "Index", "Roster", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+   </div>
+
 
