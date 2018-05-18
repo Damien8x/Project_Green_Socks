@@ -6,15 +6,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <p>Signed in at 8:53am</p>
+            <p>60 tokens earned from yesterday!</p>
+            <p>Legendary Mogwai Loki earned!</p>
+            <a href="~/Roster/Index">
+                <b>Click to go back to roster</b>
+            </a>
+        </div>
         <div class="col-md-2">
             <div class="specialButton">
-                <a href="~/Roster/AndrewSignedIn">
-                    <img src="~/image/game.svg" alt="Avatar" class="image" style="width:100%">
-                    <div class="middle">
-                        <div class="text">Andrew Smith</div>
-                    </div>
-                </a>
+                <img src="~/image/game.svg" alt="Avatar" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Andrew Smith</div>
+                </div>
             </div>
         </div>
         <div class="col-md-2">
@@ -92,7 +97,8 @@
         </div>
     </div>
     <div class="col-md-2 col-md-offset-5">
-        @Html.ActionLink("AddStudent", "AddStudent", "Roster", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Logout", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        <h3>Time @DateTime.Now.ToString(@"hh\:mm\:ss tt")</h3>
-    </div>
+        <div class="col-md-2 col-md-offset-5">
+            @Html.ActionLink("AddStudent", "AddStudent", "Roster", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+            @Html.ActionLink("Logout", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+            <h3>Time @DateTime.Now.ToString(@"hh\:mm\:ss tt")</h3>
+        </div>
