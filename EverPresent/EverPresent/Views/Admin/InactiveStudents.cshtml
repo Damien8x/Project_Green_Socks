@@ -6,5 +6,26 @@
 }
 
 
-<h1>Inactive Students</h1>
-<img src="~/image/Admin_Inactive_Students.png" alt="Inactive Students" height="600" width="600" />
+<!-- <img src="~/image/Admin_Inactive_Students.png" alt="Inactive Students" height="600" width="600" />-->
+<div style="border:2px solid black; width:50%;" class="center-block">
+<h1 style="text-align:center">Select Inactive Student</h1>
+
+<select id="Select_Student" display="block" style="margin-top:30px; text-align:center" class="center-block">
+    <option>John Jeffery</option>
+    <option>Jane Goodwin</option>
+    <option>Mark Hammel</option>
+    <option>Andrew Smith</option>
+</select>
+
+
+
+<div display="block" style="margin-top:100px;text-align:center" class="center-block">
+@Html.ActionLink("Reactivate", "Andrew", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+</div>
+
+<div  display="block" style="margin-top:15px; margin-bottom:10px; text-align:center" class="center-block">
+    @Html.ActionLink("GENERATE REPORT", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+</div>
+
+
+</div>
