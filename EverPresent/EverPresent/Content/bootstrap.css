@@ -8263,7 +8263,7 @@ button.close {
 }
 
 
-.specialButt {
+.specialButton {
     position: relative;
     width: 104px;
     height: 134px;
@@ -8290,16 +8290,16 @@ button.close {
     text-align: center;
 }
 
-.specialButt:hover .image {
+.specialButton:hover .image {
     opacity: 0.3;
     filter: grayscale(0%);
 }
 
-.specialButt:active .image {
+.specialButton:active .image {
     filter: grayscale(0%);
 }
 
-.specialButt:hover .middle {
+.specialButton:hover .middle {
     opacity: 1;
 }
 
