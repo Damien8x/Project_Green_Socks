@@ -35,6 +35,11 @@ namespace EverPresent.Controllers
             return View();
         }
 
+        public ActionResult GenerateReports()
+        {
+            return View();
+        }
+
         public ActionResult Calendar()
         {
             return View();

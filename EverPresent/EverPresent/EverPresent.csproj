@@ -288,6 +288,7 @@
     <Content Include="Views\Admin\InactiveStudents.cshtml" />
     <Content Include="Views\Admin\Calendar.cshtml" />
     <Content Include="Views\Admin\Andrew.cshtml" />
+    <Content Include="Views\Admin\GenerateReports.cshtml" />
     <None Include="Views\Admin\StSignIn.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
