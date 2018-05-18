@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-
+using EverPresent.Models.Enums;
 
 namespace EverPresent.Models
 {
