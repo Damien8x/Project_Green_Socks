@@ -9,7 +9,7 @@ using EverPresent.Models.Enums;
 
 namespace EverPresent.Models
 {
-    public class StudnetModel
+    public class StudentModel
     {
         /// <summary>
         /// The ID for the Student, this is the key, and a required field
