@@ -221,7 +221,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="image\Admin_Student_View - Copy.png" />
+    <Content Include="image\Attendance_vs_avg.png" />
+    <Content Include="image\avg_attendance.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
+    <Content Include="image\On_time.png" />
     <Content Include="image\pokemon_old_guy.svg" />
     <Content Include="image\pokemon_bee.svg" />
     <Content Include="image\pokemon_duck.svg" />
