@@ -326,6 +326,7 @@
     <Content Include="Views\Student\Marketplace.cshtml" />
     <Content Include="Views\Roster\AddStudent.cshtml" />
     <Content Include="Views\Student\Attendance.cshtml" />
+    <Content Include="Views\Roster\AndrewSignedIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
