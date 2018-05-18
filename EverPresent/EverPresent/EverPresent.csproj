@@ -224,8 +224,10 @@
     <Content Include="image\Attendance_vs_avg.png" />
     <Content Include="image\avatar4.png" />
     <Content Include="image\avg_attendance.png" />
+    <Content Include="image\BankAcct1png.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
     <Content Include="image\middleCollegeCalendar.PNG" />
+    <Content Include="image\MogwaiPurchasedByDay.png" />
     <Content Include="image\On_time.png" />
     <Content Include="image\pokemon_old_guy.svg" />
     <Content Include="image\pokemon_bee.svg" />
