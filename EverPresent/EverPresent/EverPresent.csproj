@@ -217,6 +217,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\pokemon_old_guy.svg" />
+    <Content Include="image\pokemon_bee.svg" />
+    <Content Include="image\pokemon_duck.svg" />
     <Content Include="image\banner1.svg" />
     <Content Include="image\banner2.svg" />
     <Content Include="image\banner3.svg" />
