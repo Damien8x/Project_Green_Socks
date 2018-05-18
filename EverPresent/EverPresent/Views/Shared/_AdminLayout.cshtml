@@ -6,46 +6,47 @@
     <title>@ViewBag.Title - EverPresent</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <title>Bootstrap Nav</title>
 
 </head>
 <body>
-    <div class="row">
-        <div class="unit">
-            <div class="left-half">
-                <div class="navbar-default sidebar">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav in" id="side-menu">
-                            <li class="nav_top_admin_home"></li>
-                            @Html.ActionLink("Admin Home", "Index", "Admin")
-                            <li class="nav_top_roster"></li>
-                            <li>ROSTER</li>
-                            <li>@Html.ActionLink("Joe", "Joe", "Admin")</li>
-                            <li>@Html.ActionLink("Jim", "Joe", "Admin")</li>
-                            <li>@Html.ActionLink("Jack", "Joe", "Admin")</li>
-                            <li>@Html.ActionLink("Julia", "Joe", "Admin")</li>
-                            <li>@Html.ActionLink("Jesse", "Joe", "Admin")</li>
-                            <li class="nav_top_inactive_students"></li>
-                            <li>@Html.ActionLink("Inactive Students", "InactiveStudents")</li>
-                            <li class="nav_top_calendar"></li>
-                            <li>@Html.ActionLink("Calendar", "Calendar", "Admin")</li>
-                            <li class="nav_top_logout"></li>
-                            <li>@Html.ActionLink("Logout", "Index", "Home")</li>
 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-brand"> EverPresent</p>
+</div>
+            <ul class="nav navbar-nav">
+                <li class="active">@Html.ActionLink("Admin Home", "Index", "Admin")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Roster<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Joe", "Joe", "Admin")</li>
+                        <li>@Html.ActionLink("Jane", "Joe", "Admin")</li>
+                        <li>@Html.ActionLink("Jeff", "Joe", "Admin")</li>
+                        <li>@Html.ActionLink("Jake", "Joe", "Admin")</li>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="right-half">
-                <div class="container body-content">
-                    @RenderBody()
-                </div>
-            </div>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Calendar", "Calendar", "Admin")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Inactive Students<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("2018", "InactiveStudents", "Admin")</li>
+                        <li>@Html.ActionLink("2017", "InactiveStudents", "Admin")</li>
+                        <li>@Html.ActionLink("2016", "InactiveStudents", "Admin")</li>
+                        <li>@Html.ActionLink("2015", "InactiveStudents", "Admin")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li style="padding-right:5px">@Html.ActionLink("Logout", "Index", "Home")</li>
+            </ul>
         </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
