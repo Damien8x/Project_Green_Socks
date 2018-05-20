@@ -245,6 +245,7 @@
     <Content Include="image\BankAcct1png.png" />
     <Content Include="image\BankAcct3.png" />
     <Content Include="image\BankAcct4.png" />
+    <Content Include="image\EditAndrewAttendanceNoBorder.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
     <Content Include="image\middleCollegeCalendar.PNG" />
     <Content Include="image\MogwaiPurchasedByDay.png" />
@@ -313,6 +314,7 @@
     <Content Include="Views\Admin\Andrew.cshtml" />
     <Content Include="Views\Admin\GenerateReports.cshtml" />
     <Content Include="Views\Admin\EditAndrew.cshtml" />
+    <Content Include="Views\Admin\EditAndrewAttendance.cshtml" />
     <None Include="Views\Admin\StSignIn.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
