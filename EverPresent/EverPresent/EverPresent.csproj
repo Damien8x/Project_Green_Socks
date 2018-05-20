@@ -247,6 +247,7 @@
     <Content Include="image\BankAcct4.png" />
     <Content Include="image\EditAndrewAttendanceNoBorder.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
+    <Content Include="image\MarketPlaceWireFrameNoBorder.png" />
     <Content Include="image\middleCollegeCalendar.PNG" />
     <Content Include="image\MogwaiPurchasedByDay.png" />
     <Content Include="image\On_time.png" />
