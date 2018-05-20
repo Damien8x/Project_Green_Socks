@@ -228,6 +228,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\AdminStudentAndrew.png" />
     <Content Include="image\Admin_Student_View - Copy.png" />
     <Content Include="image\Attendance_vs_avg.png" />
     <Content Include="image\avatar0.png" />
