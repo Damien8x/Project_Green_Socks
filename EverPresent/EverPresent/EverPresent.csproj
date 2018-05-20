@@ -189,16 +189,24 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Backend\MogwaiInterface.cs" />
+    <Compile Include="Backend\MogwaiDataSourceMock.cs" />
+    <Compile Include="Backend\MogwaiBackend.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MogwaiController.cs" />
     <Compile Include="Controllers\RosterController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\SystemGlobals.cs" />
+    <Compile Include="Models\Enums\DataSourceEnum.cs" />
+    <Compile Include="Models\MogwaiViewModel.cs" />
+    <Compile Include="Models\MogwaiModel.cs" />
     <Compile Include="Models\AvatarModel.cs" />
     <Compile Include="Models\Enums\StudentStatusEnum.cs" />
     <Compile Include="Models\StudentModel.cs" />
@@ -222,9 +230,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="image\Admin_Student_View - Copy.png" />
     <Content Include="image\Attendance_vs_avg.png" />
+    <Content Include="image\avatar0.png" />
+    <Content Include="image\avatar1.png" />
+    <Content Include="image\avatar2.png" />
+    <Content Include="image\avatar3.png" />
     <Content Include="image\avatar4.png" />
+    <Content Include="image\avatar5.png" />
+    <Content Include="image\avatar6.png" />
+    <Content Include="image\avatar7.png" />
+    <Content Include="image\avatar8.png" />
+    <Content Include="image\avatar9.png" />
     <Content Include="image\avg_attendance.png" />
     <Content Include="image\BankAcct1png.png" />
+    <Content Include="image\BankAcct3.png" />
+    <Content Include="image\BankAcct4.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
     <Content Include="image\middleCollegeCalendar.PNG" />
     <Content Include="image\MogwaiPurchasedByDay.png" />
@@ -335,6 +354,11 @@
     <Content Include="Views\Roster\AddStudent.cshtml" />
     <Content Include="Views\Student\Attendance.cshtml" />
     <Content Include="Views\Roster\AndrewSignedIn.cshtml" />
+    <Content Include="Views\Mogwai\Create.cshtml" />
+    <Content Include="Views\Mogwai\Delete.cshtml" />
+    <Content Include="Views\Mogwai\Index.cshtml" />
+    <Content Include="Views\Mogwai\Read.cshtml" />
+    <Content Include="Views\Mogwai\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
