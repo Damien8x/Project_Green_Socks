@@ -270,6 +270,7 @@
     <Content Include="image\pokemon-6.svg" />
     <Content Include="image\sing_in.jpg" />
     <Content Include="image\stGraph.svg" />
+    <Content Include="image\Student1AdminViewEditNoBorder.png" />
     <Content Include="image\Student_Market.png" />
     <Content Include="image\Student_Attendance.png" />
     <Content Include="image\Student_Mogwai_Collection.png" />
@@ -311,6 +312,7 @@
     <Content Include="Views\Admin\Calendar.cshtml" />
     <Content Include="Views\Admin\Andrew.cshtml" />
     <Content Include="Views\Admin\GenerateReports.cshtml" />
+    <Content Include="Views\Admin\EditAndrew.cshtml" />
     <None Include="Views\Admin\StSignIn.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

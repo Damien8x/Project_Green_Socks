@@ -30,6 +30,11 @@ namespace EverPresent.Controllers
             return View();
         }
 
+        public ActionResult EditAndrew()
+        {
+            return View();
+        }
+
         public ActionResult InactiveStudents()
         {
             return View();
