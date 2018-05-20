@@ -1,0 +1,47 @@
+﻿@model _5051.Models.MogwaiViewModel
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+}
+
+<h2>Mogwais</h2>
+
+<div class="container">
+    <div class="row text-center">
+
+        @{
+            if (Model.MogwaiList == null || !Model.MogwaiList.Any())
+            {
+                <br />
+                <p>No Mogwai in the System</p>
+                <br />
+            }
+            else
+            {
+                foreach (var item in Model.MogwaiList)
+                {
+                    <div class="col-sm-2">
+                        <a id="@item.Id" href="~/Mogwai/Read/@item.Id">
+                            <img src="~/image/@item.Uri" width="75" height="75" />
+                            <br />
+                            <span>
+                                @item.Name
+                            </span>
+                        </a>
+                    </div>
+                }
+            }
+        }
+
+    </div>
+    <br />
+    <br />
+    <div class="row text-center">
+        <div class="col-sm-2">
+            @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
+        </div>
+    </div>
+</div>
+
