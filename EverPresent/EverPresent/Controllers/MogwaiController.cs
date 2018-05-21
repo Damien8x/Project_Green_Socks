@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using _5051.Models;
-using _5051.Backend;
+using EverPresent.Models;
+using EverPresent.Backend;
 
-namespace _5051.Controllers
+namespace EverPresent.Controllers
 {
     /// <summary>
     /// Mogwai Contoller manages the mogwai web pages including how to make new ones, change them, and delete them
