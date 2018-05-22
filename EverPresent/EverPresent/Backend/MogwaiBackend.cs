@@ -174,12 +174,12 @@ namespace EverPresent.Backend
         /// </summary>
         /// <param name="id">optional paramater, of the Item that is currently selected</param>
         /// <returns>List of SelectListItems as a SelectList</returns>
-        public List<SelectListItem> GetMogwaiListItem(string id = null)
+        public List<SelectListItem> GetMogwaiListItem(string id= null)
         {
             var myDataList = DataSource.Index();
 
-            //var myReturn = new SelectList(myDataList);
-
+          //  var myReturn = new SelectList(myDataList);
+         
             var myReturn = myDataList.Select(a => new SelectListItem
             {
                 Text = a.Name,
@@ -188,6 +188,7 @@ namespace EverPresent.Backend
             }).ToList();
 
             return myReturn;
+            
         }
 
         /// <summary>

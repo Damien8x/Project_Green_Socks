@@ -357,7 +357,6 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Mogwai.cshtml" />
     <Content Include="Views\Student\Marketplace.cshtml" />
-    <Content Include="Views\Roster\AddStudent.cshtml" />
     <Content Include="Views\Student\Attendance.cshtml" />
     <Content Include="Views\Roster\AndrewSignedIn.cshtml" />
     <Content Include="Views\Mogwai\Create.cshtml" />
@@ -365,6 +364,7 @@
     <Content Include="Views\Mogwai\Index.cshtml" />
     <Content Include="Views\Mogwai\Read.cshtml" />
     <Content Include="Views\Mogwai\Update.cshtml" />
+    <Content Include="Views\Mogwai\AddStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
