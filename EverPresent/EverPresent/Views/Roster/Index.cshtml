@@ -1,4 +1,6 @@
 ﻿@model EverPresent.Models.StudentViewModel
+@Scripts.Render("~/Scripts/script.js")
+
 
 <!--
 
@@ -127,13 +129,14 @@
                 foreach (var item in Model.StudentList)
                 {
                     <div class="col-sm-2">
-                        <a id="@item.Id" href="~/Mogwai/Read/@item.Id">
-                            <img src="~/image/@item.AvatarId" width="75" height="75" />
-                            <br />
-                            <span>
-                                @item.Name
-                            </span>
-                        </a>
+
+                        <img src="~/image/@item.AvatarId" width="75" height="75" />
+                       
+                        <br />
+                        <span>
+                            @item.Name
+                        </span>
+
                     </div>
                 }
             }
