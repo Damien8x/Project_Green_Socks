@@ -27,15 +27,19 @@
                 </div>
             </div>
 
+
+
             <div class="row">
                 <div class="col-sm-3 text-right">
                     @Html.DisplayNameFor(m => m.AvatarId)
                 </div>
-                <div class="col-sm-4">
-                    @Html.EditorFor(m => m.AvatarId)
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(m => m.AvatarId, EverPresent.Backend.MogwaiBackend.Instance.GetMogwaiListItem(Model.AvatarId))
                     @Html.ValidationMessageFor(m => m.AvatarId)
                 </div>
             </div>
+
+
 
             <br />
             <br />
@@ -43,7 +47,7 @@
                 <div class="col-sm-3 text-right">
                 </div>
                 <div class="col-sm-4">
-           
+
                     <input type="submit" value="Create" class="btn btn-primary">
                 </div>
             </div>

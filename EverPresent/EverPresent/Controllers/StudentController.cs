@@ -111,7 +111,7 @@ namespace EverPresent.Controllers
 
                 studentBackend.Create(data);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Roster");
             }
 
             /// <summary>
