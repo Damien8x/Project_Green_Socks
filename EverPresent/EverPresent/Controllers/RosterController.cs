@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EverPresent.Models;
+using EverPresent.Backend;
+using EverPresent.Models.Enums;
 
 namespace EverPresent.Controllers
 {
@@ -11,11 +14,9 @@ namespace EverPresent.Controllers
         // GET: Roster
         public ActionResult Index()
         {
+
             return View();
-        }
-        public ActionResult AddStudent()
-        {
-            return View();
+
         }
 
         public ActionResult AndrewSignedIn()

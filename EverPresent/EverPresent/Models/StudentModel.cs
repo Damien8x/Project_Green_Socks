@@ -36,10 +36,39 @@ namespace EverPresent.Models
         /// <summary>
         /// The status of the student, for example currently logged in, out
         /// </summary>
-        [Display(Name = "Current Status", Description = "Status of the Student")]
+        [Display(Name = "CurrentStatus", Description = "Status of the Student")]
         [Required(ErrorMessage = "Status is required")]
         public StudentStatusEnum Status { get; set; }
 
+
+        /// <summary>
+        /// Create the default values
+        /// </summary>
+        public void Initialize()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
+
+        /// <summary>
+        /// New Mogwai
+        /// </summary>
+        public StudentModel()
+        {
+            Initialize();
+        }
+
+        /// </summary>
+        /// <param name="avatarId"></param>
+        /// <param name="name"></param>
+        /// <param name="status"></param>
+        public StudentModel(string avatarId, string name, StudentStatusEnum status)
+        {
+            Initialize();
+            Status = status;
+            AvatarId = avatarId;
+            Name = name;
+            
+        }
 
     }
 }
