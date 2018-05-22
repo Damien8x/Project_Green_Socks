@@ -1,8 +1,9 @@
-﻿@model Tuple<EverPresent.Models.StudentModel, EverPresent.Models.MogwaiModel>
+﻿
 
 
+@model EverPresent.Models.StudentModel
 
-<img src="~/image/Kiosk_Create_Stud.png" alt="Create Student" class="center-block" />
+
 
 <div class="container">
     <div class="row">
@@ -13,26 +14,26 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            @Html.HiddenFor(tuple => tuple.Item1)
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.Status)
 
             <div class="row">
                 <div class="col-sm-3 text-right">
-                    @Html.DisplayNameFor(tuple => tuple.Item1.Id)
+                    @Html.DisplayNameFor(m => m.Name)
                 </div>
-                <div class="col-sm-2">
-                    @Html.EditorFor(tuple => tuple.Item1.Name)
-                    @Html.ValidationMessageFor(tuple => tuple.Item1.Name)
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-3 text-right">
-                    @Html.DisplayNameFor(tuple => tuple.Item1.Name)
+                    @Html.DisplayNameFor(m => m.AvatarId)
                 </div>
-                <div class="col-sm-2">
-                    @Html.DropDownListFor(tuple => tuple.Item2.Id, EverPresent.Backend.MogwaiBackend.Instance.GetMogwaiListItem(Model.Item2.Id))
-                    @Html.ValidationMessageFor(tuple => tuple.Item2.Id)
-
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.AvatarId)
+                    @Html.ValidationMessageFor(m => m.AvatarId)
                 </div>
             </div>
 
@@ -42,16 +43,16 @@
                 <div class="col-sm-3 text-right">
                 </div>
                 <div class="col-sm-4">
-
-                    @Html.ActionLink("cancel", "Index", "Roster", new { id = Model.Item1.Id }, new { @class = "btn btn-success" });
-                    <input type="submit" value="Create" class="btn btn-primary" />
-
+           
+                    <input type="submit" value="Create" class="btn btn-primary">
                 </div>
             </div>
+
+
+
+
         }
     </div>
 </div>
-
-
 
 

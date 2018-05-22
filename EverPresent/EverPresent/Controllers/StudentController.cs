@@ -41,13 +41,7 @@ namespace EverPresent.Controllers
             return View();
         }
 
-        public ActionResult AddStudent()
-        {
-            var myData = new Models.MogwaiModel();
-            var tupleModel = new System.Tuple<Models.StudentModel, Models.MogwaiModel>(new Models.StudentModel(), myData);
-            return View(tupleModel);
-
-        }
+     
 
           
 
@@ -75,7 +69,7 @@ namespace EverPresent.Controllers
             /// </summary>
             /// <returns></returns>
             // GET: Student/Create
-            public ActionResult Create()
+            public ActionResult AddStudent()
             {
                 var myData = new StudentModel();
                 return View(myData);
@@ -90,7 +84,7 @@ namespace EverPresent.Controllers
             /// <returns></returns>
             // POST: Student/Create
             [HttpPost]
-            public ActionResult Create([Bind(Include=
+            public ActionResult AddStudent([Bind(Include=
                                         "Id,"+
                                         "Name,"+
                                         "AvatarId,"+
