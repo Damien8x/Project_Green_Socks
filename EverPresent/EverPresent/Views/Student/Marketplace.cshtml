@@ -1,9 +1,60 @@
 ﻿
 @{
-    ViewBag.Title = "Marketplace";
+    ViewBag.Title = "Mogwai";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 
-<h2>Marketplace</h2>
-<img src="~/image/MarketPlaceWireFrameNoBorder.png" alt="Marketplace" />
+        <div class="col-md-3 col-md-offset-6">
+            <h4>Current Tokens: 100</h4>
+        </div>
 
+
+
+<div class="bs-example">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Carousel indicators -->
+       
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/image/pokemon-6.svg" alt="First Slide" height="300">
+                <div class="carousel-caption">
+                    <button onclick="foo()" type="button" class="btn-market">Crossfire<br />Cost: 500 rubies</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/image/pokemon_duck.svg" alt="Second Slide" height="300">
+                <div class="carousel-caption">
+                  <button onclick="foo()" type="button" class="btn-market">Taco Taco<br />Cost: 300 rubies</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/image/pokemon_bee.svg" alt="Third Slide" height="300">
+                <div class="carousel-caption">
+                   <button onclick="foo()" type="button" class="btn-market">Atomic Robot<br />Cost: 200 rubies</button>
+                </div>
+
+            </div>
+            <div class="item">
+                <img src="~/image/pokemon_old_guy.svg" alt="Third Slide" height="300">
+                <div class="carousel-caption">
+                   <button onclick="foo()" type="button" class="btn-market">Stratagram<br/>Cost: 100 rubies</button>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
+<script>
+    function foo() {
+        alert("Mogwai Obtained!")
+    }
+
+</script>
 
