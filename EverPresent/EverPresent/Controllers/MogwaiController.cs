@@ -53,7 +53,9 @@ namespace EverPresent.Controllers
         public ActionResult AddStudent()
         {
             var myData = new MogwaiModel();
-            return View(myData);
+            var tupleModel = new System.Tuple<StudentModel, MogwaiModel>(new StudentModel(), myData);
+            return View(tupleModel);
+
         }
 
         /// <summary>
