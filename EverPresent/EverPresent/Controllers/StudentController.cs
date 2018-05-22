@@ -26,5 +26,13 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+
+        public ActionResult AddStudent()
+        {
+            var myData = new Models.MogwaiModel();
+            var tupleModel = new System.Tuple<Models.StudentModel, Models.MogwaiModel>(new Models.StudentModel(), myData);
+            return View(tupleModel);
+
+        }
     }
 }

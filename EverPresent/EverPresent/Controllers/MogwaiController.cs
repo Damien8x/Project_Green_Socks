@@ -50,13 +50,7 @@ namespace EverPresent.Controllers
             return View(myData);
         }
 
-        public ActionResult AddStudent()
-        {
-            var myData = new MogwaiModel();
-            var tupleModel = new System.Tuple<StudentModel, MogwaiModel>(new StudentModel(), myData);
-            return View(tupleModel);
-
-        }
+     
 
         /// <summary>
         /// Make a new mogwai sent in by the create mogwai screen

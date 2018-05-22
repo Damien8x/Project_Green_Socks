@@ -364,7 +364,7 @@
     <Content Include="Views\Mogwai\Index.cshtml" />
     <Content Include="Views\Mogwai\Read.cshtml" />
     <Content Include="Views\Mogwai\Update.cshtml" />
-    <Content Include="Views\Mogwai\AddStudent.cshtml" />
+    <Content Include="Views\Student\AddStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
