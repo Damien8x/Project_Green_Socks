@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using EverPresent.Models.Enums;
+using EverPresent.Backend;
 
 namespace EverPresent.Models
 {
@@ -34,41 +35,160 @@ namespace EverPresent.Models
         public string AvatarId { get; set; }
 
         /// <summary>
+        /// The personal level for the Avatar, the avatar levels up.  switching the avatar ID (picture), does not change the level
+        /// </summary>
+        [Display(Name = "Avatar Level", Description = "Level of the Avatar")]
+        [Required(ErrorMessage = "Level is required")]
+        public int AvatarLevel { get; set; }
+
+        /// <summary>
+        /// The number of Tokens the student has, tokens are used in the store, and also to level up
+        /// </summary>
+        [Display(Name = "Tokens", Description = "Tokens Saved")]
+        [Required(ErrorMessage = "Tokens are required")]
+        public int Tokens { get; set; }
+
+        /// <summary>
         /// The status of the student, for example currently logged in, out
         /// </summary>
-        [Display(Name = "CurrentStatus", Description = "Status of the Student")]
+        [Display(Name = "Current Status", Description = "Status of the Student")]
         [Required(ErrorMessage = "Status is required")]
         public StudentStatusEnum Status { get; set; }
 
-
         /// <summary>
-        /// Create the default values
+        /// The defaults for a new student
         /// </summary>
         public void Initialize()
         {
             Id = Guid.NewGuid().ToString();
+            Tokens = 0;
+            AvatarLevel = 0;
+            Status = StudentStatusEnum.Out;
         }
 
         /// <summary>
-        /// New Mogwai
+        /// Constructor for a student
         /// </summary>
         public StudentModel()
         {
             Initialize();
         }
 
-        /// </summary>
-        /// <param name="avatarId"></param>
-        /// <param name="name"></param>
-        /// <param name="status"></param>
         public StudentModel(string avatarId, string name, StudentStatusEnum status)
         {
             Initialize();
             Status = status;
             AvatarId = avatarId;
             Name = name;
-            
         }
 
+            /// <summary>
+            /// Constructor for Student.  Call this when making a new student
+            /// </summary>
+            /// <param name="name">The Name to call the student</param>
+            /// <param name="avatarId">The avatar to use, if not specified, will call the backend to get an ID</param>
+            public StudentModel(string name, string avatarId)
+        {
+            Initialize();
+
+            Name = name;
+
+            // If no avatar ID is sent in, then go and get the first avatar ID from the backend data as the default to use.
+            if (string.IsNullOrEmpty(avatarId))
+            {
+                avatarId = MogwaiBackend.Instance.GetFirstMogwaiId();
+            }
+            AvatarId = avatarId;
+        }
+
+        /// <summary>
+        /// Convert a Student Display View Model, to a Student Model, used for when passed data from Views that use the full Student Display View Model.
+        /// </summary>
+        /// <param name="data">The student data to pull</param>
+        public StudentModel(StudentDisplayViewModel data)
+        {
+            Id = data.Id;
+            Name = data.Name;
+
+            AvatarId = data.AvatarId;
+            AvatarLevel = data.AvatarLevel;
+            Tokens = data.Tokens;
+            Status = data.Status;
+        }
+
+        /// <summary>
+        /// Update the Data Fields with the values passed in, do not update the ID.
+        /// </summary>
+        /// <param name="data">The values to update</param>
+        /// <returns>False if null, else true</returns>
+        public bool Update(StudentModel data)
+        {
+            if (data == null)
+            {
+                return false;
+            }
+
+            Name = data.Name;
+            AvatarId = data.AvatarId;
+            AvatarLevel = data.AvatarLevel;
+            Tokens = data.Tokens;
+            Status = data.Status;
+
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// For the Index View, add the Avatar URI to the Student, so it shows the student with the picture
+    /// </summary>
+    public class StudentDisplayViewModel : StudentModel
+    {
+        /// <summary>
+        /// The path to the local image for the avatar
+        /// </summary>
+        [Display(Name = "Avatar Picture", Description = "Avatar Picture to Show")]
+        public string AvatarUri { get; set; }
+
+        /// <summary>
+        /// Display name for the Avatar on the student information (Friendly Police etc.)
+        /// </summary>
+        [Display(Name = "Avatar Name", Description = "Avatar Name")]
+        public string AvatarName { get; set; }
+
+        /// <summary>
+        /// Description of the Avatar to show on the student information
+        /// </summary>
+        [Display(Name = "Avatar Description", Description = "Avatar Description")]
+        public string AvatarDescription { get; set; }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public StudentDisplayViewModel() { }
+
+        /// <summary>
+        /// Creates a Student Display View Model from a Student Model
+        /// </summary>
+        /// <param name="data">The Student Model to create</param>
+        public StudentDisplayViewModel(StudentModel data)
+        {
+            Id = data.Id;
+            Name = data.Name;
+            Tokens = data.Tokens;
+            AvatarLevel = data.AvatarLevel;
+            AvatarId = data.AvatarId;
+            Status = data.Status;
+
+            var myDataAvatar = MogwaiBackend.Instance.Read(AvatarId);
+            if (myDataAvatar == null)
+            {
+                // Nothing to convert
+                return;
+            }
+
+            AvatarName = myDataAvatar.Name;
+            AvatarDescription = myDataAvatar.Description;
+            AvatarUri = myDataAvatar.Uri;
+        }
     }
 }

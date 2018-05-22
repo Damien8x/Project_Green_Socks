@@ -9,17 +9,16 @@ using static EverPresent.Backend.StudentInterface;
 
 namespace EverPresent.Backend
 {
-
+    /// <summary>
+    /// Holds the Student Data as a Mock Data set, used for Unit Testing, System Testing, Offline Development etc.
+    /// </summary>
     public class StudentDataSourceMock : IStudentInterface
     {
-
         /// <summary>
-        /// Make into a Singleton
+        /// Make into a singleton
         /// </summary>
         private static volatile StudentDataSourceMock instance;
         private static object syncRoot = new Object();
-
-
 
         private StudentDataSourceMock() { }
 
@@ -44,18 +43,18 @@ namespace EverPresent.Backend
         }
 
         /// <summary>
-        /// The Avatar List
+        /// The Data for the Students
         /// </summary>
-        private List<StudentModel> studentList = new List<StudentModel>();
+        private List<StudentModel> StudentList = new List<StudentModel>();
 
         /// <summary>
-        /// Makes a new Mogwai
+        /// Makes a new Student
         /// </summary>
         /// <param name="data"></param>
-        /// <returns>Avatar Passed In</returns>
+        /// <returns>Student Passed In</returns>
         public StudentModel Create(StudentModel data)
         {
-            studentList.Add(data);
+            StudentList.Add(data);
             return data;
         }
 
@@ -71,7 +70,7 @@ namespace EverPresent.Backend
                 return null;
             }
 
-            var myReturn = studentList.Find(n => n.Id == id);
+            var myReturn = StudentList.Find(n => n.Id == id);
             return myReturn;
         }
 
@@ -86,10 +85,9 @@ namespace EverPresent.Backend
             {
                 return null;
             }
-            var myReturn = studentList.Find(n => n.Id == data.Id);
-            myReturn.Name = data.Name;
-            myReturn.AvatarId = data.AvatarId;
-            myReturn.Status = data.Status;
+            var myReturn = StudentList.Find(n => n.Id == data.Id);
+
+            myReturn.Update(data);
 
             return myReturn;
         }
@@ -106,18 +104,18 @@ namespace EverPresent.Backend
                 return false;
             }
 
-            var myData = studentList.Find(n => n.Id == Id);
-            var myReturn = studentList.Remove(myData);
+            var myData = StudentList.Find(n => n.Id == Id);
+            var myReturn = StudentList.Remove(myData);
             return myReturn;
         }
 
         /// <summary>
         /// Return the full dataset
         /// </summary>
-        /// <returns>List of Mogwai</returns>
+        /// <returns>List of Students</returns>
         public List<StudentModel> Index()
         {
-            return studentList;
+            return StudentList;
         }
 
         /// <summary>
@@ -125,7 +123,7 @@ namespace EverPresent.Backend
         /// </summary>
         public void Reset()
         {
-            studentList.Clear();
+            StudentList.Clear();
             Initialize();
         }
 
@@ -139,11 +137,11 @@ namespace EverPresent.Backend
             StudentStatusEnum studentStatusEnum3 = StudentStatusEnum.Out;
 
             
-            studentList.Add(new StudentModel("pokemon_bee.svg", "John", studentStatusEnum1));
-            studentList.Add(new StudentModel("pokemon_duck.svg", "Andrew", studentStatusEnum2));
-            studentList.Add(new StudentModel("pokemon_old_guy.svg", "Jeff", studentStatusEnum1));
-            studentList.Add(new StudentModel("pokemon-6.svg", "Megan", studentStatusEnum3));
-            studentList.Add(new StudentModel("pokemon_bee.svg", "Britney", studentStatusEnum2));
+            StudentList.Add(new StudentModel("pokemon_bee.svg", "John", studentStatusEnum1));
+            StudentList.Add(new StudentModel("pokemon_duck.svg", "Andrew", studentStatusEnum2));
+            StudentList.Add(new StudentModel("pokemon_old_guy.svg", "Jeff", studentStatusEnum1));
+            StudentList.Add(new StudentModel("pokemon-6.svg", "Megan", studentStatusEnum3));
+            StudentList.Add(new StudentModel("pokemon_bee.svg", "Britney", studentStatusEnum2));
 
         }
     }
