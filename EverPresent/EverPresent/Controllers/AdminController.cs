@@ -7,7 +7,18 @@ using System.Web.Mvc;
 namespace EverPresent.Controllers
 {
     public class AdminController : Controller
+
+
     {
+
+
+        // A ViewModel used for the Avatar that contains the AvatarList
+        private Models.StudentViewModel studentViewModel = new Models.StudentViewModel();
+
+        // The Backend Data source
+        private Backend.StudentBackend studentBackend = Backend.StudentBackend.Instance;
+
+
         public ActionResult Index()
         {
             return View();
@@ -30,10 +41,7 @@ namespace EverPresent.Controllers
             return View();
         }
 
-        public ActionResult EditAndrew()
-        {
-            return View();
-        }
+     
 
         public ActionResult EditAndrewAttendance()
         {

@@ -1,7 +1,8 @@
 ﻿
-@model EverPresent.Models.StudentDisplayViewModel
+@model EverPresent.Models.StudentModel
 @{
     ViewBag.Title = "EditAndrew";
+  
 }
 
 
@@ -30,6 +31,7 @@
                     {
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(m => m.Id)
+                        @Html.HiddenFor(m => m.Status)
 
                         <div class="row">
                             <div class="col-sm-3 text-right">
@@ -50,8 +52,7 @@
                                 @Html.ValidationMessageFor(m => m.Tokens)
                             </div>
                         </div>
-
-
+                       
                         <br />
                         <br />
                         <div class="row">

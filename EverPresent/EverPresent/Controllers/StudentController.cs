@@ -41,24 +41,30 @@ namespace EverPresent.Controllers
             return View();
         }
 
-     
+        public ActionResult EditAndrew(string id = null)
+        {
 
-          
+            var myData = studentBackend.Read("1");
+            return View(myData);
 
-            // GET: Student
-            /// <summary>
-            /// Index, the page that shows all the Students
-            /// </summary>
-            /// <returns></returns>
-   
+        }
 
-            /// <summary>
-            /// Read information on a single student    
-            /// </summary>
-            /// <param name="id"></param>
-            /// <returns></returns>
-            // GET: Student/Details/5
-            public ActionResult Read(string id = null)
+
+
+        // GET: Student
+        /// <summary>
+        /// Index, the page that shows all the Students
+        /// </summary>
+        /// <returns></returns>
+
+
+        /// <summary>
+        /// Read information on a single student    
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: Student/Details/5
+        public ActionResult Read(string id = null)
             {
                 var myData = studentBackend.Read(id);
                 return View(myData);
@@ -89,6 +95,7 @@ namespace EverPresent.Controllers
                                         "Name,"+
                                         "AvatarId,"+
                                         "Status,"+
+                                        "Tokens," +
                                         "")] StudentModel data)
             {
                 if (!ModelState.IsValid)
@@ -133,11 +140,12 @@ namespace EverPresent.Controllers
             /// <returns></returns>
             // POST: student/Update/5
             [HttpPost]
-            public ActionResult Update([Bind(Include=
+            public ActionResult EditAndrew([Bind(Include=
                                         "Id,"+
                                         "Name,"+
                                         "AvatarId,"+
                                         "Status,"+
+                                        "Tokens," +
                                         "")] StudentModel data)
             {
                 if (!ModelState.IsValid)
@@ -187,6 +195,7 @@ namespace EverPresent.Controllers
                                         "Name,"+
                                         "AvatarId,"+
                                         "Status,"+
+                                         "Tokens," +
                                         "")] StudentModel data)
             {
                 if (!ModelState.IsValid)

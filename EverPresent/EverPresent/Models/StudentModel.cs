@@ -74,20 +74,29 @@ namespace EverPresent.Models
             Initialize();
         }
 
-        public StudentModel(string avatarId, string name, StudentStatusEnum status)
+        public StudentModel(string avatarId, string name, StudentStatusEnum status, int tokens)
         {
             Initialize();
             Status = status;
             AvatarId = avatarId;
             Name = name;
+            Tokens = tokens;
+        }
+        public StudentModel(string id, string avatarId, string name, StudentStatusEnum status, int tokens)
+        {
+            Id = id;
+            Status = status;
+            AvatarId = avatarId;
+            Name = name;
+            Tokens = tokens;
         }
 
-            /// <summary>
-            /// Constructor for Student.  Call this when making a new student
-            /// </summary>
-            /// <param name="name">The Name to call the student</param>
-            /// <param name="avatarId">The avatar to use, if not specified, will call the backend to get an ID</param>
-            public StudentModel(string name, string avatarId)
+        /// <summary>
+        /// Constructor for Student.  Call this when making a new student
+        /// </summary>
+        /// <param name="name">The Name to call the student</param>
+        /// <param name="avatarId">The avatar to use, if not specified, will call the backend to get an ID</param>
+        public StudentModel(string name, string avatarId)
         {
             Initialize();
 

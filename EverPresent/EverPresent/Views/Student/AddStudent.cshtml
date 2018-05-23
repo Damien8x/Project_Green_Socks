@@ -16,6 +16,8 @@
             @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.Id)
             @Html.HiddenFor(m => m.Status)
+            @Html.HiddenFor(m => m.Tokens)
+
 
             <div class="row">
                 <div class="col-sm-3 text-right">

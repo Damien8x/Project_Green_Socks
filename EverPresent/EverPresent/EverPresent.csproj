@@ -326,7 +326,7 @@
     <Content Include="Views\Admin\Calendar.cshtml" />
     <Content Include="Views\Admin\Andrew.cshtml" />
     <Content Include="Views\Admin\GenerateReports.cshtml" />
-    <Content Include="Views\Admin\EditAndrew.cshtml" />
+    <Content Include="Views\Student\EditAndrew.cshtml" />
     <Content Include="Views\Admin\EditAndrewAttendance.cshtml" />
     <None Include="Views\Admin\StSignIn.cshtml" />
     <Content Include="Web.config" />
