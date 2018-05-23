@@ -1,24 +1,97 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Mogwai";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
+
+@functions {
+
+    // Create a local Mogwai class to display student's current Mogwai
+    public class Mogwai
+    {
+        public string Name { get; set; }
+        public string Family { get; set; }
+        public string Uri { get; set; }
+        public int Cost { get; set; }
+        public int RarityLevel { get; set; }
+
+        public Mogwai(string name, string family, string uri, int cost, int rarityLevel)
+        {
+            Name = name;
+            Family = family;
+            Uri = uri;
+            Cost = cost;
+            RarityLevel = rarityLevel;
+        }
+
+    }
+
+    // Create mock Mogwai
+    Mogwai mogwai1 = new Mogwai("Jord", "Aegir", "avatar0.png", 100, 1);
+    Mogwai mogwai2 = new Mogwai("Freya", "Aegir", "avatar1.png", 200, 2);
+    Mogwai mogwai3 = new Mogwai("Hodr", "Tyr", "avatar2.png", 100, 1);
+    Mogwai mogwai4 = new Mogwai("Vili", "Tyr", "avatar3.png", 300, 3);
+    Mogwai mogwai5 = new Mogwai("Loki", "Odin", "avatar4.png", 500, 5);
+    Mogwai mogwai6 = new Mogwai("Frigg", "Odin", "avatar5.png", 200, 2);
+    Mogwai mogwai7 = new Mogwai("Sif", "Odin", "avatar6.png", 100, 4);
+    Mogwai mogwai8 = new Mogwai("Burr", "Odin", "avatar7.png", 200, 1);
+}
+
+<!-- Show what Mogwai they earned today-->
 <div class="container">
     <div class="row">
         <div class="col-md-3">
             <h4>Mogwai Earned Today...</h4>
-            <img src="~/image/avatar4.png" alt="Loki" height="75" width="75" />
-            <b>Loki</b>
+            <img src="~/image/@mogwai5.Uri" alt="Loki" height="75" width="75" />
+            <br />
+            <b>@mogwai5.Name</b>
+            <br />
+            <b>Family: @mogwai5.Family</b>
+            <br />
+            <b>Rarity: @mogwai5.RarityLevel</b>
         </div>
         <div class="col-md-3 col-md-offset-6">
-            <h4>Current Tokens: 100</h4>
+            <h4>Current Tokens: 180</h4>
         </div>
     </div>
 </div>
 
 
+<div class="container">
+    <h2>My Mogwai Collection</h2>
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="~/image/@mogwai5.Uri" alt="Loki" height="75" width="75" />
+            <br />
+            <b>@mogwai5.Name</b>
+            <br />
+            <b>Family: @mogwai5.Family</b>
+            <br />
+            <b>Rarity: @mogwai5.RarityLevel</b>
+        </div>
 
-<h2>My Mogwai Collection</h2>
+        <div class="col-sm-2">
+            <img src="~/image/@mogwai1.Uri" alt="Loki" height="75" width="75" />
+            <br />
+            <b>@mogwai1.Name</b>
+            <br />
+            <b>Family: @mogwai1.Family</b>
+            <br />
+            <b>Rarity: @mogwai1.RarityLevel</b>
+        </div>
+
+        <div class="col-sm-2">
+            <img src="~/image/@mogwai3.Uri" alt="Loki" height="75" width="75" />
+            <br />
+            <b>@mogwai3.Name</b>
+            <br />
+            <b>Family: @mogwai3.Family</b>
+            <br />
+            <b>Rarity: @mogwai3.RarityLevel</b>
+        </div>
+    </div>
+</div>
+
+
 <div class="bs-example">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Carousel indicators -->
