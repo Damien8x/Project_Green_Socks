@@ -249,6 +249,7 @@
     <Content Include="image\avg_attendance.png" />
     <Content Include="image\BankAccountNew.png" />
     <Content Include="image\BankAccountSimple.png" />
+    <Content Include="image\BankAccountSimple1200Tokens.png" />
     <Content Include="image\BankAcct1png.png" />
     <Content Include="image\BankAcct3.png" />
     <Content Include="image\BankAcct4.png" />
@@ -368,7 +369,7 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Mogwai.cshtml" />
     <Content Include="Views\Student\Marketplace.cshtml" />
-    <Content Include="Views\Student\Attendance.cshtml" />
+    <Content Include="Views\Student\MogwaiReports.cshtml" />
     <Content Include="Views\Roster\AndrewSignedIn.cshtml" />
     <Content Include="Views\Mogwai\Create.cshtml" />
     <Content Include="Views\Mogwai\Delete.cshtml" />

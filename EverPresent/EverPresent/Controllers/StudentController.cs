@@ -36,7 +36,7 @@ namespace EverPresent.Controllers
         {
             return View();
         }
-        public ActionResult Attendance()
+        public ActionResult MogwaiReports()
         {
             return View();
         }
