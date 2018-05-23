@@ -50,7 +50,7 @@ template {
     display: none;
 }
 .btn-market {
-    color: #BF6767;
+    color: white;
     background-color: #3B1C63;
     border-color: #050214;
     border-radius: 10px;
@@ -63,6 +63,7 @@ template {
     margin-left: -30%;
     text-align: center;
     list-style: none;
+    opacity:.8;
 }
 a {
     background-color: transparent;

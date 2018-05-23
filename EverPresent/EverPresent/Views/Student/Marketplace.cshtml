@@ -14,28 +14,52 @@
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="~/image/pokemon-6.svg" alt="First Slide" height="300">
+                <img src="~/image/avatar0.png" alt="First Slide" height="300">
                 <div class="carousel-caption">
-                    <button id="btn1" type="button" class="btn-market">Crossfire<br />Cost: 100 Tokens</button>
+                    <button id="Jord" type="button" class="btn-market">Jord<br />Family: Aegir<br />Rarity: 1<br />Cost: 100 Tokens</button>
                 </div>
             </div>
             <div class="item">
-                <img src="~/image/pokemon_duck.svg" alt="Second Slide" height="300">
+                <img src="~/image/avatar1.png" alt="Second Slide" height="300">
                 <div class="carousel-caption">
-                    <button id="btn2" type="button" class="btn-market">Taco Taco<br />Cost: 50 Tokens</button>
+                    <button id="Freya" type="button" class="btn-market">Freya<br />Family: Aegir<br />Rarity: 2<br />Cost: 200 Tokens</button>
                 </div>
             </div>
             <div class="item">
-                <img src="~/image/pokemon_bee.svg" alt="Third Slide" height="300">
+                <img src="~/image/avatar2.png" alt="Third Slide" height="300">
                 <div class="carousel-caption">
-                    <button id="btn3" type="button" class="btn-market">Atomic Robot<br />Cost: 25 Tokens</button>
+                    <button id="Hodr" type="button" class="btn-market">Hodr<br />Tyr<br />Rarity: 1<br />Cost: 100 Tokens</button>
                 </div>
 
             </div>
             <div class="item">
-                <img src="~/image/pokemon_old_guy.svg" alt="Third Slide" height="300">
+                <img src="~/image/avatar3.png" alt="Third Slide" height="300">
                 <div class="carousel-caption">
-                    <button id="btn4" type="button" class="btn-market">Stratagram<br />Cost: 200 Tokens</button>
+                    <button id="Vili" type="button" class="btn-market">Vili<br />Family: Tyr<br />Rarity: 3<br />Cost: 300 Tokens</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/image/avatar4.png" alt="Third Slide" height="300">
+                <div class="carousel-caption">
+                    <button id="Loki" type="button" class="btn-market">Loki<br />Family: Odin<br />Rarity: 5<br />Cost: 500 Tokens</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/image/avatar5.png" alt="Third Slide" height="300">
+                <div class="carousel-caption">
+                    <button id="Frigg" type="button" class="btn-market">Frigg<br />Family: Odin<br />Rarity: 2<br />Cost: 200 Tokens</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/image/avatar6.png" alt="Third Slide" height="300">
+                <div class="carousel-caption">
+                    <button id="Sif" type="button" class="btn-market">Sif<br />Family: Odin<br />Rarity: 4<br />Cost: 100 Tokens</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/image/avatar7.png" alt="Third Slide" height="300">
+                <div class="carousel-caption">
+                    <button id="Burr" type="button" class="btn-market">Burr<br />Family: Odin<br />Rarity: 1<br />Cost: 200 Tokens</button>
                 </div>
             </div>
         </div>
@@ -50,19 +74,19 @@
 </div>
 
 <div style="text-align:center; font-size:larger" class="col-md-3 col-md-offset-6">
-    <h4 id="clicked">Current Tokens: 500 </h4>
+    <h4 id="clicked">Current Tokens: 1200 </h4>
 </div>
 
 <script>
 
 
-    var token = 500;
+    var token = 1200;
 
 
-    document.getElementById("btn1").addEventListener("click", myFunction);
-    function myFunction() {
+    document.getElementById("Jord").addEventListener("click", myFunctionJord);
+    function myFunctionJord() {
         if (token >= 100) {
-            alert("Mogwai Obtained!");
+            alert("Mogwai Obtained! The all powerful Jord is now part of your collection");
             token = token - 100;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
         }
@@ -70,33 +94,77 @@
             alert("Need More Tokens");
     }
 
-    document.getElementById("btn2").addEventListener("click", myF);
-    function myF() {
-        if (token >= 50) {
-            alert("Mogwai Obtained!");
-            token = token - 50;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
-        }
-        else
-            alert("Need More Tokens");
-    }
-
-
-    document.getElementById("btn4").addEventListener("click", myFun);
-    function myFun() {
+    document.getElementById("Freya").addEventListener("click", myFunctionFreya);
+    function myFunctionFreya() {
         if (token >= 200) {
-            alert("Mogwai Obtained!");
+            alert("Mogwai Obtained! From the family Aegir, Freya is now in your collection!");
             token = token - 200;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
         }
         else
             alert("Need More Tokens");
     }
-    document.getElementById("btn3").addEventListener("click", myFunk);
-    function myFunk() {
-        if (token >= 25) {
-            alert("Mogwai Obtained!");
-            token = token - 25;
+
+
+    document.getElementById("Hodr").addEventListener("click", myFunctionHodr);
+    function myFunctionHodr() {
+        if (token >= 100) {
+            alert("Mogwai Obtained! Hodr the dooooooor");
+            token = token - 100;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+        }
+        else
+            alert("Need More Tokens");
+    }
+    document.getElementById("Vili").addEventListener("click", myFunctionVili);
+    function myFunctionVili() {
+        if (token >= 300) {
+            alert("Mogwai Obtained! Villainous Villi in your posession");
+            token = token - 300;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+        }
+        else
+            alert("Need More Tokens");
+    }
+
+    document.getElementById("Loki").addEventListener("click", myFunctionLoki);
+    function myFunctionLoki() {
+        if (token >= 500) {
+            alert("Mogwai Obtained! By the power of Odin, you've located Loki!");
+            token = token - 500;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+        }
+        else
+            alert("Need More Tokens");
+    }
+
+    document.getElementById("Frigg").addEventListener("click", myFunctionFrigg);
+    function myFunctionFrigg() {
+        if (token >= 200) {
+            alert("Mogwai Obtained! You Friggin' got Frigg!");
+            token = token - 200;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+        }
+        else
+            alert("Need More Tokens");
+    }
+
+
+    document.getElementById("Sif").addEventListener("click", myFunctionSif);
+    function myFunctionSif() {
+        if (token >= 100) {
+            alert("Mogwai Obtained! Nice Work! Sif is in your collection.");
+            token = token - 100;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+        }
+        else
+            alert("Need More Tokens");
+    }
+    document.getElementById("Burr").addEventListener("click", myFunctionBurr);
+    function myFunctionBurr() {
+        if (token >= 200) {
+            alert("Mogwai Obtained! Burrrrrrrrr, its cold out here. There must be a Burr in your Mogwai Collection");
+            token = token - 200;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
         }
         else
