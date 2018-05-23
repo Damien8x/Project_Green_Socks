@@ -5,14 +5,13 @@
   
 }
 
-
-<img src="~/image/Student1AdminViewEditNoBorder.png" alt="Andrew Smith's Page" width="700" height="600" />
+<h1 style="text-align: center; font-size:xx-large; margin-top:200px; margin-bottom:200px" display="block"> Edit Student</h1>
 
 
 
 <div class="container">
     <div class="row">
-
+     
         @{
             if (Model == null)
             {
@@ -22,15 +21,14 @@
             else
             {
                 <div class="row">
-                    <h2>Update Student</h2>
-                    <br />
-                    <br />
+                
 
 
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(m => m.Id)
+                        @Html.HiddenFor(m=> m.AvatarId)
                         @Html.HiddenFor(m => m.Status)
 
                         <div class="row">
@@ -60,7 +58,7 @@
                             </div>
                             <div class="col-sm-4">
                                 @Html.ActionLink("Cancel", "Index", new { id = Model.Id }, new { @class = "btn btn-success" })
-                                <input type="submit" value="Update" class="btn btn-primary">
+                                <input type="submit" value="EditAndrew" class="btn btn-primary">
                             </div>
                         </div>
 
