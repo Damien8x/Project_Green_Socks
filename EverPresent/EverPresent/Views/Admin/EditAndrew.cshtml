@@ -1,8 +1,75 @@
 ﻿
+@model EverPresent.Models.StudentDisplayViewModel
 @{
     ViewBag.Title = "EditAndrew";
 }
 
 
 <img src="~/image/Student1AdminViewEditNoBorder.png" alt="Andrew Smith's Page" width="700" height="600" />
+
+
+
+<div class="container">
+    <div class="row">
+
+        @{
+            if (Model == null)
+            {
+                <p>No Student</p>
+            }
+
+            else
+            {
+                <div class="row">
+                    <h2>Update Student</h2>
+                    <br />
+                    <br />
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.Id)
+
+                        <div class="row">
+                            <div class="col-sm-3 text-right">
+                                @Html.DisplayNameFor(m => m.Name)
+                            </div>
+                            <div class="col-sm-2">
+                                @Html.EditorFor(m => m.Name)
+                                @Html.ValidationMessageFor(m => m.Name)
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3 text-right">
+                                @Html.DisplayNameFor(m => m.Tokens)
+                            </div>
+                            <div class="col-sm-2">
+                                @Html.EditorFor(m => m.Tokens)
+                                @Html.ValidationMessageFor(m => m.Tokens)
+                            </div>
+                        </div>
+
+
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-3 text-right">
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ActionLink("Cancel", "Index", new { id = Model.Id }, new { @class = "btn btn-success" })
+                                <input type="submit" value="Update" class="btn btn-primary">
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+            }
+
+        }
+    </div>
+</div>
 

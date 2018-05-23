@@ -13,16 +13,17 @@ namespace EverPresent.Controllers
     {
 
         // A ViewModel used for the Avatar that contains the AvatarList
-        private StudentViewModel studentViewModel = new StudentViewModel();
+        private StudentViewModel StudentViewModel = new StudentViewModel();
 
         // The Backend Data source
-        private StudentBackend studentBackend = StudentBackend.Instance;
+        private StudentBackend StudentBackend = StudentBackend.Instance;
         // GET: Roster
         public ActionResult Index()
         {
 
-            studentViewModel.StudentList = studentBackend.Index();
-            return View(studentViewModel);
+            var myDataList = StudentBackend.Index();
+            var StudentViewModel = new StudentViewModel(myDataList);
+            return View(StudentViewModel); 
 
         }
 

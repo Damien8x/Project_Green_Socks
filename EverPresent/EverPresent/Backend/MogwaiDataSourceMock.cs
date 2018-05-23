@@ -131,7 +131,7 @@ namespace EverPresent.Backend
         public void Initialize()
         {
             var count = 0;
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Police", "Happy Officer"));
+            Create(new MogwaiModel("pokemon_bee.svg", "Nidoran", "Happy Officer"));
             Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Kunoichi", "Ninja Lady"));
             Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Angry", "Angry, but happy"));
             Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Playfull", "Anyone want a ride?"));

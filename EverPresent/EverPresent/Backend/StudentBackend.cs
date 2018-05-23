@@ -1,15 +1,14 @@
 ﻿using EverPresent.Models;
+using EverPresent.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static EverPresent.Backend.StudentInterface;
 
 namespace EverPresent.Backend
 {
-    /// <summary>
-    /// Mogwai Backend handles the business logic and data for Mogwai
-    /// </summary>
     public class StudentBackend
     {
         /// <summary>
@@ -41,10 +40,10 @@ namespace EverPresent.Backend
         }
 
         // Get the Datasource to use
-       private static StudentInterface.IStudentInterface DataSource;
+        private static IStudentInterface DataSource;
 
         /// <summary>
-        /// Sets the Datasource to be Mock or SQL
+        /// Switches between Live, and Mock Datasets
         /// </summary>
         /// <param name="dataSourceEnum"></param>
         public static void SetDataSource(DataSourceEnum dataSourceEnum)
@@ -60,10 +59,10 @@ namespace EverPresent.Backend
         }
 
         /// <summary>
-        /// Makes a new Mogwai
+        /// Makes a new Student
         /// </summary>
         /// <param name="data"></param>
-        /// <returns>Avatar Passed In</returns>
+        /// <returns>Student Passed In</returns>
         public StudentModel Create(StudentModel data)
         {
             DataSource.Create(data);
@@ -76,7 +75,6 @@ namespace EverPresent.Backend
         /// <param name="id"></param>
         /// <returns>Null or valid data</returns>
         public StudentModel Read(string id)
-            
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -93,13 +91,26 @@ namespace EverPresent.Backend
         /// <param name="data"></param>
         /// <returns>Null or updated data</returns>
         public StudentModel Update(StudentModel data)
-            
         {
             if (data == null)
             {
                 return null;
             }
 
+            var myData = DataSource.Read(data.Id);
+            if (myData == null)
+            {
+                // Not found
+                return null;
+            }
+
+            if (myData.Status != data.Status)
+            {
+                // Status Changed, need to process the status change
+                ToggleStatus(myData);
+            }
+
+            // Update the record
             var myReturn = DataSource.Update(data);
 
             return myReturn;
@@ -124,7 +135,7 @@ namespace EverPresent.Backend
         /// <summary>
         /// Return the full dataset
         /// </summary>
-        /// <returns>List of Avatars</returns>
+        /// <returns>List of Students</returns>
         public List<StudentModel> Index()
         {
             var myData = DataSource.Index();
@@ -132,64 +143,88 @@ namespace EverPresent.Backend
         }
 
         /// <summary>
-        /// Helper that returns the First Mogwai ID in the list, this will be used for creating new avatars if no mogwaiID is specified
+        /// Sets the student to be logged In
         /// </summary>
-        /// <returns>Null, or Mogwai ID of the first avatar in the list.</returns>
-        public string GetFirstStudentId()
+        /// <param name="id">The Student ID</param>
+        public void SetLogIn(StudentModel data)
         {
-            string myReturn = null;
-
-            var myData = DataSource.Index().ToList().FirstOrDefault();
-            if (myData != null)
+            if (data == null)
             {
-                myReturn = myData.Id;
+                return;
             }
 
-            return myReturn;
+            data.Status = StudentStatusEnum.In;
+
+            // TODO:  Make call to the Attendance Log, to track when the student logged In.
+
         }
 
         /// <summary>
-        /// Helper function that returns the Mogwai Image URI
+        /// Sets the student to be logged Out
         /// </summary>
-        /// <param name="data">The mogwaiId to look up</param>
-        /// <returns>null, or the mogwai image URI</returns>
-        public string GetAvatarId(string data)
+        /// <param name="id">The Student ID</param>
+        public void SetLogOut(StudentModel data)
         {
-            if (string.IsNullOrEmpty(data))
+            if (data == null)
             {
-                return null;
+                return;
             }
 
-            string myReturn = null;
+            data.Status = StudentStatusEnum.Out;
 
-            var myData = DataSource.Read(data);
-            if (myData != null)
-            {
-                myReturn = myData.AvatarId;
-            }
-
-            return myReturn;
+            // TODO:  Make call to the Attendance Log, to track when the student logged out.
         }
 
         /// <summary>
-        /// Helper that gets the list of Items, and converst them to a SelectList, so they can show in a Drop Down List box
+        /// Use the ID to toggle the status
         /// </summary>
-        /// <param name="id">optional paramater, of the Item that is currently selected</param>
-        /// <returns>List of SelectListItems as a SelectList</returns>
-        public List<SelectListItem> GetStudentListItem(string id = null)
+        /// <param name="id">Id of the student</param>
+        public void ToggleStatusById(string id)
         {
-            var myDataList = DataSource.Index();
-
-            //  var myReturn = new SelectList(myDataList);
-
-            var myReturn = myDataList.Select(a => new SelectListItem
+            if (string.IsNullOrEmpty(id))
             {
-                Text = a.Name,
-                Value = a.Id,
-                Selected = (a.Id == id),
-            }).ToList();
+                return;
+            }
 
-            return myReturn;
+            var myData = DataSource.Read(id);
+            if (myData == null)
+            {
+                return;
+            }
+
+            ToggleStatus(myData);
+        }
+
+        /// <summary>
+        /// Change the Status of the student
+        /// </summary>
+        /// <param name="id">The Student ID</param>
+        public void ToggleStatus(StudentModel data)
+        {
+            if (data == null)
+            {
+                return;
+            }
+
+            switch (data.Status)
+            {
+                case StudentStatusEnum.In:
+                    SetLogOut(data);
+                    break;
+
+                case StudentStatusEnum.Out:
+                    SetLogIn(data);
+                    break;
+
+                case StudentStatusEnum.Hold:
+                    SetLogOut(data);
+                    break;
+
+            }
+
+            DataSource.Update(data);
+
+            // TODO:  Make call to the Attendance Log, to track when the student logged out.
 
         }
 
