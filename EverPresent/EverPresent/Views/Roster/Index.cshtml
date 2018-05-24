@@ -9,6 +9,7 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    int count = 0;
 }
 
 
@@ -118,21 +119,21 @@
     <div class="row text-center">
 
         @{
-        if (Model.StudentList == null || !Model.StudentList.Any())
-        {
+            if (Model.StudentList == null || !Model.StudentList.Any())
+            {
             <br />
             <p>No Mogwai in the System</p>
             <br />
-    }
-    else
-    {
+            }
+            else
+            {
 
-        foreach (var item in Model.StudentList)
-        {
+                foreach (var item in Model.StudentList)
+                {
 
             <div class="col-sm-2">
-
-                <img src="~/image/@item.AvatarId" width="75" height="75" />
+                @{ count++;  string id = "id" + count;}
+               <p id="@id"> <img  src="~/image/@item.AvatarId" width="75" height="75" /></p>
 
                 <br />
                 <span>
@@ -140,8 +141,8 @@
                 </span>
 
             </div>
-    }
-}
+                }
+            }
         }
 
     </div>
@@ -153,3 +154,105 @@
         <h3>@DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")</h3>
     </div>
 </div>
+
+<script>
+
+    var f1 = false;
+    var f2 = false;
+    var f3 = false;
+    var f4 = false;
+    var f5 = false;
+    var f6 = false;
+    var f7 = false;
+
+        document.getElementById("id1").addEventListener("click", myFunction);
+        function myFunction()
+        {
+            if (f1 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f1 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f1 = false;
+            }
+    }
+
+        document.getElementById("id2").addEventListener("click", myFunction2);
+        function myFunction2()
+        {
+            if (f2 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f2 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f2 = false;
+            }
+    }
+       document.getElementById("id3").addEventListener("click", myFunction3);
+        function myFunction3()
+        {
+            if (f3 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f3 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f3 = false;
+            }
+    }
+       document.getElementById("id4").addEventListener("click", myFunction4);
+        function myFunction4()
+        {
+            if (f4 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f4 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f4 = false;
+            }
+        }   document.getElementById("id5").addEventListener("click", myFunction5);
+        function myFunction5()
+        {
+            if (f5 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f5 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f5 = false;
+            }
+    }
+       document.getElementById("id6").addEventListener("click", myFunction6);
+        function myFunction6()
+        {
+            if (f6 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f6 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f6 = false;
+            }
+    }
+       document.getElementById("id7").addEventListener("click", myFunction7);
+        function myFunction7()
+        {
+            if (f7 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f7 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f7 = false;
+            }
+    }
+       document.getElementById("id8").addEventListener("click", myFunction8);
+        function myFunction8()
+        {
+            if (f8 == false) {
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f8 = true;
+            } else {
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                f8 = false;
+            }
+        }
+
+
+</script>
