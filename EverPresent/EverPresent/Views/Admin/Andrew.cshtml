@@ -2,12 +2,16 @@
 @{
     ViewBag.Title = "Andrew";
 }
+<div>
+    <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="margin-left:75%; margin-top:75px; border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
+    <figcaption style="margin-left:75%">
+        @Html.ActionLink("edit calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+    </figcaption>
 
+    </div>
+    <div style="margin-left:75%" display="inline">
+        @Html.ActionLink("GENERATE REPORT", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
 
-
-<div class="col-md-2 col-md-offset-5" display="inline">
-    @Html.ActionLink("GENERATE REPORT", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-    @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-
-    @Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-</div>
+        @Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+    </div>
