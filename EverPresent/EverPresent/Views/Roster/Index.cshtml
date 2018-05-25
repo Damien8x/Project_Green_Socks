@@ -60,9 +60,9 @@
 <script>
 
     var f1 = false;
-    var f2 = true;
+    var f2 = false;
     var f3 = false;
-    var f4 = true;
+    var f4 = false;
     var f5 = false;
     var f6 = false;
     var f7 = false;
@@ -71,14 +71,12 @@
         function myFunction()
         {
             if (f1 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
-                document.getElementById("id1").style = "filter:grayscale(100%)";
-
+                 alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                 document.getElementById("id1").style = "filter:grayscale(100%)";
                 f1 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
                 document.getElementById("id1").style = "filter:graryscale(0%)";
-
                 f1 = false;
             }
     }
@@ -87,12 +85,14 @@
         function myFunction2()
         {
             if (f2 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id2").style = "filter:grayscale(100%)";
 
                 f2 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id2").style = "filter:graryscale(0%)";
 
                 f2 = false;
@@ -102,11 +102,13 @@
         function myFunction3()
         {
             if (f3 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id3").style = "filter:grayscale(100%)";
                 f3 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+              alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id3").style = "filter:graryscale(0%)";
 
                 f3 = false;
@@ -116,12 +118,14 @@
         function myFunction4()
         {
             if (f4 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id4").style = "filter:grayscale(100%)";
 
                 f4 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id4").style = "filter:graryscale(0%)";
 
                 f4 = false;
@@ -130,12 +134,14 @@
         function myFunction5()
         {
             if (f5 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id5").style = "filter:grayscale(100%)";
 
                 f5 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id5").style = "filter:graryscale(0%)";
 
                 f5 = false;
@@ -145,12 +151,14 @@
         function myFunction6()
         {
             if (f6 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id6").style = "filter:grayscale(100%)";
 
                 f6 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id6").style = "filter:graryscale(0%)";
 
                 f6 = false;
@@ -160,12 +168,14 @@
         function myFunction7()
         {
             if (f7 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id7").style = "filter:grayscale(100%)";
 
                 f7 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id7").style = "filter:graryscale(0%)";
 
                 f7 = false;
@@ -175,12 +185,14 @@
         function myFunction8()
         {
             if (f8 == false) {
-                alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id8").style = "filter:grayscale(100%)";
 
                 f8 = true;
             } else {
-                alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+               alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");
+
                 document.getElementById("id8").style = "filter:graryscale(0%)";
 
                 f8 = false;
