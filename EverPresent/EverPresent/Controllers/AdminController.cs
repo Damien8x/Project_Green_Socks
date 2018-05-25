@@ -17,14 +17,23 @@ namespace EverPresent.Controllers
 
         // The Backend Data source
         private Backend.StudentBackend studentBackend = Backend.StudentBackend.Instance;
-
+     
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Admin()
+            public ActionResult Roster()
+            {
+
+                var myDataList = studentBackend.Index();
+                studentViewModel = new Models.StudentViewModel(myDataList);
+                return View(studentViewModel);
+
+            }
+
+            public ActionResult Admin()
         {
             ViewBag.Message = "Your admin page.";
 

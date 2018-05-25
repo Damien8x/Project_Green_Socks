@@ -7,7 +7,7 @@
 
 
 @{
-    ViewData["Title"] = "Home Page";
+    
     int count = 0;
 }
 
@@ -23,9 +23,9 @@
         @{
             if (Model.StudentList == null || !Model.StudentList.Any())
             {
-            <br />
-            <p>No Mogwai in the System</p>
-            <br />
+                <br />
+                <p>No Mogwai in the System</p>
+                <br />
             }
             else
             {
@@ -33,16 +33,16 @@
                 foreach (var item in Model.StudentList)
                 {
 
-            <div class="col-sm-2">
-                @{ count++;  string id = "id" + count;}
-               <p id="@id"> <img  src="~/image/@item.AvatarId" width="75" height="75" /></p>
+                    <div class="col-sm-2">
+                        @{ count++; string id = "id" + count;}
+                        <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
 
-                <br />
-                <span>
-                    @item.Name
-                </span>
+                        <br />
+                        <span>
+                            @item.Name
+                        </span>
 
-            </div>
+                    </div>
                 }
             }
         }
@@ -50,11 +50,7 @@
     </div>
     <br />
     <br />
-    <div class="col-md-2 col-md-offset-5">
-        @Html.ActionLink("AddStudent", "AddStudent", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Logout", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        <h3>@DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")</h3>
-    </div>
+   
 </div>
 
 <script>
