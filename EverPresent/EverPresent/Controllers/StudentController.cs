@@ -32,9 +32,10 @@ namespace EverPresent.Controllers
             return View();
         }
 
-        public ActionResult Marketplace()
+        public ActionResult Marketplace(string id = null)
         {
-            return View();
+            var myData = studentBackend.Read("1");
+            return View(myData);
         }
         public ActionResult MogwaiReports()
         {
