@@ -1,4 +1,6 @@
-﻿@{
+﻿@model EverPresent.Models.StudentModel
+
+@{
     ViewBag.Title = "Mogwai";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
@@ -50,7 +52,7 @@
             <b>Rarity: @mogwai5.RarityLevel</b>
         </div>
         <div class="col-md-3 col-md-offset-6">
-            <h4>Current Tokens: 1200</h4>
+            <h4>Current Tokens: @Html.DisplayFor(m => m.Tokens) </h4>
         </div>
     </div>
 </div>

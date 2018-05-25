@@ -27,18 +27,20 @@ namespace EverPresent.Controllers
         {
             return View();
         }
-        public ActionResult Mogwai()
+        public ActionResult Mogwai(string id = null)
         {
-            return View();
+            var myData = studentBackend.Read("1");
+            return View(myData);
         }
 
         public ActionResult Marketplace()
         {
             return View();
         }
-        public ActionResult MogwaiReports()
+        public ActionResult MogwaiReports(string id = null)
         {
-            return View();
+            var myData = studentBackend.Read("1");
+            return View(myData);
         }
 
         public ActionResult EditAndrew(string id = null)
