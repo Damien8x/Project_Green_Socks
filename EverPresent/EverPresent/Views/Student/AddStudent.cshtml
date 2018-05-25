@@ -36,7 +36,7 @@
                     @Html.DisplayNameFor(m => m.AvatarId)
                 </div>
                 <div class="col-sm-2">
-                    @Html.DropDownListFor(m => m.AvatarId, EverPresent.Backend.MogwaiBackend.Instance.GetMogwaiListItem(Model.AvatarId))
+                    @Html.EditorFor(m => m.AvatarId)
                     @Html.ValidationMessageFor(m => m.AvatarId)
                 </div>
             </div>
