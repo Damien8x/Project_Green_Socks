@@ -17,16 +17,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active">@Html.ActionLink("Admin Home", "Index", "Admin")</li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Roster<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Andrew", "Andrew", "Admin")</li>
-                        <li>@Html.ActionLink("Jane", "Andrew", "Admin")</li>
-                        <li>@Html.ActionLink("Jeff", "Andrew", "Admin")</li>
-                        <li>@Html.ActionLink("Jake", "Andrew", "Admin")</li>
-
-                    </ul>
-                </li>
+                <li>@Html.ActionLink("Roster", "Roster", "Admin")</li>
                 <li>@Html.ActionLink("Calendar", "Calendar", "Admin")</li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Inactive Students<span class="caret"></span></a>
