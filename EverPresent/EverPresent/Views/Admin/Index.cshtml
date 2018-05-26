@@ -12,16 +12,22 @@
     <div class="row">
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Currently present students</div>
-                <img src="~/image/dayattendance.png" alt="Day's attendance" class="img-responsive" />
+                <div class="panel-heading text-center">Currently present students</div>
+                <div class="panel-body">
+                    <img src="~/image/dayattendance.png" alt="Day's attendance" style="height:300px; margin:auto" class="img-responsive" />
+                </div>
             </div>     
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Calendar</div>
-                <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="border:solid 1px #777" frameborder="0" scrolling="no"></iframe>
-                <div class="panel-footer">
-                    @Html.ActionLink("edit", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+                <div class="panel-heading text-center">Calendar</div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="height:300px" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    @Html.ActionLink("Edit school calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
                 </div>
             </div>
         </div>
