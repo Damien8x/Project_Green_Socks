@@ -33,6 +33,11 @@
     <div class="container body-content">
         @RenderBody()
     </div>
+    <footer>
+        <div class="row text-center">
+            &copy; @DateTime.Now.Year - EverPresent
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
