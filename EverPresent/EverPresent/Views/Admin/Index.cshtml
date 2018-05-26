@@ -3,9 +3,13 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div>
-<h2>Administrator Home</h2>
-<h3>@DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 text-center v-center">
+            <h2>Administrator Home</h2>
+            <h3>@DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")</h3>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -23,7 +27,7 @@
                 <div class="panel-heading text-center">Calendar</div>
                 <div class="panel-body">
                     <div class="text-center">
-                        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="height:300px" frameborder="0" scrolling="no"></iframe>
+                        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="height:300px" frameborder="0" scrolling="no" class="img-responsive"></iframe>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
