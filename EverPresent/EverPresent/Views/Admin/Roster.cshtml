@@ -52,10 +52,36 @@
     </div>
     <br />
 
-    <h1 id="head">Andrew</h1>
-    <br />
+    <h2 id="head">Andrew</h2>
+    @*<br />*@
 
 
+    @*<div style="width:40%; float:right">
+        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
+        @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        @Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+    </div>*@
+
+
+    @*<img src="~/image/Attendance_vs_avg.png" alt=" = avg attendance" height="450" width="600" />
+    <img src="~/image/avg_attendance.png" alt=" avg attendance" height="300" width="400" />
+    <img src="~/image/On_time.png" alt="on time" height="300" ; width="400" />*@
+
+</div>
+
+<head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Numeric JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+</head>
+
+<body>
+
+    <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+    <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
     <div style="width:40%; float:right">
         <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
         @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
@@ -63,13 +89,73 @@
         @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
         @Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
     </div>
+    <script>
+        var StudentAttendance = {
+            x: [1, 2, 3, 4],
+            y: [90, 85, 86, 92],
+            type: 'scatter',
+            name: 'Student Attendance'
+        };
+        var AverageAttendance = {
+            x: [1, 2, 3, 4],
+            y: [100, 90, 95, 88],
+            type: 'scatter',
+            name: 'Average Attendance'
+        };
+        var data = [AverageAttendance, StudentAttendance];
+        Plotly.newPlot('myDiv', data);
 
+        var data = [{
+            values: [85, 15],
+            labels: ['85%', '15%'],
+            domain: {
+                x: [0, .48]
+            },
+            name: 'Attendance',
+            text: 'Attendance',
+            textposition: 'inside',
+            hoverinfo: 'label+percent+name',
+            hole: .4,
+            type: 'pie'
+        }, {
+            values: [25, 75],
+            labels: ['25%', '75%'],
+            domain: { x: [.52, 1] },
+            name: 'On Time',
+            text: 'On Time',
+            textposition: 'inside',
+            hoverinfo: 'label+percent+name',
+            hole: .4,
+            type: 'pie'
+        }];
 
-    <img src="~/image/Attendance_vs_avg.png" alt=" = avg attendance" height="450" width="600" />
-    <img src="~/image/avg_attendance.png" alt=" avg attendance" height="300" width="400" />
-    <img src="~/image/On_time.png" alt="on time" height="300" ; width="400" />
+        var layout = {
+            annotations: [
+                {
+                    font: {
+                        size: 13
+                    },
+                    showarrow: false,
+                    x: 0.16,
+                    y: 0.5,
+                    text: 'Attendance'
+                },
+                {
+                    font: {
+                        size: 13
+                    },
+                    showarrow: false,
+                    x: 0.81,
+                    y: 0.5,
+                    text: 'On Time'
+                }
+            ]
+        };
+        Plotly.newPlot('secondDiv', data, layout);
 
-</div>
+    </script>
+
+</body>
 
 
 @*@model EverPresent.Models.StudentViewModel
