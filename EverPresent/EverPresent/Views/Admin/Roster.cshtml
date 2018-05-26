@@ -87,7 +87,11 @@
         @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
         @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
         @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        <button id="registerLink" class="btn btn-default" onclick="
+            var person = prompt('Add tokens:', '');">
+            Edit Student
+        </button>
+        @*@Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
     </div>
     <script>
         var StudentAttendance = {
