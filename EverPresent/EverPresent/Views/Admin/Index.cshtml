@@ -8,13 +8,22 @@
 <h3>@DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")</h3>
 </div>
 
-<div class="col-sm-3 text-right">
-    <img style="margin-top:150px;" src="~/image/dayattendance.png" alt="Day's attendance" />
-</div>
-<div class="col-sm-5">
-    <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="margin-left:300px; margin-top:75px; border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
-    <figcaption style="margin-left:400px">
-        @Html.ActionLink("edit", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-    </figcaption>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Currently present students</div>
+                <img src="~/image/dayattendance.png" alt="Day's attendance" class="img-responsive" />
+            </div>     
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Calendar</div>
+                <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style="border:solid 1px #777" frameborder="0" scrolling="no"></iframe>
+                <div class="panel-footer">
+                    @Html.ActionLink("edit", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
