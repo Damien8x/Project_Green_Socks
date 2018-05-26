@@ -50,8 +50,6 @@ namespace EverPresent.Controllers
             return View(myData);
         }
 
-     
-
         /// <summary>
         /// Make a new mogwai sent in by the create mogwai screen
         /// </summary>
