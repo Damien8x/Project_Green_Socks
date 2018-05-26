@@ -26,5 +26,9 @@ textarea {
 
 /* Font for h2, h3, and h4 tags */
 h2, h3, h4 {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+.mogwai-info {
+    font-family: 'Nunito', sans-serif;
 }

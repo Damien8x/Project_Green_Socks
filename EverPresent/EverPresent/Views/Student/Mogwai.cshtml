@@ -10,10 +10,19 @@
     // Create a local Mogwai class to display student's current Mogwai
     public class Mogwai
     {
+        // Mogwai name
         public string Name { get; set; }
+
+        // Mogwai Family
         public string Family { get; set; }
+
+        // Image Uri of Mogwai
         public string Uri { get; set; }
+
+        // Marketplace cost of Mogwai
         public int Cost { get; set; }
+
+        // Rarity level of Mogwai (1 common, 5 rare)
         public int RarityLevel { get; set; }
 
         public Mogwai(string name, string family, string uri, int cost, int rarityLevel)
@@ -42,14 +51,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <h4>Mogwai Earned Today...</h4>
-            <img src="~/image/@mogwai5.Uri" alt="Loki" height="75" width="75" />
-            <br />
-            <b>@mogwai5.Name</b>
-            <br />
-            <b>Family: @mogwai5.Family</b>
-            <br />
-            <b>Rarity: @mogwai5.RarityLevel</b>
+            <div class="mogwai-info">
+                <h4>Mogwai Earned Today...</h4>
+                <img src="~/image/@mogwai5.Uri" alt="Loki" height="75" width="75" />
+                <br />
+                <b>@mogwai5.Name</b>
+                <br />
+                <b>Family: @mogwai5.Family</b>
+                <br />
+                <b>Rarity: @mogwai5.RarityLevel</b>
+            </div>
         </div>
         <div class="col-md-3 col-md-offset-6">
             <h4>Current Tokens: @Html.DisplayFor(m => m.Tokens) </h4>
@@ -62,33 +73,39 @@
     <h2>My Mogwai Collection</h2>
     <div class="row">
         <div class="col-sm-2">
-            <img src="~/image/@mogwai5.Uri" alt="Loki" height="75" width="75" />
-            <br />
-            <b>@mogwai5.Name</b>
-            <br />
-            <b>Family: @mogwai5.Family</b>
-            <br />
-            <b>Rarity: @mogwai5.RarityLevel</b>
+            <div class="mogwai-info">
+                <img src="~/image/@mogwai5.Uri" alt="Loki" height="75" width="75" />
+                <br />
+                <b>@mogwai5.Name</b>
+                <br />
+                <b>Family: @mogwai5.Family</b>
+                <br />
+                <b>Rarity: @mogwai5.RarityLevel</b>
+            </div>
         </div>
 
         <div class="col-sm-2">
-            <img src="~/image/@mogwai1.Uri" alt="Loki" height="75" width="75" />
-            <br />
-            <b>@mogwai1.Name</b>
-            <br />
-            <b>Family: @mogwai1.Family</b>
-            <br />
-            <b>Rarity: @mogwai1.RarityLevel</b>
+            <div class="mogwai-info">
+                <img src="~/image/@mogwai1.Uri" alt="Loki" height="75" width="75" />
+                <br />
+                <b>@mogwai1.Name</b>
+                <br />
+                <b>Family: @mogwai1.Family</b>
+                <br />
+                <b>Rarity: @mogwai1.RarityLevel</b>
+            </div>
         </div>
 
         <div class="col-sm-2">
-            <img src="~/image/@mogwai3.Uri" alt="Loki" height="75" width="75" />
-            <br />
-            <b>@mogwai3.Name</b>
-            <br />
-            <b>Family: @mogwai3.Family</b>
-            <br />
-            <b>Rarity: @mogwai3.RarityLevel</b>
+            <div class="mogwai-info">
+                <img src="~/image/@mogwai3.Uri" alt="Loki" height="75" width="75" />
+                <br />
+                <b>@mogwai3.Name</b>
+                <br />
+                <b>Family: @mogwai3.Family</b>
+                <br />
+                <b>Rarity: @mogwai3.RarityLevel</b>
+            </div>
         </div>
     </div>
 </div>
