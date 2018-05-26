@@ -124,13 +124,47 @@ namespace EverPresent.Controllers
                 return RedirectToAction("Index", "Roster");
             }
 
-            /// <summary>
-            /// This will show the details of the student to update
-            /// </summary>
-            /// <param name="id"></param>
-            /// <returns></returns>
-            // GET: student/Edit/5
-            public ActionResult Update(string id = null)
+
+
+        [HttpPost]
+        public ActionResult MarketPlace([Bind(Include=
+                                        "Id,"+
+                                        "Name,"+
+                                        "AvatarId,"+
+                                        "Status,"+
+                                        "Tokens," +
+                                        "")] StudentModel data)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Send back for edit, with Error Message
+                return View(data);
+            }
+
+            if (data == null)
+            {
+                // Send to Error Page
+                return RedirectToAction("Error", new { route = "Home", action = "Error" });
+            }
+
+            if (string.IsNullOrEmpty(data.Id))
+            {
+                // Sind back for Edit
+                return View(data);
+            }
+
+            studentBackend.Create(data);
+
+            return RedirectToAction("Index", "Roster");
+        }
+
+        /// <summary>
+        /// This will show the details of the student to update
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: student/Edit/5
+        public ActionResult Update(string id = null)
             {
                 var myData = studentBackend.Read(id);
                 return View(myData);
