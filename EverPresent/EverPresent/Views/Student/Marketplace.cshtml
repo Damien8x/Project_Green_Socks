@@ -4,7 +4,6 @@
 
 }
 
-<h1>@Html.DisplayFor(m=>m.Tokens)</h1>
 
 <img style="margin-left:auto; margin-right:auto; display:block; width:100% " src="~/image/Mogwai_market_banner.PNG" alt="banner" />
 
@@ -74,32 +73,49 @@
 </div>
 
 <div style="text-align:center; font-size:larger" class="col-md-3 col-md-offset-6">
-    <h4 id="clicked">Current Tokens: 1200 </h4>
+    <h2 id="clicked">Current Tokens: @Model.Tokens </h2>
 </div>
+
+
+<input type="submit" value="Confirm Purchases" class="btn btn-primary">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.AvatarId)
+    @Html.HiddenFor(m => m.Status)
+    @Html.HiddenFor(m => m.Name)
+    @Html.HiddenFor(m => m.Tokens, new { id = "MyHiddenId" })
+}
 
 <script>
 
 
-    var token = 1200;
 
 
-    document.getElementById("Jord").addEventListener("click", myFunctionJord);
-    function myFunctionJord() {
-        if (token >= 100) {
-            alert("Mogwai Obtained! The all powerful Jord is now part of your collection");
-            token = token - 100;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
-        }
+    var tokens = @Model.Tokens;
+
+    document.getElementById("MyHiddenId").value = tokens;
+
+
+
+     document.getElementById("Jord").addEventListener("click", myFunctionJord);
+     function myFunctionJord() {
+         if (tokens >= 100) {
+             alert("Mogwai Obtained! The all powerful Jord is now part of your collection");
+             tokens = tokens - 100;
+             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
+         }
         else
             alert("Need More Tokens");
     }
 
     document.getElementById("Freya").addEventListener("click", myFunctionFreya);
     function myFunctionFreya() {
-        if (token >= 200) {
+        if (tokens >= 200) {
             alert("Mogwai Obtained! From the family Aegir, Freya is now in your collection!");
-            token = token - 200;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 200;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
@@ -108,20 +124,20 @@
 
     document.getElementById("Hodr").addEventListener("click", myFunctionHodr);
     function myFunctionHodr() {
-        if (token >= 100) {
+        if (tokens >= 100) {
             alert("Mogwai Obtained! Hodr the dooooooor");
-            token = token - 100;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 100;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
     }
     document.getElementById("Vili").addEventListener("click", myFunctionVili);
     function myFunctionVili() {
-        if (token >= 300) {
+        if (tokens >= 300) {
             alert("Mogwai Obtained! Villainous Villi in your posession");
-            token = token - 300;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 300;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
@@ -129,10 +145,10 @@
 
     document.getElementById("Loki").addEventListener("click", myFunctionLoki);
     function myFunctionLoki() {
-        if (token >= 500) {
+        if (tokens >= 500) {
             alert("Mogwai Obtained! By the power of Odin, you've located Loki!");
-            token = token - 500;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 500;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
@@ -140,10 +156,10 @@
 
     document.getElementById("Frigg").addEventListener("click", myFunctionFrigg);
     function myFunctionFrigg() {
-        if (token >= 200) {
+        if (tokens >= 200) {
             alert("Mogwai Obtained! You Friggin' got Frigg!");
-            token = token - 200;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 100;
+            document.getmentById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
@@ -152,20 +168,20 @@
 
     document.getElementById("Sif").addEventListener("click", myFunctionSif);
     function myFunctionSif() {
-        if (token >= 100) {
+        if (tokens >= 100) {
             alert("Mogwai Obtained! Nice Work! Sif is in your collection.");
-            token = token - 100;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 100;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
     }
     document.getElementById("Burr").addEventListener("click", myFunctionBurr);
     function myFunctionBurr() {
-        if (token >= 200) {
+        if (tokens >= 200) {
             alert("Mogwai Obtained! Burrrrrrrrr, its cold out here. There must be a Burr in your Mogwai Collection");
-            token = token - 200;
-            document.getElementById("clicked").innerHTML = "Current Tokens: " + token;
+            tokens = tokens - 200;
+            document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
         }
         else
             alert("Need More Tokens");
