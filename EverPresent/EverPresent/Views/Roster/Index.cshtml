@@ -26,10 +26,9 @@
                         }
                         else
                         {
-                            var numStudents = Model.StudentList.Count;
                             foreach (var item in Model.StudentList)
                             {
-                                <div class="col-sm-2">
+                                <div class="col-xs-3">
                                     <div class="panel">
                             @{ count++; string id = "id" + count;}
                             <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
