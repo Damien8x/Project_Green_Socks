@@ -12,6 +12,9 @@ namespace EverPresent.Models
 {
     public class StudentModel
     {
+
+     
+
         /// <summary>
         /// The ID for the Student, this is the key, and a required field
         /// </summary>
@@ -66,6 +69,11 @@ namespace EverPresent.Models
             Status = StudentStatusEnum.Out;
         }
 
+        public bool updateToken(int deduction)
+        {
+            Tokens = Tokens - deduction;
+            return true;
+        }
         /// <summary>
         /// Constructor for a student
         /// </summary>
@@ -175,6 +183,7 @@ namespace EverPresent.Models
         /// </summary>
         public StudentDisplayViewModel() { }
 
+     
         /// <summary>
         /// Creates a Student Display View Model from a Student Model
         /// </summary>
