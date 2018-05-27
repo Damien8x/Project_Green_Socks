@@ -115,6 +115,11 @@ namespace EverPresent.Controllers
             return RedirectToAction("Index", "Roster");
         }
 
+        /// <summary>
+        /// This will update Student attributes based on Post data
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult MarketPlace([Bind(Include=
                                         "Id,"+

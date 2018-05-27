@@ -9,7 +9,9 @@ namespace EverPresent.Backend
     public class StudentInterface
     {
 
-        
+        /// <summary>
+        /// Datasource interface for students
+        /// </summary>
         public interface IStudentInterface
         {
             StudentModel Create(StudentModel data);
