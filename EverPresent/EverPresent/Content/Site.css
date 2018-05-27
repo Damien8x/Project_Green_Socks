@@ -24,6 +24,11 @@ textarea {
     max-width: 280px;
 }
 
-h2 {
-    font-family: 'Lobster', cursive;
+/* Font for h2, h3, and h4 tags */
+h2, h3, h4 {
+    font-family: 'Nunito', sans-serif;
+}
+
+.mogwai-info {
+    font-family: 'Nunito', sans-serif;
 }
