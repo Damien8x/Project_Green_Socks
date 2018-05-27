@@ -6738,7 +6738,6 @@ button.list-group-item-danger:focus {
 
     .panel-ep > div:hover > div {
         background: #e6e6e6;
-        margin-top: -10px;
         border: 1px solid black;
         transition: 0.3s;
     }
