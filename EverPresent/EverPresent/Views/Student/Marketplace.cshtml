@@ -1,7 +1,7 @@
 ﻿@model EverPresent.Models.StudentModel
 @{
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
-    Model.Tokens += 1700;
+
 
 }
 
@@ -12,64 +12,69 @@
     <div style="margin-top:15%;" id="myCarousel" data-interval="false" class="carousel slide" data-ride="carousel">
         <!-- Carousel indicators -->
         <!-- Wrapper for carousel items -->
-       
-        <div class="carousel-inner">
-           
-            <div class="item active">
-            
 
+        <div class="carousel-inner">
+
+            <div class="item active">
+
+                <img src="~/image/marketBackground.jpg" alt="First Slide" height="300">
+                <div class="carousel-caption">
+                <h3>Mogwai Markets. <br/>Choose Wisely</h3>
+                </div>
+            </div>
+                <div class="item">
                     <img src="~/image/avatar0.png" alt="First Slide" height="300">
                     <div class="carousel-caption">
-                        <button id="Jord" type="button" value="myFunctionJord()" onclick="location.href='<%: Url.Action("Marketplace","Student") %>'" class="btn-market">Jord<br />Family: Aegir<br />Rarity: 1<br />Cost: 100 Tokens</button>
+                        <button id="Jord" type="button" onclick="location.href='@Url.Action("Token100", "Student")'" class="btn-market">Jord<br />Family: Aegir<br />Rarity: 1<br />Cost: 100 Tokens</button>
                     </div>
-                    </div>
-               
+                </div>
 
-            <div class="item">
-              <img src="~/image/avatar1.png" alt="Second Slide" height="300">
+
+                <div class="item">
+                    <img src="~/image/avatar1.png" alt="Second Slide" height="300">
                     <div class="carousel-caption">
-                        <button id="Freya" type="button"  class="btn-market">Freya<br />Family: Aegir<br />Rarity: 2<br />Cost: 200 Tokens</button>
-                 </div>
-                 </div>
-
-            <div class="item">
-                <img src="~/image/avatar2.png" alt="Third Slide" height="300">
-                <div class="carousel-caption">
-                    <button id="Hodr" type="button" class="btn-market">Hodr<br />Tyr<br />Rarity: 1<br />Cost: 100 Tokens</button>
+                        <button id="Freya" type="button" onclick="location.href='@Url.Action("Token200", "Student")'" class="btn-market">Freya<br />Family: Aegir<br />Rarity: 2<br />Cost: 200 Tokens</button>
+                    </div>
                 </div>
 
-            </div>
-            <div class="item">
-                <img src="~/image/avatar3.png" alt="Third Slide" height="300">
-                <div class="carousel-caption">
-                    <button id="Vili" type="button" class="btn-market">Vili<br />Family: Tyr<br />Rarity: 3<br />Cost: 300 Tokens</button>
+                <div class="item">
+                    <img src="~/image/avatar2.png" alt="Third Slide" height="300">
+                    <div class="carousel-caption">
+                        <button id="Hodr" type="button" onclick="location.href='@Url.Action("Token100", "Student")'" class="btn-market">Hodr<br />Tyr<br />Rarity: 1<br />Cost: 100 Tokens</button>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <img src="~/image/avatar3.png" alt="Third Slide" height="300">
+                    <div class="carousel-caption">
+                        <button id="Vili" type="button" onclick="location.href='@Url.Action("Token300", "Student")'" class="btn-market">Vili<br />Family: Tyr<br />Rarity: 3<br />Cost: 300 Tokens</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/image/avatar4.png" alt="Third Slide" height="300">
+                    <div class="carousel-caption">
+                        <button id="Loki" type="button" onclick="location.href='@Url.Action("Token500", "Student")'" class="btn-market">Loki<br />Family: Odin<br />Rarity: 5<br />Cost: 500 Tokens</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/image/avatar5.png" alt="Third Slide" height="300">
+                    <div class="carousel-caption">
+                        <button id="Frigg" type="button" onclick="location.href='@Url.Action("Token200", "Student")'" class="btn-market">Frigg<br />Family: Odin<br />Rarity: 2<br />Cost: 200 Tokens</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/image/avatar6.png" alt="Third Slide" height="300">
+                    <div class="carousel-caption">
+                        <button id="Sif" type="button" onclick="location.href='@Url.Action("Token100", "Student")'" class="btn-market">Sif<br />Family: Odin<br />Rarity: 4<br />Cost: 100 Tokens</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/image/avatar7.png" alt="Third Slide" height="300">
+                    <div class="carousel-caption">
+                        <button id="Burr" type="button" onclick="location.href='@Url.Action("Token200", "Student")'" class="btn-market">Burr<br />Family: Odin<br />Rarity: 1<br />Cost: 200 Tokens</button>
+                    </div>
                 </div>
             </div>
-            <div class="item">
-                <img src="~/image/avatar4.png" alt="Third Slide" height="300">
-                <div class="carousel-caption">
-                    <button id="Loki" type="button" class="btn-market">Loki<br />Family: Odin<br />Rarity: 5<br />Cost: 500 Tokens</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/image/avatar5.png" alt="Third Slide" height="300">
-                <div class="carousel-caption">
-                    <button id="Frigg" type="button" class="btn-market">Frigg<br />Family: Odin<br />Rarity: 2<br />Cost: 200 Tokens</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/image/avatar6.png" alt="Third Slide" height="300">
-                <div class="carousel-caption">
-                    <button id="Sif" type="button"  class="btn-market">Sif<br />Family: Odin<br />Rarity: 4<br />Cost: 100 Tokens</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/image/avatar7.png" alt="Third Slide" height="300">
-                <div class="carousel-caption">
-                    <button id="Burr" type="button"  class="btn-market">Burr<br />Family: Odin<br />Rarity: 1<br />Cost: 200 Tokens</button>
-                </div>
-            </div>
-        </div>
         <!-- Carousel controls -->
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -81,12 +86,12 @@
 </div>
 
 <div style="text-align:center; font-size:larger" class="col-md-3 col-md-offset-6">
-    <h2 id="clicked">Current Tokens: 1200 </h2>
+    <h2 id="clicked">Current Tokens: @Model.Tokens </h2>
 </div>
 
 
 
-<script type="text/javascript" >
+<script type="text/javascript">
 
 
 
@@ -103,7 +108,7 @@
              tokens = tokens - 100;
              document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
              $.post("/StudentController/Marketplace")
-             @Model.updateToken(100)
+
          }
         else
             alert("Need More Tokens");
@@ -115,7 +120,7 @@
             alert("Mogwai Obtained! From the family Aegir, Freya is now in your collection!");
             tokens = tokens - 200;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(200)
+
 
         }
         else
@@ -129,7 +134,7 @@
             alert("Mogwai Obtained! Hodr the dooooooor");
             tokens = tokens - 100;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(100)
+
         }
         else
             alert("Need More Tokens");
@@ -140,7 +145,7 @@
             alert("Mogwai Obtained! Villainous Villi in your posession");
             tokens = tokens - 300;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(300)
+
         }
         else
             alert("Need More Tokens");
@@ -152,7 +157,7 @@
             alert("Mogwai Obtained! By the power of Odin, you've located Loki!");
             tokens = tokens - 500;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(500)
+
         }
         else
             alert("Need More Tokens");
@@ -164,7 +169,7 @@
             alert("Mogwai Obtained! You Friggin' got Frigg!");
             tokens = tokens - 100;
             document.getmentById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(200)
+
         }
         else
             alert("Need More Tokens");
@@ -177,7 +182,7 @@
             alert("Mogwai Obtained! Nice Work! Sif is in your collection.");
             tokens = tokens - 100;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(100)
+
         }
         else
             alert("Need More Tokens");
@@ -188,7 +193,7 @@
             alert("Mogwai Obtained! Burrrrrrrrr, its cold out here. There must be a Burr in your Mogwai Collection");
             tokens = tokens - 200;
             document.getElementById("clicked").innerHTML = "Current Tokens: " + tokens;
-            @Model.updateToken(200)
+
         }
         else
             alert("Need More Tokens");

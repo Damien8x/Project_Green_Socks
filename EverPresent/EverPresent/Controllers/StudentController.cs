@@ -23,6 +23,39 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+        public ActionResult Token100()
+        {
+            var myData = studentBackend.Read("1");
+            myData.Tokens = myData.Tokens - 100;
+            studentBackend.Update(myData);
+            return RedirectToAction("Marketplace", "Student");
+        }
+
+        public ActionResult Token200()
+        {
+            var myData = studentBackend.Read("1");
+            myData.Tokens = myData.Tokens - 200;
+            studentBackend.Update(myData);
+            return RedirectToAction("Marketplace", "Student");
+        }
+
+        public ActionResult Token300()
+        {
+            var myData = studentBackend.Read("1");
+            myData.Tokens = myData.Tokens - 300;
+            studentBackend.Update(myData);
+            return RedirectToAction("Marketplace", "Student");
+        }
+
+        public ActionResult Token500()
+        {
+            var myData = studentBackend.Read("1");
+            myData.Tokens = myData.Tokens - 500;
+            studentBackend.Update(myData);
+            return RedirectToAction("Marketplace", "Student");
+        }
+
+        
 
         // Shows the Mogwai collection of student with ID 1
         public ActionResult Mogwai(string id = null)
@@ -121,17 +154,21 @@ namespace EverPresent.Controllers
         /// <param name="data"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult MarketPlace([Bind(Include=
+        public ActionResult Marketplace([Bind(Include=
                                         "Id,"+
                                         "Name,"+
                                         "AvatarId,"+
                                         "Status,"+
                                         "Tokens," +
                                         "")] StudentModel data)
+
+          
+
         {
             if (!ModelState.IsValid)
             {
                 // Send back for edit, with Error Message
+             
                 return View(data);
             }
 
@@ -144,12 +181,51 @@ namespace EverPresent.Controllers
             if (string.IsNullOrEmpty(data.Id))
             {
                 // Sind back for Edit
+               
                 return View(data);
             }
 
-            studentBackend.Create(data);
+            data.Tokens = data.Tokens - 100;
 
-            return RedirectToAction("Index", "Roster");
+            studentBackend.Update(data);
+            return RedirectToAction("Marketplace", "Student");
+        }
+        [HttpPost]
+        public ActionResult Toekn200([Bind(Include=
+                                        "Id,"+
+                                        "Name,"+
+                                        "AvatarId,"+
+                                        "Status,"+
+                                        "Tokens," +
+                                        "")] StudentModel data)
+
+
+
+        {
+            if (!ModelState.IsValid)
+            {
+                // Send back for edit, with Error Message
+
+                return View(data);
+            }
+
+            if (data == null)
+            {
+                // Send to Error Page
+                return RedirectToAction("Error", new { route = "Home", action = "Error" });
+            }
+
+            if (string.IsNullOrEmpty(data.Id))
+            {
+                // Sind back for Edit
+
+                return View(data);
+            }
+
+            data.Tokens = data.Tokens - 200;
+
+            studentBackend.Update(data);
+            return RedirectToAction("Marketplace", "Student");
         }
 
         /// <summary>
