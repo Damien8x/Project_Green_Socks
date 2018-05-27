@@ -68,7 +68,11 @@ namespace EverPresent.Models
             AvatarLevel = 0;
             Status = StudentStatusEnum.Out;
         }
-
+        /// <summary>
+        /// Updates token value of Student
+        /// </summary>
+        /// <param name="deduction"></param>
+        /// <returns></returns>
         public bool updateToken(int deduction)
         {
             Tokens = Tokens - deduction;
@@ -82,6 +86,13 @@ namespace EverPresent.Models
             Initialize();
         }
 
+            /// <summary>
+            /// Constructor for student with call to Initialize for ID creation
+            /// </summary>
+            /// <param name="avatarId"></param>
+            /// <param name="name"></param>
+            /// <param name="status"></param>
+            /// <param name="tokens"></param>
         public StudentModel(string avatarId, string name, StudentStatusEnum status, int tokens)
         {
             Initialize();
@@ -90,6 +101,14 @@ namespace EverPresent.Models
             Name = name;
             Tokens = tokens;
         }
+        /// <summary>
+        /// Overloaded constructor. Takes arguments for all StudentModel attributes
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="avatarId"></param>
+        /// <param name="name"></param>
+        /// <param name="status"></param>
+        /// <param name="tokens"></param>
         public StudentModel(string id, string avatarId, string name, StudentStatusEnum status, int tokens)
         {
             Id = id;
