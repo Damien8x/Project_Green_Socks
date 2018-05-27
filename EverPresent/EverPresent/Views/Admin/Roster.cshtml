@@ -35,7 +35,8 @@
 
                     <div class="col-sm-2">
                         @{ count++; string id = "id" + count;}
-                        <p id=@id value=@item.Name onclick="document.getElementById('head').innerHTML = '@item.Name'">
+                        <!--If a student is clicked, the header and line graph will change-->
+                        <p id=@id value=@item.Name onclick="clickedStudent(this)">
                             <img src="~/image/@item.AvatarId" width="75" height="75" />
                         </p>
 
@@ -52,7 +53,7 @@
     </div>
     <br />
 
-    <h2 id="head">Andrew</h2>
+    <h2 id="head">Click a Student above to view Attendance Profile</h2>
     @*<br />*@
 
 
@@ -82,7 +83,7 @@
 
     <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
     <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
-    <div style="width:40%; float:right">
+    <div id="cal" style="width:40%; float:right; visibility:hidden">
         <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
         @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
         @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
@@ -94,68 +95,83 @@
         @*@Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
     </div>
     <script>
-        var StudentAttendance = {
-            x: [1, 2, 3, 4],
-            y: [90, 85, 86, 92],
-            type: 'scatter',
-            name: 'Student Attendance'
-        };
-        var AverageAttendance = {
-            x: [1, 2, 3, 4],
-            y: [100, 90, 95, 88],
-            type: 'scatter',
-            name: 'Average Attendance'
-        };
-        var data = [AverageAttendance, StudentAttendance];
-        Plotly.newPlot('myDiv', data);
+        var n = 4;
+        var y = [];
 
-        var data = [{
-            values: [85, 15],
-            labels: ['85%', '15%'],
-            domain: {
-                x: [0, .48]
-            },
-            name: 'Attendance',
-            text: 'Attendance',
-            textposition: 'inside',
-            hoverinfo: 'label+percent+name',
-            hole: .4,
-            type: 'pie'
-        }, {
-            values: [25, 75],
-            labels: ['25%', '75%'],
-            domain: { x: [.52, 1] },
-            name: 'On Time',
-            text: 'On Time',
-            textposition: 'inside',
-            hoverinfo: 'label+percent+name',
-            hole: .4,
-            type: 'pie'
-        }];
+        function clickedStudent(student) {
+            // make the calendar visible
+            document.getElementById("cal").style.visibility = "visible";
+            document.getElementById('head').innerHTML = student.getAttribute("value");
 
-        var layout = {
-            annotations: [
-                {
-                    font: {
-                        size: 13
-                    },
-                    showarrow: false,
-                    x: 0.16,
-                    y: 0.5,
-                    text: 'Attendance'
+            // randomize points on line graph
+            for (i = 0; i < n; i++) {
+                y[i] = Math.random() * 100;
+            }
+            var StudentAttendance = {
+                x: [1, 2, 3, 4],
+                y: y,
+                type: 'scatter',
+                name: 'Student Attendance'
+            };
+            var AverageAttendance = {
+                x: [1, 2, 3, 4],
+                y: [100, 90, 95, 88],
+                type: 'scatter',
+                name: 'Average Attendance'
+            };
+            var data = [AverageAttendance, StudentAttendance];
+            // plot the data for the line graph
+            Plotly.newPlot('myDiv', data);
+
+            var data = [{
+                values: [85, 15],
+                labels: ['85%', '15%'],
+                domain: {
+                    x: [0, .48]
                 },
-                {
-                    font: {
-                        size: 13
+                name: 'Attendance',
+                text: 'Attendance',
+                textposition: 'inside',
+                hoverinfo: 'label+percent+name',
+                hole: .4,
+                type: 'pie'
+            }, {
+                values: [25, 75],
+                labels: ['25%', '75%'],
+                domain: { x: [.52, 1] },
+                name: 'On Time',
+                text: 'On Time',
+                textposition: 'inside',
+                hoverinfo: 'label+percent+name',
+                hole: .4,
+                type: 'pie'
+                }];
+
+            var layout = {
+                annotations: [
+                    {
+                        font: {
+                            size: 13
+                        },
+                        showarrow: false,
+                        x: 0.16,
+                        y: 0.5,
+                        text: 'Attendance'
                     },
-                    showarrow: false,
-                    x: 0.81,
-                    y: 0.5,
-                    text: 'On Time'
-                }
-            ]
-        };
-        Plotly.newPlot('secondDiv', data, layout);
+                    {
+                        font: {
+                            size: 13
+                        },
+                        showarrow: false,
+                        x: 0.81,
+                        y: 0.5,
+                        text: 'On Time'
+                    }
+                ]
+            };
+            // plot the data for the pie charts
+            Plotly.newPlot('secondDiv', data, layout);
+        }
 
     </script>
 
