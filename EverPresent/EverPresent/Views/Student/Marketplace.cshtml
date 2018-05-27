@@ -5,12 +5,16 @@
 
 }
 <div>
-
     <h2 style="text-align:center;">Mogwai Market </h2>
-
 </div>
 
 
+<!--
+Marketplace carousel, slides show a unique mogwai available for purchase. Button click will 
+ call its respective method in the Student Controller. If student has sufficient token funds
+a purchase will complete and student's token amount will have the price of the Mogwai deducted from
+ their token balance.'
+-->
 <div class="bs-example">
     <div id="myCarousel" data-interval="false" class="carousel slide" data-ride="carousel">
         <!-- Carousel indicators -->
@@ -93,16 +97,13 @@
 </div>
 
 
-
+<!--JS functions tied to carousel button clicks. Each function alerts the user
+    through a JS alert either confirming a purchase or stating token balance is insufficient.
+    to the Mogwai clicked and updates a JS token total displayed to the user
+    -->
 <script type="text/javascript">
 
-
-
-
     var tokens = @Model.Tokens;
-
-
-
 
      document.getElementById("Jord").addEventListener("click", myFunctionJord);
      function myFunctionJord() {

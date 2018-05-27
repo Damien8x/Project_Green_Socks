@@ -23,35 +23,72 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// Once called a deduction of tokens will be made from 
+        /// Andrew's balance and user will be redirected to the 
+        /// student  Marketplace
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Token100()
         {
             var myData = studentBackend.Read("1");
-            myData.Tokens = myData.Tokens - 100;
-            studentBackend.Update(myData);
+            if (myData.Tokens >= 100)
+            {
+                myData.Tokens = myData.Tokens - 100;
+                studentBackend.Update(myData);
+            }
             return RedirectToAction("Marketplace", "Student");
         }
 
+        /// <summary>
+        /// Once called a deduction of tokens will be made from 
+        /// Andrew's balance and user will be redirected to the 
+        /// student  Marketplace
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Token200()
         {
             var myData = studentBackend.Read("1");
-            myData.Tokens = myData.Tokens - 200;
-            studentBackend.Update(myData);
+            if (myData.Tokens >= 200)
+            {
+                myData.Tokens = myData.Tokens - 200;
+                studentBackend.Update(myData);
+            }
             return RedirectToAction("Marketplace", "Student");
         }
 
+        /// <summary>
+        /// Once called a deduction of tokens will be made from 
+        /// Andrew's balance and user will be redirected to the 
+        /// student  Marketplace
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Token300()
         {
             var myData = studentBackend.Read("1");
-            myData.Tokens = myData.Tokens - 300;
-            studentBackend.Update(myData);
+            if (myData.Tokens >= 300)
+            {
+                myData.Tokens = myData.Tokens - 300;
+                studentBackend.Update(myData);
+            }
             return RedirectToAction("Marketplace", "Student");
         }
 
+        /// <summary>
+        /// Once called a deduction of tokens will be made from 
+        /// Andrew's balance and user will be redirected to the 
+        /// student  Marketplace
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Token500()
         {
             var myData = studentBackend.Read("1");
-            myData.Tokens = myData.Tokens - 500;
-            studentBackend.Update(myData);
+            if (myData.Tokens >= 500)
+            {
+                myData.Tokens = myData.Tokens - 500;
+                studentBackend.Update(myData);
+            }
             return RedirectToAction("Marketplace", "Student");
         }
 
