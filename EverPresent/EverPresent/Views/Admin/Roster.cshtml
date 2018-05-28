@@ -1,5 +1,6 @@
 ﻿@model EverPresent.Models.StudentViewModel
 @Scripts.Render("~/Scripts/script.js")
+@Scripts.Render("~/Scripts/bootsrtap.js")
 
 
 
@@ -121,10 +122,52 @@
             Edit Attendance
         </button>
         @*@Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
-        <button id="registerLink" class="btn btn-default" onclick="
-            var person = prompt('Add tokens:', '');">
+
+        @*Edit Student button*@
+        <button id="registerLink" class="btn btn-default" onclick="showSnackbar()">
             Edit Student
         </button>
+        <div id="snackbar">
+            Edit Student Name:
+            <p contenteditable="true" style="background-color:#2E86C1">    </p>
+            Edit Student Picture:
+            <p contenteditable="true" style="background-color:#2E86C1">    </p>
+            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
+                Submit
+            </button>
+            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
+                Cancel
+            </button>
+        </div>
+        <script>
+            // show the snackbar that asks the admin to input the number of tokens to add
+            function showSnackbar() {
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                //setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+            }
+        </script>
+
+        @*Add tokens button*@
+        @*<button id="registerLink" class="btn btn-default" onclick="showSnackbar()">Add Tokens</button>
+        <div id="snackbar">
+            Add tokens:
+            <p contenteditable="true" style="background-color:#2E86C1">    </p>
+            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
+                Submit
+            </button>
+            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
+                Cancel
+            </button>
+        </div>
+        <script>
+            // show the snackbar that asks the admin to input the number of tokens to add
+            function showSnackbar() {
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                //setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+            }
+        </script>*@
         @*@Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
     </div>
     <script>
