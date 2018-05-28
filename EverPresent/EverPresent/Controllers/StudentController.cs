@@ -27,7 +27,8 @@ namespace EverPresent.Controllers
         /// <summary>
         /// Once called a deduction of tokens will be made from 
         /// Andrew's balance and user will be redirected to the 
-        /// student  Marketplace
+        /// student either a Marketplace Success view or Marketplace
+        /// Denied view based on token balance vs purchase.
         /// </summary>
         /// <returns></returns>
         public ActionResult Token100()
@@ -44,7 +45,8 @@ namespace EverPresent.Controllers
         /// <summary>
         /// Once called a deduction of tokens will be made from 
         /// Andrew's balance and user will be redirected to the 
-        /// student  Marketplace
+        /// student either a Marketplace Success view or Marketplace
+        /// Denied view based on token balance vs purchase.
         /// </summary>
         /// <returns></returns>
         public ActionResult Token200()
@@ -62,7 +64,8 @@ namespace EverPresent.Controllers
         /// <summary>
         /// Once called a deduction of tokens will be made from 
         /// Andrew's balance and user will be redirected to the 
-        /// student  Marketplace
+        /// student either a Marketplace Success view or Marketplace
+        /// Denied view based on token balance vs purchase.
         /// </summary>
         /// <returns></returns>
         public ActionResult Token300()
@@ -79,7 +82,8 @@ namespace EverPresent.Controllers
         /// <summary>
         /// Once called a deduction of tokens will be made from 
         /// Andrew's balance and user will be redirected to the 
-        /// student  Marketplace
+        /// student either a Marketplace Success view or Marketplace
+        /// Denied view based on token balance vs purchase.
         /// </summary>
         /// <returns></returns>
         public ActionResult Token500()
@@ -109,12 +113,15 @@ namespace EverPresent.Controllers
             var myData = studentBackend.Read("1");
             return View(myData);
         }
-
+        //Shows the Mogwai marketplace for student with ID 1 with a toast message
+        //displaying a successful transaction has been made
         public ActionResult MarketplaceSuccess(string id = null)
         {
             var myData = studentBackend.Read("1");
             return View(myData);
         }
+        //Shows the Mogwai marketplace for student with ID 1 with a toast message
+        //displaying a transaction has not been made
         public ActionResult MarketplaceDennied(string id = null)
         {
             var myData = studentBackend.Read("1");
