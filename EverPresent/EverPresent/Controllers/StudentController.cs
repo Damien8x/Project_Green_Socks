@@ -37,10 +37,10 @@ namespace EverPresent.Controllers
             {
                 myData.Tokens = myData.Tokens - 100;
                 studentBackend.Update(myData);
+                return RedirectToAction("MarketplaceSuccess", "Student");
             }
-            return RedirectToAction("Marketplace", "Student");
+            return RedirectToAction("MarketplaceDennied", "Student");
         }
-
         /// <summary>
         /// Once called a deduction of tokens will be made from 
         /// Andrew's balance and user will be redirected to the 
@@ -54,8 +54,9 @@ namespace EverPresent.Controllers
             {
                 myData.Tokens = myData.Tokens - 200;
                 studentBackend.Update(myData);
+                return RedirectToAction("MarketplaceSuccess", "Student");
             }
-            return RedirectToAction("Marketplace", "Student");
+            return RedirectToAction("MarketplaceDennied", "Student");
         }
 
         /// <summary>
@@ -71,10 +72,10 @@ namespace EverPresent.Controllers
             {
                 myData.Tokens = myData.Tokens - 300;
                 studentBackend.Update(myData);
+                return RedirectToAction("MarketplaceSuccess", "Student");
             }
-            return RedirectToAction("Marketplace", "Student");
+            return RedirectToAction("MarketplaceDennied", "Student");
         }
-
         /// <summary>
         /// Once called a deduction of tokens will be made from 
         /// Andrew's balance and user will be redirected to the 
@@ -88,8 +89,9 @@ namespace EverPresent.Controllers
             {
                 myData.Tokens = myData.Tokens - 500;
                 studentBackend.Update(myData);
+                return RedirectToAction("MarketplaceSuccess", "Student");
             }
-            return RedirectToAction("Marketplace", "Student");
+            return RedirectToAction("MarketplaceDennied", "Student");
         }
 
         
@@ -103,6 +105,17 @@ namespace EverPresent.Controllers
 
         // Shows the Mogwai marketplace for student with ID 1
         public ActionResult Marketplace(string id = null)
+        {
+            var myData = studentBackend.Read("1");
+            return View(myData);
+        }
+
+        public ActionResult MarketplaceSuccess(string id = null)
+        {
+            var myData = studentBackend.Read("1");
+            return View(myData);
+        }
+        public ActionResult MarketplaceDennied(string id = null)
         {
             var myData = studentBackend.Read("1");
             return View(myData);
