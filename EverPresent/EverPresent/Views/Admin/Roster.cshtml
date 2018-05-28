@@ -80,14 +80,47 @@
 </head>
 
 <body>
-
     <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+    <!--Editable Attendance table-->
+    <div id="time" class="container" style="width:50%; display:none" align="left">
+        <div class="row">
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>@DateTime.Today.ToString("D")</th>
+                            <th>Signed In</th>
+                            <th>Signed Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td contenteditable="true">9:15 am</td>
+                            <td contenteditable="true">11:09 am</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td contenteditable="true">12:28 pm</td>
+                            <td contenteditable="true">2:45 pm</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button onclick="document.getElementById('time').style.display = 'none'" class="btn btn-default">Close</button>
+    </div>
     <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
     <div id="cal" style="width:40%; float:right; visibility:hidden">
         <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
         @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
         @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        <button id="timeButton" class="btn btn-default" onclick="
+            document.getElementById('time').style.display = 'block'" style="visibility:hidden">
+            Edit Attendance
+        </button>
+        @*@Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
         <button id="registerLink" class="btn btn-default" onclick="
             var person = prompt('Add tokens:', '');">
             Edit Student
@@ -101,6 +134,7 @@
         function clickedStudent(student) {
             // make the calendar visible
             document.getElementById("cal").style.visibility = "visible";
+            document.getElementById("timeButton").style.visibility = "visible";
             document.getElementById('head').innerHTML = student.getAttribute("value");
 
             // randomize points on line graph
@@ -145,7 +179,7 @@
                 hoverinfo: 'label+percent+name',
                 hole: .4,
                 type: 'pie'
-                }];
+            }];
 
             var layout = {
                 annotations: [
