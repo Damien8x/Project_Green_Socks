@@ -3,21 +3,15 @@
 @Scripts.Render("~/Scripts/bootsrtap.js")
 
 
-
-
-
-
 @{
 
     int count = 0;
 }
 
 
-
-
-
 <h2>Students</h2>
 
+@*Display Students names and their favorite Mogwai*@
 <div class="container">
     <div class="row text-center">
 
@@ -55,21 +49,6 @@
     <br />
 
     <h2 id="head">Click a Student above to view Attendance Profile</h2>
-    @*<br />*@
-
-
-    @*<div style="width:40%; float:right">
-        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
-        @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-        @Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-    </div>*@
-
-
-    @*<img src="~/image/Attendance_vs_avg.png" alt=" = avg attendance" height="450" width="600" />
-    <img src="~/image/avg_attendance.png" alt=" avg attendance" height="300" width="400" />
-    <img src="~/image/On_time.png" alt="on time" height="300" ; width="400" />*@
 
 </div>
 
@@ -81,9 +60,11 @@
 </head>
 
 <body>
+    @*Display line graph*@
     <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-    <!--Editable Attendance table-->
-    <div id="time" class="container" style="width:50%; display:none" align="left">
+
+    @*Display editable Attendance table -- only shown if "Edit Attendance" button is clicked*@
+    <div id="time" class="container-fluid" style="width:50%; display:none" align="left">
         <div class="row">
 
             <div class="table-responsive">
@@ -110,66 +91,100 @@
                 </table>
             </div>
         </div>
+        @*Hide Attendance table*@
         <button onclick="document.getElementById('time').style.display = 'none'" class="btn btn-default">Close</button>
     </div>
+
+    @*Display Edit Student Form -- only shown if "Edit Student" button is clicked*@
+    <div id="editStudent" class="container-fluid" style="display:none">
+        <form class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="inputEmail">Edit Name:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="inputEmail" type="email" placeholder="Name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="inputMogwai">Edit Mogwai:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="inputMogwai" type="email" placeholder="Mogwai">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Hide Editing Form*@
+            <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
+                Submit
+            </button>
+            <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
+                Cancel
+            </button>
+        </form>
+    </div><!-- /.container -->
+
+    @*Display Add Tokens Form -- only shown if "Add Tokens" button is clicked*@
+    <div id="addTokens" class="container-fluid" style="display:none">
+        <form class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="inputTokens">Add tokens:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="inputTokens" type="email" placeholder="# tokens">
+                        </div>
+                    </div>
+                </div>
+                @*Hide Tokens Form*@
+                <button onclick="document.getElementById('addTokens').style.display = 'none'" class="btn btn-default">
+                    Submit
+                </button>
+                <button onclick="document.getElementById('addTokens').style.display = 'none'" class="btn btn-default">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div><!-- /.container -->
+
+    @*Display pie charts*@
     <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+    @*Hidden until a student is clicked*@
     <div id="cal" style="width:40%; float:right; visibility:hidden">
+        @*Display calendar*@
         <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
+
+        @*Edit Calendar button*@
         @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+
+        @*Generate Report button*@
         @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+
+        @*Edit Attendance button*@
         <button id="timeButton" class="btn btn-default" onclick="
             document.getElementById('time').style.display = 'block'" style="visibility:hidden">
             Edit Attendance
         </button>
-        @*@Html.ActionLink("Edit Attendance", "EditAndrewAttendance", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
 
         @*Edit Student button*@
-        <button id="registerLink" class="btn btn-default" onclick="showSnackbar()">
+        <button id="registerLink" class="btn btn-default" onclick="
+            document.getElementById('editStudent').style.display = 'block'">
             Edit Student
         </button>
-        <div id="snackbar">
-            Edit Student Name:
-            <p contenteditable="true" style="background-color:#2E86C1">    </p>
-            Edit Student Picture:
-            <p contenteditable="true" style="background-color:#2E86C1">    </p>
-            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
-                Submit
-            </button>
-            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
-                Cancel
-            </button>
-        </div>
-        <script>
-            // show the snackbar that asks the admin to input the number of tokens to add
-            function showSnackbar() {
-                var x = document.getElementById("snackbar");
-                x.className = "show";
-                //setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-            }
-        </script>
 
         @*Add tokens button*@
-        @*<button id="registerLink" class="btn btn-default" onclick="showSnackbar()">Add Tokens</button>
-        <div id="snackbar">
-            Add tokens:
-            <p contenteditable="true" style="background-color:#2E86C1">    </p>
-            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
-                Submit
-            </button>
-            <button class="btn btn-default" onclick="document.getElementById('snackbar').className = ''">
-                Cancel
-            </button>
-        </div>
-        <script>
-            // show the snackbar that asks the admin to input the number of tokens to add
-            function showSnackbar() {
-                var x = document.getElementById("snackbar");
-                x.className = "show";
-                //setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-            }
-        </script>*@
-        @*@Html.ActionLink("Edit Student", "EditAndrew", "Student", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })*@
+        <button id="registerLink" class="btn btn-default" onclick="
+            document.getElementById('addTokens').style.display = 'block'">
+            Add Tokens
+        </button>
+
     </div>
+
     <script>
         var n = 4;
         var y = [];
@@ -253,83 +268,3 @@
     </script>
 
 </body>
-
-
-@*@model EverPresent.Models.StudentViewModel
-    @Scripts.Render("~/Scripts/script.js")
-
-
-
-
-
-
-    @{
-
-        int count = 0;
-    }
-
-
-
-
-
-    <h2>Students</h2>
-
-    <div class="container">
-        <div class="row text-center">
-
-            @{
-                if (Model.StudentList == null || !Model.StudentList.Any())
-                {
-                    <br />
-                    <p>No Mogwai in the System</p>
-                    <br />
-                }
-                else
-                {
-
-                    foreach (var item in Model.StudentList)
-                    {
-
-                        <div class="col-sm-2">
-                            @{ count++; string id = "id" + count;}
-                            <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
-
-                            <br />
-                            <span>
-                                @item.Name
-                            </span>
-
-                        </div>
-                    }
-                }
-            }
-
-        </div>
-        <br />
-        <br />
-
-    </div>
-
-    <script>
-
-
-        document.getElementById("id1").addEventListener("click", myFunction);
-        document.getElementById("id2").addEventListener("click", myFunction);
-        document.getElementById("id3").addEventListener("click", myFunction);
-        document.getElementById("id4").addEventListener("click", myFunction);
-        document.getElementById("id5").addEventListener("click", myFunction);
-        document.getElementById("id6").addEventListener("click", myFunction);
-        document.getElementById("id6").addEventListener("click", myFunction);
-        document.getElementById("id8").addEventListener("click", myFunction);
-
-
-
-            function myFunction()
-            {
-                window.location = "Andrew";
-
-             }
-
-
-
-    </script>*@
