@@ -1,11 +1,11 @@
-﻿@model EverPresent.Models.StudentViewModel
+﻿@model Tuple<EverPresent.Models.StudentModel, EverPresent.Models.StudentViewModel>
 @Scripts.Render("~/Scripts/script.js")
 @Scripts.Render("~/Scripts/bootsrtap.js")
 
 
 @{
-
     int count = 0;
+
 }
 
 
@@ -16,7 +16,7 @@
     <div class="row text-center">
 
         @{
-            if (Model.StudentList == null || !Model.StudentList.Any())
+            if (Model.Item2.StudentList == null || !Model.Item2.StudentList.Any())
             {
                 <br />
                 <p>No Mogwai in the System</p>
@@ -25,7 +25,7 @@
             else
             {
 
-                foreach (var item in Model.StudentList)
+                foreach (var item in Model.Item2.StudentList)
                 {
 
                     <div class="col-sm-2">
@@ -96,61 +96,78 @@
     </div>
 
     @*Display Edit Student Form -- only shown if "Edit Student" button is clicked*@
+    @using (Html.BeginForm())
+    {
     <div id="editStudent" class="container-fluid" style="display:none">
-        <form class="form-horizontal" role="form">
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="inputEmail">Edit Name:</label>
-                        <div class="col-md-8">
-                            <input class="form-control" id="inputEmail" type="email" placeholder="Name">
-                        </div>
-                    </div>
-                </div>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Item1.Id)
+        @Html.HiddenFor(m => m.Item1.Status)
+        @Html.HiddenFor(m => m.Item1.Tokens)
+
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                @Html.DisplayNameFor(m => m.Item1.Name)
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="inputMogwai">Edit Mogwai:</label>
-                        <div class="col-md-8">
-                            <input class="form-control" id="inputMogwai" type="email" placeholder="Mogwai">
-                        </div>
-                    </div>
-                </div>
+            <div class="col-sm-2">
+                @Html.EditorFor(m => m.Item1.Name)
+                @Html.ValidationMessageFor(m => m.Item1.Name)
             </div>
-            @*Hide Editing Form*@
-            <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                @Html.DisplayNameFor(m => m.Item1.AvatarId)
+            </div>
+            <div class="col-sm-2">
+                @Html.EditorFor(m => m.Item1.AvatarId)
+                @Html.ValidationMessageFor(m => m.Item1.AvatarId)
+            </div>
+        </div>
+        <div>
+            @*Hide Tokens Form*@
+            <button type="submit" class="btn btn-default">
                 Submit
             </button>
             <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
                 Cancel
             </button>
-        </form>
-    </div><!-- /.container -->
+        </div>
 
+
+    </div><!-- /.container -->
+    }
     @*Display Add Tokens Form -- only shown if "Add Tokens" button is clicked*@
-    <div id="addTokens" class="container-fluid" style="display:none">
-        <form class="form-horizontal" role="form">
+    @using (Html.BeginForm())
+    {
+        <div id="addTokens" class="container-fluid" style="display:none">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Item1.Id)
+            @Html.HiddenFor(m => m.Item1.AvatarId)
+            @Html.HiddenFor(m => m.Item1.Status)
+            @Html.HiddenFor(m => m.Item1.Name)
+
             <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="inputTokens">Add tokens:</label>
-                        <div class="col-md-8">
-                            <input class="form-control" id="inputTokens" type="email" placeholder="# tokens">
-                        </div>
-                    </div>
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Item1.Tokens)
                 </div>
+                <div class="col-sm-2">
+                    @Html.EditorFor(m => m.Item1.Tokens)
+                    @Html.ValidationMessageFor(m => m.Item1.Tokens)
+                </div>
+            </div>
+
+            <div>
                 @*Hide Tokens Form*@
-                <button onclick="document.getElementById('addTokens').style.display = 'none'" class="btn btn-default">
+                <button type="submit" class="btn btn-default">
                     Submit
                 </button>
                 <button onclick="document.getElementById('addTokens').style.display = 'none'" class="btn btn-default">
                     Cancel
                 </button>
             </div>
-        </form>
-    </div><!-- /.container -->
 
+
+        </div><!-- /.container -->
+    }
     @*Display pie charts*@
     <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
 
