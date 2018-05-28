@@ -49,28 +49,68 @@ video {
 template {
     display: none;
 }
-#snackbar {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
+
+.btn-market {
+    color: white;
+    background-color: #3B1C63;
+    border-color: #050214;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -20px;
     left: 50%;
-    bottom: 30px;
-    font-size: 17px;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+    opacity:.8;
+}
+a {
+    background-color: transparent;
+
 }
 
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
     #snackbar.show {
-        visibility: visible;
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
         -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
         animation: fadein 0.5s, fadeout 0.5s 2.5s;
     }
 
+/* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
     from {
         bottom: 0;
@@ -118,40 +158,7 @@ template {
         opacity: 0;
     }
 }
-.btn-market {
-    color: white;
-    background-color: #3B1C63;
-    border-color: #050214;
-    border-radius: 10px;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    z-index: 15;
-    width: 60%;
-    padding-left: 0;
-    margin-left: -30%;
-    text-align: center;
-    list-style: none;
-    opacity:.8;
-}
-a {
-    background-color: transparent;
 
-}
-
-    a:active,
-    a:hover {
-        outline: 0;
-    }
-
-abbr[title] {
-    border-bottom: 1px dotted;
-}
-
-b,
-strong {
-    font-weight: bold;
-}
 
 dfn {
     font-style: italic;
