@@ -24,7 +24,7 @@
             {
                 foreach (var item in Model.Item2.StudentList)
                 {
-                    <div class="col-sm-2">
+                    <div class="col-xs-3">
                         @{ count++; string id = "id" + count;}
                         <!--If a student is clicked, the header and line graph will change-->
                         <p id=@id value=@item.Name onclick="clickedStudent(this)">
@@ -40,10 +40,10 @@
         }
     </div>
     <br />
-    <div class="row text-center" style="margin-top:30px"><h2 id="head">Click a Student above to view Attendance Profile</h2></div>
 
 </div>
 
+<div class="row text-center" style="margin-top:30px"><h2 id="head">Click a Student above to view Attendance Profile</h2></div>
 <head>
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
