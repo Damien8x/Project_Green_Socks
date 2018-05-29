@@ -96,7 +96,7 @@
                  document.getElementById("id1").style = "filter:grayscale(100%)";
                 f1 = true;
             } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+                document.getElementById("clockInOut").innerHTML = "Clock in Success!<br />60 tokens earned for yesterday\nYou received legendary Mogwai Loki!<br />";
                 @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")\n60 tokens earned for yesterday\nYou received legendary Mogwai Loki!");*@
                 document.getElementById("id1").style = "filter:graryscale(0%)";
                 f1 = false;
@@ -108,7 +108,7 @@
         function myFunction2()
         {
             if (f2 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+                document.getElementById("clockInOut").innerHTML = "Clock out Success!<br />50 tokens earned for yesterday";
                 @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
 
                 document.getElementById("id2").style = "filter:grayscale(100%)";
