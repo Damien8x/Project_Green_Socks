@@ -143,9 +143,9 @@ namespace EverPresent.Backend
             StudentList.Add(new StudentModel("pokemon-6.svg", "Megan", studentStatusEnum3, 300));
             StudentList.Add(new StudentModel("pokemon_bee.svg", "Britney", studentStatusEnum3, 1100));
             StudentList.Add(new StudentModel("2", "avatar4.png", "Dane", studentStatusEnum1, 0));
-            StudentList.Add(new StudentModel("3", "avatar4.png", "Daniel", studentStatusEnum1, 0));
-            StudentList.Add(new StudentModel("4", "avatar4.png", "Shelly", studentStatusEnum1, 0));
-            StudentList.Add(new StudentModel("5", "avatar4.png", "Sarah", studentStatusEnum1, 0));
+            StudentList.Add(new StudentModel("3", "avatar5.png", "Daniel", studentStatusEnum1, 0));
+            StudentList.Add(new StudentModel("4", "avatar6.png", "Shelly", studentStatusEnum1, 0));
+            StudentList.Add(new StudentModel("5", "avatar7.png", "Sarah", studentStatusEnum1, 0));
 
         }
     }
