@@ -137,11 +137,11 @@ namespace EverPresent.Backend
             StudentStatusEnum studentStatusEnum3 = StudentStatusEnum.Out;
 
             
-            StudentList.Add(new StudentModel("pokemon_bee.svg", "Andrew", studentStatusEnum1, 1200));
-            StudentList.Add(new StudentModel("pokemon_duck.svg", "Bernard", studentStatusEnum2, 700));
-            StudentList.Add(new StudentModel("pokemon_old_guy.svg", "Jeff", studentStatusEnum1, 500));
+            StudentList.Add(new StudentModel("pokemon_bee.svg", "Andrew", studentStatusEnum3, 1200));
+            StudentList.Add(new StudentModel("pokemon_duck.svg", "Bernard", studentStatusEnum3, 700));
+            StudentList.Add(new StudentModel("pokemon_old_guy.svg", "Jeff", studentStatusEnum3, 500));
             StudentList.Add(new StudentModel("pokemon-6.svg", "Megan", studentStatusEnum3, 300));
-            StudentList.Add(new StudentModel("pokemon_bee.svg", "Britney", studentStatusEnum2, 1100));
+            StudentList.Add(new StudentModel("pokemon_bee.svg", "Britney", studentStatusEnum3, 1100));
 
         }
     }
