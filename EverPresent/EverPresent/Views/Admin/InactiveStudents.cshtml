@@ -39,6 +39,20 @@
                             <span>
                                 @item.Name
                             </span>
+                            @using (Html.BeginForm())
+                            {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => item.Id)
+                        @Html.HiddenFor(m => item.Name)
+                        @Html.HiddenFor(m => item.AvatarId)
+                        @Html.HiddenFor(m => item.Tokens)
+                        @Html.HiddenFor(m => item.Status)
+
+
+                     <input type="submit" class="btn btn-primary">
+
+
+                            }
                         </div>
                     </div>
                                             }
