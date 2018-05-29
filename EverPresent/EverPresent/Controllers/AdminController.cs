@@ -64,7 +64,9 @@ namespace EverPresent.Controllers
         /// <returns></returns>
         public ActionResult InactiveStudents()
         {
-            return View();
+            var myDataList = studentBackend.Index();
+            studentViewModel = new Models.StudentViewModel(myDataList);
+            return View(studentViewModel);
         }
 
         /// <summary>
