@@ -8,13 +8,11 @@
 
 }
 
-
-<h2>Students</h2>
+<div class="row text-center" style="margin-top:30px; margin-bottom:50px"><h2>Students</h2></div>
 
 @*Display Students names and their favorite Mogwai*@
 <div class="container">
     <div class="row text-center">
-
         @{
             if (Model.Item2.StudentList == null || !Model.Item2.StudentList.Any())
             {
@@ -24,31 +22,25 @@
             }
             else
             {
-
                 foreach (var item in Model.Item2.StudentList)
                 {
-
                     <div class="col-sm-2">
                         @{ count++; string id = "id" + count;}
                         <!--If a student is clicked, the header and line graph will change-->
                         <p id=@id value=@item.Name onclick="clickedStudent(this)">
                             <img src="~/image/@item.AvatarId" width="75" height="75" />
                         </p>
-
                         <br />
                         <span>
                             @item.Name
                         </span>
-
                     </div>
                 }
             }
         }
-
     </div>
     <br />
-
-    <h2 id="head">Click a Student above to view Attendance Profile</h2>
+    <div class="row text-center" style="margin-top:30px"><h2 id="head">Click a Student above to view Attendance Profile</h2></div>
 
 </div>
 
