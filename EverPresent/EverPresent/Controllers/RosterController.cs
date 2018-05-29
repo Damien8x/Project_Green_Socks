@@ -31,5 +31,28 @@ namespace EverPresent.Controllers
         {
             return View();
         }
+
+        public ActionResult SetLogin(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return RedirectToAction("Error", "Home", "Invalid Data");
+            }
+
+            StudentBackend.ToggleStatusById(id);
+            return RedirectToAction("Index");
+        }
+
+        // GET: Kiosk/SetLogout/5
+        public ActionResult SetLogout(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return RedirectToAction("Error", "Home", "Invalid Data");
+            }
+
+            StudentBackend.ToggleStatusById(id);
+            return RedirectToAction("Index");
+        }
     }
 }
