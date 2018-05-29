@@ -87,28 +87,7 @@
                             <td id="inTime2" contenteditable="true">12:28 pm</td>
                             <td id="outTime2" contenteditable="true">2:45 pm</td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Edit in time: 9:15 am <br/><input id="input1" type="text" /></td>
-                            <td><button onclick="editInTime1()">change</button></td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>Edit out time: 11:09 am <input id="input2" type="text" /></td>
-                            <td><button  onclick="editOutTime1()">change</button></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Edit in time: 12:28 pm <input id="input3" type="text" /></td>
-                            <td><button onclick="editInTime2()">change</button></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Edit out time: 2:45 am <input id="input4"  type="text" /></td>
-                            <td><button  onclick="editOutTime2()">change</button></td>
-                        </tr>
-                    </tbody>
+                     </tbody>
                 </table>
             </div>
         </div>
@@ -194,12 +173,7 @@
 
     @*Hidden until a student is clicked*@
     <div id="cal" style="width:40%; float:right; visibility:hidden">
-        @*Display calendar*@
-        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
-
-        @*Edit Calendar button*@
-        @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-
+     
         @*Generate Report button*@
         @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
 
@@ -224,19 +198,6 @@
     </div>
 
     <script>
-        function editInTime1() {
-            document.getElementById("inTime1").innerHTML = document.getElementById("input1").value;
-        }
-        function editInTime2() {
-            document.getElementById("inTime2").innerHTML = document.getElementById("input3").value;
-        }
-        function editOutTime1() {
-            document.getElementById("outTime1").innerHTML = document.getElementById("input2").value;
-        }
-        function editOutTime2() {
-            document.getElementById("outTime2").innerHTML = document.getElementById("input4").value;
-        }
-
         var n = 4;
         var y = [];
 
