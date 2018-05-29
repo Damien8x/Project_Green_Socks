@@ -13,13 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 <body>
-
     <nav class="navbar navbar-inverse">
         <div class="container">
-            <div class="navbar-header">
-                <p class="navbar-brand"> EverPresent</p>
-            </div>
             <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("EverPresent", "Index", "Home")</li>
                 <li>@Html.ActionLink("Student Home", "Index", "Student")</li>
                 <li>@Html.ActionLink("Mogwai Reports", "MogwaiReports", "Student")</li>
                 <li>@Html.ActionLink("Mogwai", "Mogwai", "Student")</li>

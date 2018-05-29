@@ -9,18 +9,34 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
             <h2>Student Sign-In</h2>
-            <h3>@DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")</h3>
+            <h3>@DateTime.Now.ToString(@"MMM d yyyy") <span id="datetime"></span></h3>
         </div>
+        <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        </script>
     </div>
 </div>
 
 <!--Alert that Student Signed in/out-->
 <div id="snackbar">
+
     <p id="clockInOut">
         Clock in Success!
     </p>
     <p>
-        Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")
+        Time: <span id="timeNow"></span>
+        <script>
+            var timeNow = new Date();
+            document.getElementById("timeNow").innerHTML = timeNow.toLocaleTimeString();
+        </script>
+    </p>
+    <!-- Default snackbar message for tokens-->
+    <p id="tokensEarned">
+        60 tokens earned for yesterday
+    </p>
+    <p id="mogwaiEarned">
+        No Mogwai earned today
     </p>
 </div>
 
@@ -85,60 +101,110 @@
     var f6 = false;
     var f7 = false;
 
+    // Generates snackbar message with different token counts
+    function randomTokenGeneration() {
+        var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
+        var zeroOneOddsZero = 0; // 50% chance for randomNumberTokens
+        var zeroOneOddsOne = 1;  // Other 50% chance for randomNumberTokens
+
+        // 50% chance tokensEarned will be 30 tokens
+        if (randomNumberTokens == zeroOneOddsZero) {
+            document.getElementById("tokensEarned").innerHTML = "30 tokens earned from yesterday";
+        }
+
+        // 50% chance tokensEarned will be 25 tokens
+        else {
+            document.getElementById("tokensEarned").innerHTML = "25 tokens earned from yesterday";
+        }
+
+    }
+
+    // Generates snackbar message with different Mogwai collected
+    function randomMogwaiGeneration() {
+        var randomNumberMogwai = Math.floor(Math.random() * 100); // Generate random number to simulater receiving Mogwai
+        var fivePercentOdds = 5; // Upper limit for random number to give 5% odds
+        var onePercentOdds = 6;  // Upper limit for random number to give 1% odds
+
+        // 5% chance for Mogwai earned to be Burr
+        if (randomNumberMogwai < fivePercentOdds) {
+            document.getElementById("mogwaiEarned").innerHTML = "Mogwai Burr received!";
+        }
+
+        // 1% chance for Mogwai earned to be Loki
+        else if (randomNumberMogwai >= fivePercentOdds && randomNumberMogwai < onePercentOdds) {
+            document.getElementById("mogwaiEarned").innerHTML = "Mogwai Loki received!";
+        }
+
+        // Show no Mogwai earned
+        else {
+            document.getElementById("mogwaiEarned").innerHTML = "";
+        }
+    }
+
     // When a student is clicked, a message will appear for a few seconds indicating that they have successfully signed in or out.
     // When signing out, their Mogwai character becomes gray. When signing in, their Mogwair character is in full color.
         document.getElementById("id1").addEventListener("click", myFunction);
         function myFunction()
         {
+            var zeroOneOddsZero = 0;
+            var zeroOneOddsOne = 1;
+
             if (f1 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                 @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-                 document.getElementById("id1").style = "filter:grayscale(100%)";
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+                document.getElementById("id1").style = "filter:grayscale(100%)";
                 f1 = true;
             } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!<br />60 tokens earned for yesterday\nYou received legendary Mogwai Loki!<br />";
-                @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")\n60 tokens earned for yesterday\nYou received legendary Mogwai Loki!");*@
+                var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
+
+                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+
+                if (randomNumberTokens == zeroOneOddsZero) {
+                    document.getElementById("tokensEarned").innerHTML = "30 tokens earned from yesterday";
+                } else {
+                    document.getElementById("tokensEarned").innerHTML = "20 tokens earned from yesterday";
+                }
+                document.getElementById("mogwaiEarned").innerHTML = "Legendary Mogwai Loki received!";
                 document.getElementById("id1").style = "filter:graryscale(0%)";
                 f1 = false;
             }
             showAlert();
-    }
+        }
 
         document.getElementById("id2").addEventListener("click", myFunction2);
         function myFunction2()
         {
             if (f2 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!<br />50 tokens earned for yesterday";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id2").style = "filter:grayscale(100%)";
-
                 f2 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id2").style = "filter:graryscale(0%)";
-
                 f2 = false;
             }
             showAlert();
-    }
-       document.getElementById("id3").addEventListener("click", myFunction3);
+        }
+
+        document.getElementById("id3").addEventListener("click", myFunction3);
         function myFunction3()
         {
             if (f3 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id3").style = "filter:grayscale(100%)";
                 f3 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-              @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id3").style = "filter:graryscale(0%)";
-
                 f3 = false;
             }
             showAlert();
@@ -148,17 +214,15 @@
         {
             if (f4 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id4").style = "filter:grayscale(100%)";
-
                 f4 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id4").style = "filter:graryscale(0%)";
-
                 f4 = false;
             }
             showAlert();
@@ -168,17 +232,15 @@
         {
             if (f5 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id5").style = "filter:grayscale(100%)";
-
                 f5 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id5").style = "filter:graryscale(0%)";
-
                 f5 = false;
             }
             showAlert();
@@ -188,17 +250,15 @@
         {
             if (f6 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id6").style = "filter:grayscale(100%)";
-
                 f6 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id6").style = "filter:graryscale(0%)";
-
                 f6 = false;
             }
             showAlert();
@@ -208,17 +268,16 @@
         {
             if (f7 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id7").style = "filter:grayscale(100%)";
 
                 f7 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id7").style = "filter:graryscale(0%)";
-
                 f7 = false;
             }
             showAlert();
@@ -228,21 +287,17 @@
         {
             if (f8 == false) {
                 document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                @*alert("Clock out Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
                 document.getElementById("id8").style = "filter:grayscale(100%)";
-
                 f8 = true;
             } else {
                 document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-               @*alert("Clock in Success! Time: @DateTime.Now.ToString(@"MMM d yyyy HH:mm:ss")");*@
-
+                randomTokenGeneration();
+                randomMogwaiGeneration();
                 document.getElementById("id8").style = "filter:graryscale(0%)";
-
                 f8 = false;
             }
             showAlert();
         }
-
-
 </script>
