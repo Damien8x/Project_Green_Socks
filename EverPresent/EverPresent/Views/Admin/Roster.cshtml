@@ -9,11 +9,11 @@
 }
 
 
-<h2>Students</h2>
+<h2 align="center">Students</h2>
 
 @*Display Students names and their favorite Mogwai*@
-<div class="container">
-    <div class="row text-center">
+<div class="container" align="center">
+    <div class="row text-center" align="center">
 
         @{
             if (Model.Item2.StudentList == null || !Model.Item2.StudentList.Any())
@@ -48,7 +48,33 @@
     </div>
     <br />
 
-    <h2 id="head">Click a Student above to view Attendance Profile</h2>
+    <h2 id="head" align="center">Click a Student above to view Attendance Profile</h2>
+
+    @*Hidden until a student is clicked*@
+    <div id="cal" style="visibility:hidden" align="center">
+
+        @*Generate Report button*@
+        @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+
+        @*Edit Attendance button*@
+        <button id="timeButton" class="btn btn-default" onclick="
+            document.getElementById('time').style.display = 'block'" style="visibility:hidden">
+            Edit Attendance
+        </button>
+
+        @*Edit Student button*@
+        <button id="registerLink" class="btn btn-default" onclick="
+            document.getElementById('editStudent').style.display = 'block'">
+            Edit Student
+        </button>
+
+        @*Add tokens button*@
+        <button id="registerLink" class="btn btn-default" onclick="
+            document.getElementById('addTokens').style.display = 'block'">
+            Add Tokens
+        </button>
+
+    </div>
 
 </div>
 
@@ -59,12 +85,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 </head>
 
-<body>
+<body align="center">
     @*Display line graph*@
     <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
 
     @*Display editable Attendance table -- only shown if "Edit Attendance" button is clicked*@
-    <div id="time" class="container-fluid" style="width:50%; display:none" align="left">
+    <div id="time" class="container-fluid" style="width:50%; display:none" align="center">
         <div class="row">
 
             <div class="table-responsive">
@@ -98,7 +124,7 @@
     @*Display Edit Student Form -- only shown if "Edit Student" button is clicked*@
     @using (Html.BeginForm())
     {
-    <div id="editStudent" class="container-fluid" style="display:none">
+    <div id="editStudent" class="container-fluid" style="display:none" align="center">
         @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.Item1.Id)
         @Html.HiddenFor(m => m.Item1.Status)
@@ -169,33 +195,7 @@
         </div><!-- /.container -->
     }
     @*Display pie charts*@
-    <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
-
-    @*Hidden until a student is clicked*@
-    <div id="cal" style="width:40%; float:right; visibility:hidden">
-     
-        @*Generate Report button*@
-        @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-
-        @*Edit Attendance button*@
-        <button id="timeButton" class="btn btn-default" onclick="
-            document.getElementById('time').style.display = 'block'" style="visibility:hidden">
-            Edit Attendance
-        </button>
-
-        @*Edit Student button*@
-        <button id="registerLink" class="btn btn-default" onclick="
-            document.getElementById('editStudent').style.display = 'block'">
-            Edit Student
-        </button>
-
-        @*Add tokens button*@
-        <button id="registerLink" class="btn btn-default" onclick="
-            document.getElementById('addTokens').style.display = 'block'">
-            Add Tokens
-        </button>
-
-    </div>
+    <div id="secondDiv" style="width:60%;" align="center"><!-- Plotly chart will be drawn inside this DIV --></div>
 
     <script>
         var n = 4;
