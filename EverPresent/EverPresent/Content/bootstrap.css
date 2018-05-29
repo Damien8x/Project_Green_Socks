@@ -6813,7 +6813,7 @@ button.list-group-item-danger:focus {
 
     .panel-ep > div:hover > div {
         background: #e6e6e6;
-        border: 1px solid black;
+        border: 1px solid transparent;
         transition: 0.3s;
     }
 
