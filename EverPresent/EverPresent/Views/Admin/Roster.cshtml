@@ -1,27 +1,22 @@
-﻿@model EverPresent.Models.StudentViewModel
+﻿@model Tuple<EverPresent.Models.StudentModel, EverPresent.Models.StudentViewModel>
 @Scripts.Render("~/Scripts/script.js")
-
-
-
-
+@Scripts.Render("~/Scripts/bootsrtap.js")
 
 
 @{
-    
     int count = 0;
+
 }
-
-
-
 
 
 <h2>Students</h2>
 
+@*Display Students names and their favorite Mogwai*@
 <div class="container">
     <div class="row text-center">
 
         @{
-            if (Model.StudentList == null || !Model.StudentList.Any())
+            if (Model.Item2.StudentList == null || !Model.Item2.StudentList.Any())
             {
                 <br />
                 <p>No Mogwai in the System</p>
@@ -30,12 +25,15 @@
             else
             {
 
-                foreach (var item in Model.StudentList)
+                foreach (var item in Model.Item2.StudentList)
                 {
 
                     <div class="col-sm-2">
                         @{ count++; string id = "id" + count;}
-                        <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
+                        <!--If a student is clicked, the header and line graph will change-->
+                        <p id=@id value=@item.Name onclick="clickedStudent(this)">
+                            <img src="~/image/@item.AvatarId" width="75" height="75" />
+                        </p>
 
                         <br />
                         <span>
@@ -49,30 +47,275 @@
 
     </div>
     <br />
-    <br />
-   
+
+    <h2 id="head">Click a Student above to view Attendance Profile</h2>
+
 </div>
 
-<script>
+<head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Numeric JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+</head>
+
+<body>
+    @*Display line graph*@
+    <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+    @*Display editable Attendance table -- only shown if "Edit Attendance" button is clicked*@
+    <div id="time" class="container-fluid" style="width:50%; display:none" align="left">
+        <div class="row">
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>@DateTime.Today.ToString("D")</th>
+                            <th>Signed In</th>
+                            <th>Signed Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td id="inTime1" contenteditable="true">9:15 am</td>
+                            <td id="outTime1" contenteditable="true">11:09 am</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td id="inTime2" contenteditable="true">12:28 pm</td>
+                            <td id="outTime2" contenteditable="true">2:45 pm</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Edit in time: 9:15 am <br/><input id="input1" type="text" /></td>
+                            <td><button onclick="editInTime1()">change</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>Edit out time: 11:09 am <input id="input2" type="text" /></td>
+                            <td><button  onclick="editOutTime1()">change</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Edit in time: 12:28 pm <input id="input3" type="text" /></td>
+                            <td><button onclick="editInTime2()">change</button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Edit out time: 2:45 am <input id="input4"  type="text" /></td>
+                            <td><button  onclick="editOutTime2()">change</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @*Hide Attendance table*@
+        <button onclick="document.getElementById('time').style.display = 'none'" class="btn btn-default">Close</button>
+    </div>
+
+    @*Display Edit Student Form -- only shown if "Edit Student" button is clicked*@
+    @using (Html.BeginForm())
+    {
+    <div id="editStudent" class="container-fluid" style="display:none">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Item1.Id)
+        @Html.HiddenFor(m => m.Item1.Status)
+        @Html.HiddenFor(m => m.Item1.Tokens)
+
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                @Html.DisplayNameFor(m => m.Item1.Name)
+            </div>
+            <div class="col-sm-2">
+                @Html.EditorFor(m => m.Item1.Name)
+                @Html.ValidationMessageFor(m => m.Item1.Name)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                @Html.DisplayNameFor(m => m.Item1.AvatarId)
+            </div>
+            <div class="col-sm-2">
+                @Html.EditorFor(m => m.Item1.AvatarId)
+                @Html.ValidationMessageFor(m => m.Item1.AvatarId)
+            </div>
+        </div>
+        <div>
+            @*Hide Tokens Form*@
+            <button type="submit" class="btn btn-default">
+                Submit
+            </button>
+            <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
+                Cancel
+            </button>
+        </div>
 
 
-    document.getElementById("id1").addEventListener("click", myFunction);
-    document.getElementById("id2").addEventListener("click", myFunction);
-    document.getElementById("id3").addEventListener("click", myFunction);
-    document.getElementById("id4").addEventListener("click", myFunction);
-    document.getElementById("id5").addEventListener("click", myFunction);
-    document.getElementById("id6").addEventListener("click", myFunction);
-    document.getElementById("id6").addEventListener("click", myFunction);
-    document.getElementById("id8").addEventListener("click", myFunction);
+    </div><!-- /.container -->
+    }
+    @*Display Add Tokens Form -- only shown if "Add Tokens" button is clicked*@
+    @using (Html.BeginForm())
+    {
+        <div id="addTokens" class="container-fluid" style="display:none">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Item1.Id)
+            @Html.HiddenFor(m => m.Item1.AvatarId)
+            @Html.HiddenFor(m => m.Item1.Status)
+            @Html.HiddenFor(m => m.Item1.Name)
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Item1.Tokens)
+                </div>
+                <div class="col-sm-2">
+                    @Html.EditorFor(m => m.Item1.Tokens)
+                    @Html.ValidationMessageFor(m => m.Item1.Tokens)
+                </div>
+            </div>
+
+            <div>
+                @*Hide Tokens Form*@
+                <button type="submit" class="btn btn-default">
+                    Submit
+                </button>
+                <button onclick="document.getElementById('addTokens').style.display = 'none'" class="btn btn-default">
+                    Cancel
+                </button>
+            </div>
 
 
+        </div><!-- /.container -->
+    }
+    @*Display pie charts*@
+    <div id="secondDiv" style="width:60%; float:left"><!-- Plotly chart will be drawn inside this DIV --></div>
 
-        function myFunction()
-        {
-            window.location = "Andrew";
+    @*Hidden until a student is clicked*@
+    <div id="cal" style="width:40%; float:right; visibility:hidden">
+        @*Display calendar*@
+        <iframe src="https://calendar.google.com/calendar/embed?title=Middle%20College&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23999999&amp;src=g692kkkicuib1h345hp43732i4%40group.calendar.google.com&amp;color=%230a2b0e&amp;ctz=America%2FLos_Angeles" style=" border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe>
 
-         }
+        @*Edit Calendar button*@
+        @Html.ActionLink("Edit Calendar", "Calendar", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
 
+        @*Generate Report button*@
+        @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
 
+        @*Edit Attendance button*@
+        <button id="timeButton" class="btn btn-default" onclick="
+            document.getElementById('time').style.display = 'block'" style="visibility:hidden">
+            Edit Attendance
+        </button>
 
-</script>
+        @*Edit Student button*@
+        <button id="registerLink" class="btn btn-default" onclick="
+            document.getElementById('editStudent').style.display = 'block'">
+            Edit Student
+        </button>
+
+        @*Add tokens button*@
+        <button id="registerLink" class="btn btn-default" onclick="
+            document.getElementById('addTokens').style.display = 'block'">
+            Add Tokens
+        </button>
+
+    </div>
+
+    <script>
+        function editInTime1() {
+            document.getElementById("inTime1").innerHTML = document.getElementById("input1").value;
+        }
+        function editInTime2() {
+            document.getElementById("inTime2").innerHTML = document.getElementById("input3").value;
+        }
+        function editOutTime1() {
+            document.getElementById("outTime1").innerHTML = document.getElementById("input2").value;
+        }
+        function editOutTime2() {
+            document.getElementById("outTime2").innerHTML = document.getElementById("input4").value;
+        }
+
+        var n = 4;
+        var y = [];
+
+        function clickedStudent(student) {
+            // make the calendar visible
+            document.getElementById("cal").style.visibility = "visible";
+            document.getElementById("timeButton").style.visibility = "visible";
+            document.getElementById('head').innerHTML = student.getAttribute("value");
+
+            // randomize points on line graph
+            for (i = 0; i < n; i++) {
+                y[i] = Math.random() * 100;
+            }
+            var StudentAttendance = {
+                x: [1, 2, 3, 4],
+                y: y,
+                type: 'scatter',
+                name: 'Student Attendance'
+            };
+            var AverageAttendance = {
+                x: [1, 2, 3, 4],
+                y: [100, 90, 95, 88],
+                type: 'scatter',
+                name: 'Average Attendance'
+            };
+            var data = [AverageAttendance, StudentAttendance];
+            // plot the data for the line graph
+            Plotly.newPlot('myDiv', data);
+
+            var data = [{
+                values: [85, 15],
+                labels: ['85%', '15%'],
+                domain: {
+                    x: [0, .48]
+                },
+                name: 'Attendance',
+                text: 'Attendance',
+                textposition: 'inside',
+                hoverinfo: 'label+percent+name',
+                hole: .4,
+                type: 'pie'
+            }, {
+                values: [25, 75],
+                labels: ['25%', '75%'],
+                domain: { x: [.52, 1] },
+                name: 'On Time',
+                text: 'On Time',
+                textposition: 'inside',
+                hoverinfo: 'label+percent+name',
+                hole: .4,
+                type: 'pie'
+            }];
+
+            var layout = {
+                annotations: [
+                    {
+                        font: {
+                            size: 13
+                        },
+                        showarrow: false,
+                        x: 0.16,
+                        y: 0.5,
+                        text: 'Attendance'
+                    },
+                    {
+                        font: {
+                            size: 13
+                        },
+                        showarrow: false,
+                        x: 0.81,
+                        y: 0.5,
+                        text: 'On Time'
+                    }
+                ]
+            };
+            // plot the data for the pie charts
+            Plotly.newPlot('secondDiv', data, layout);
+        }
+
+    </script>
+
+</body>

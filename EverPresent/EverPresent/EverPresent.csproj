@@ -253,8 +253,10 @@
     <Content Include="image\BankAcct1png.png" />
     <Content Include="image\BankAcct3.png" />
     <Content Include="image\BankAcct4.png" />
+    <Content Include="image\dayattendance.png" />
     <Content Include="image\EditAndrewAttendanceNoBorder.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
+    <Content Include="image\marketBackground.jpg" />
     <Content Include="image\MarketPlaceWireFrameNoBorder.png" />
     <Content Include="image\middleCollegeCalendar.PNG" />
     <Content Include="image\MogwaiBuyChart.png" />
@@ -290,6 +292,7 @@
     <Content Include="image\Student_Landing.png" />
     <Content Include="image\Student - basic.png" />
     <Content Include="image\TyrFamilyPieChart.png" />
+    <Content Include="image\weekly_attendance.png" />
     <Content Include="js\bootstrap.bundle.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
@@ -378,6 +381,8 @@
     <Content Include="Views\Mogwai\Read.cshtml" />
     <Content Include="Views\Mogwai\Update.cshtml" />
     <Content Include="Views\Student\AddStudent.cshtml" />
+    <Content Include="Views\Student\MarketplaceSuccess.cshtml" />
+    <Content Include="Views\Student\MarketplaceDennied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
