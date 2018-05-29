@@ -123,8 +123,9 @@ namespace EverPresent.Controllers
                 return RedirectToAction("InactiveStudents", "Admin");
             }
 
-            data.Status = Models.Enums.StudentStatusEnum.Out;
-            studentBackend.Update(data);
+            var myData = studentBackend.Read(data.Id);
+            myData.Status = Models.Enums.StudentStatusEnum.Out;
+            studentBackend.Update(myData);
             var myDataList = studentBackend.Index();
             studentViewModel = new Models.StudentViewModel(myDataList);
             return View(studentViewModel);

@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "InactiveStudents";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    int count = 0;
+    int count = 1;
 
     EverPresent.Models.Enums.StudentStatusEnum studentStatusEnum1 = EverPresent.Models.Enums.StudentStatusEnum.Hold;
 
@@ -32,27 +32,25 @@
 
                     <div class="col-xs-3">
                         <div class="panel">
-                            @{ count++; string id = "id" + count;}
-                            <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
-
-                            <br />
-                            <span>
-                                @item.Name
-                            </span>
+                
                             @using (Html.BeginForm())
-                            {
+                        {
+                         count++; string id = "" + count;
+                        <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
+
+                        <br />
+                        <span>
+                            @item.Name
+                        </span>
+
                         @Html.AntiForgeryToken()
-                        @Html.HiddenFor(m => item.Id)
-                        @Html.HiddenFor(m => item.Name)
-                        @Html.HiddenFor(m => item.AvatarId)
-                        @Html.HiddenFor(m => item.Tokens)
-                        @Html.HiddenFor(m => item.Status)
-
-
-                     <input type="submit" class="btn btn-primary">
-
-
-                            }
+                        @Html.HiddenFor(m => id)
+                        @Html.HiddenFor(m => @item.Name)
+                        @Html.HiddenFor(m => @item.AvatarId)
+                        @Html.HiddenFor(m => @item.Tokens)
+                        @Html.HiddenFor(m => @item.Status)
+                        <input type="submit" value="activate" class="btn btn-primary">
+                                }
                         </div>
                     </div>
                                             }
