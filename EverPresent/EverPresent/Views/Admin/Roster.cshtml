@@ -87,28 +87,7 @@
                             <td id="inTime2" contenteditable="true">12:28 pm</td>
                             <td id="outTime2" contenteditable="true">2:45 pm</td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Edit in time: 9:15 am <br/><input id="input1" type="text" /></td>
-                            <td><button onclick="editInTime1()">change</button></td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>Edit out time: 11:09 am <input id="input2" type="text" /></td>
-                            <td><button  onclick="editOutTime1()">change</button></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Edit in time: 12:28 pm <input id="input3" type="text" /></td>
-                            <td><button onclick="editInTime2()">change</button></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Edit out time: 2:45 am <input id="input4"  type="text" /></td>
-                            <td><button  onclick="editOutTime2()">change</button></td>
-                        </tr>
-                    </tbody>
+                     </tbody>
                 </table>
             </div>
         </div>
@@ -224,19 +203,6 @@
     </div>
 
     <script>
-        function editInTime1() {
-            document.getElementById("inTime1").innerHTML = document.getElementById("input1").value;
-        }
-        function editInTime2() {
-            document.getElementById("inTime2").innerHTML = document.getElementById("input3").value;
-        }
-        function editOutTime1() {
-            document.getElementById("outTime1").innerHTML = document.getElementById("input2").value;
-        }
-        function editOutTime2() {
-            document.getElementById("outTime2").innerHTML = document.getElementById("input4").value;
-        }
-
         var n = 4;
         var y = [];
 
