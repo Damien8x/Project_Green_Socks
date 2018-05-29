@@ -47,30 +47,49 @@
             if (Model.StudentList == null || !Model.StudentList.Any())
             {
                 <br />
-                <p>No Mogwai in the System</p>
+                <p>No Students in the System</p>
                 <br />
             }
             else
             {
                 foreach (var item in Model.StudentList)
                 {
-                    <div class="col-xs-3">
-                        <div class="panel">
-                            @{ count++; string id = "id" + count;}
-                            <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
+                <div class="col-xs-3">
+                    <div class="panel">
+                        @{ count++; string id = "id" + count;
+                            if (item.Status == EverPresent.Models.Enums.StudentStatusEnum.Out)
+                            {
+                                <a id="@item.Id" href="~/Roster/SetLogIn/@item.Id">
 
-                            <br />
-                            <span>
-                                @item.Name
-                            </span>
+                                    <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" style="filter:grayscale(100%)" /></p>
+
+                                    <br />
+                                    <span>
+                                        @item.Name
+                                    </span>
+                                </a>
+                            }
+                            if (item.Status == EverPresent.Models.Enums.StudentStatusEnum.In)
+                            {
+                                <a id="@item.Id" href="~/Roster/SetLogOut/@item.Id">
+
+                                    <p id="@id"> <img src="~/image/@item.AvatarId" width="75" height="75" /></p>
+
+                                    <br />
+                                    <span>
+                                        @item.Name
+                                    </span>
+                                </a>
+                            }
+                        }
                         </div>
                     </div>
                 }
             }
-        }
+         }
 
-    </div>
-</div>
+      </div>
+ </div>
 <br />
 <br />
 <div class="row">
