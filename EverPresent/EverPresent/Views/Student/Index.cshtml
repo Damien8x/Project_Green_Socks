@@ -1,13 +1,59 @@
-﻿@{
+﻿@model EverPresent.Models.StudentModel
+
+@{
     ViewData["Title"] = "StudentHome";
 }
 
-
-<div class="right-half">
-    <style>
-        html {
-            background: url('../../image/Joe_Landing_2.png') center center fixed;
-            background-size: cover;
-        }
-    </style>
+<html>
+<!-- Student header of page-->
+<div class="container text-center">
+    <h2>
+        <img src="~/image/@Model.AvatarId" class="studentIndexAvatar" height="100" width="75" />
+        Welcome, @Model.Name
+    </h2>
 </div>
+
+<div class="container">
+    <div class="row text-center" style="margin-top:30px"><h2>Mogwai Reports</h2></div>
+    <div class="row text-center" style="margin-top:20px; margin-bottom:20px"><h4>Current Tokens: @Html.DisplayFor(m => m.Tokens)</h4></div>
+</div>
+
+<!-- Show Students Mogwai Graphs -->
+<div class="container" style="margin-bottom:30px">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <h3>Aegir Family Collection</h3>
+                <img src="~/image/AegirFamilyPieChart.png" class="img-responsive" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <h3>Odin Family Collection</h3>
+                <img src="~/image/OdinFamilyPieChart.png" class="img-responsive" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <h3>Tyr Family Collection</h3>
+                <img src="~/image/TyrFamilyPieChart.png" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <br />
+        <div class="col-md-6">
+            <div class="well">
+                <h3>Token Account History</h3>
+                <img src="~/image/BankAccountSimple1200Tokens.png" class="img-responsive" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well">
+                <h3>Mogwai Purchased by Month</h3>
+                <img src="~/image/MogwaiBuyChartMay30.png" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+</div>
+</html>

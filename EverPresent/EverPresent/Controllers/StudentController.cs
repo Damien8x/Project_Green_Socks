@@ -18,10 +18,11 @@ namespace EverPresent.Controllers
         // The Backend Data source
         private StudentBackend studentBackend = StudentBackend.Instance;
 
-        // GET: Student
-        public ActionResult Index()
+        // GET: Student (id "1"). Will show Andrew's Index page
+        public ActionResult Index(string id = null)
         {
-            return View();
+            var myData = studentBackend.Read("1");
+            return View(myData);
         }
 
         /// <summary>

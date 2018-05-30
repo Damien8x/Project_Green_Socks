@@ -250,12 +250,7 @@
     <Content Include="image\avatar8.png" />
     <Content Include="image\avatar9.png" />
     <Content Include="image\avg_attendance.png" />
-    <Content Include="image\BankAccountNew.png" />
-    <Content Include="image\BankAccountSimple.png" />
     <Content Include="image\BankAccountSimple1200Tokens.png" />
-    <Content Include="image\BankAcct1png.png" />
-    <Content Include="image\BankAcct3.png" />
-    <Content Include="image\BankAcct4.png" />
     <Content Include="image\dayattendance.png" />
     <Content Include="image\EditAndrewAttendanceNoBorder.png" />
     <Content Include="image\ep logo.png" />
@@ -264,8 +259,7 @@
     <Content Include="image\marketBackground.jpg" />
     <Content Include="image\MarketPlaceWireFrameNoBorder.png" />
     <Content Include="image\middleCollegeCalendar.PNG" />
-    <Content Include="image\MogwaiBuyChart.png" />
-    <Content Include="image\MogwaiPurchasedByDay.png" />
+    <Content Include="image\MogwaiBuyChartMay30.png" />
     <Content Include="image\Mogwai_market_banner.PNG" />
     <Content Include="image\OdinFamilyPieChart.png" />
     <Content Include="image\On_time.png" />
