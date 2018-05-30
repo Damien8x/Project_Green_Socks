@@ -86,49 +86,18 @@ namespace EverPresent.Controllers
         {
             return View();
         }
-        /// <summary>
-        /// Make a new Student sent in by the create Student screen
-        /// </summary>
-        /// <param name="collection"></param>
-        /// <returns></returns>
-        // POST: Student/Create
-        [HttpPost]
-        public ActionResult InactiveStudents([Bind(Include=
-                                    "Id,"+
-                                    "Name,"+
-                                    "AvatarId,"+
-                                    "Status,"+
-                                    "Tokens," +
-                                    "")] EverPresent.Models.StudentModel data)
+     
+        public ActionResult Activate(string id)
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrEmpty(id))
             {
-                data.Status = Models.Enums.StudentStatusEnum.Out;
-                studentBackend.Update(data);
-
-                return RedirectToAction("InactiveStudents", "Admin");
+                return RedirectToAction("Error", "Home", "Invalid Data");
             }
 
-            if (data == null)
-            {
-                // Send to Error Page
-                return RedirectToAction("Error", new { route = "Home", action = "Error" });
-            }
-
-            if (string.IsNullOrEmpty(data.Id))
-            {
-                data.Status = Models.Enums.StudentStatusEnum.Out;
-                studentBackend.Update(data);
-
-                return RedirectToAction("InactiveStudents", "Admin");
-            }
-
-            var myData = studentBackend.Read(data.Id);
+            var myData = studentBackend.Read(id);
             myData.Status = Models.Enums.StudentStatusEnum.Out;
             studentBackend.Update(myData);
-            var myDataList = studentBackend.Index();
-            studentViewModel = new Models.StudentViewModel(myDataList);
-            return View(studentViewModel);
+            return RedirectToAction("InactiveStudents", "Admin");
 
         }
 
