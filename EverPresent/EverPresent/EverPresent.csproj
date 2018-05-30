@@ -244,7 +244,7 @@
     <Content Include="image\avatar2.png" />
     <Content Include="image\avatar3.png" />
     <Content Include="image\avatar4.png" />
-    <Content Include="image\avatar5.png.png" />
+    <Content Include="image\avatar5.png" />
     <Content Include="image\avatar6.png" />
     <Content Include="image\avatar7.png" />
     <Content Include="image\avatar8.png" />
