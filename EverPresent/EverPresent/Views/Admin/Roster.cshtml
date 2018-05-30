@@ -5,7 +5,7 @@
 
 @{
     int count = 0;
-
+    EverPresent.Models.Enums.StudentStatusEnum studentStatusEnum1 = EverPresent.Models.Enums.StudentStatusEnum.Hold;
 }
 
 
@@ -27,7 +27,8 @@
 
                 foreach (var item in Model.Item2.StudentList)
                 {
-
+                    if (item.Status != studentStatusEnum1)
+                    {
                     <div class="col-sm-2">
                         @{ count++; string id = "id" + count;}
                         <!--If a student is clicked, the header and line graph will change-->
@@ -41,9 +42,10 @@
                         </span>
 
                     </div>
-                }
-            }
-        }
+                                        }
+                                    }
+                                }
+                            }
 
     </div>
     <br />
