@@ -29,6 +29,20 @@ h2, h3, h4 {
     font-family: 'Nunito', sans-serif;
 }
 
+/* Font for Mogwai collection view, non-headers */
 .mogwai-info {
     font-family: 'Nunito', sans-serif;
+}
+
+/* Student/Index header avatar */
+.studentIndexAvatar {
+    padding-right: 30px;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+/* Student/Index header avatar hover*/
+.studentIndexAvatar:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
