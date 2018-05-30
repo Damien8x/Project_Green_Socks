@@ -235,6 +235,9 @@
     <Content Include="image\AdminStudentAndrew.png" />
     <Content Include="image\Admin_Student_View - Copy.png" />
     <Content Include="image\AegirFamilyPieChart.png" />
+    <Content Include="image\alien2.png" />
+    <Content Include="image\alien5.png" />
+    <Content Include="image\alien9.png" />
     <Content Include="image\Attendance_vs_avg.png" />
     <Content Include="image\avatar0.png" />
     <Content Include="image\avatar1.png" />
@@ -255,6 +258,8 @@
     <Content Include="image\BankAcct4.png" />
     <Content Include="image\dayattendance.png" />
     <Content Include="image\EditAndrewAttendanceNoBorder.png" />
+    <Content Include="image\ep logo.png" />
+    <Content Include="image\ep logo2.png" />
     <Content Include="image\Kiosk_Create_Stud.png" />
     <Content Include="image\marketBackground.jpg" />
     <Content Include="image\MarketPlaceWireFrameNoBorder.png" />

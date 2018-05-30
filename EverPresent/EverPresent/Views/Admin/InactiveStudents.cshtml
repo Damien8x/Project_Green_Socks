@@ -1,31 +1,54 @@
-﻿
+﻿@model EverPresent.Models.StudentViewModel
+@Scripts.Render("~/Scripts/script.js")
 @{
     ViewBag.Title = "InactiveStudents";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+
+    EverPresent.Models.Enums.StudentStatusEnum studentStatusEnum1 = EverPresent.Models.Enums.StudentStatusEnum.Hold;
+
 
 }
 
 
-<!-- <img src="~/image/Admin_Inactive_Students.png" alt="Inactive Students" height="600" width="600" />-->
-<div style="border:2px solid black; width:50%;" class="center-block">
-<h2 style="text-align:center">Select Inactive Student</h2>
 
-<select id="Select_Student" display="block" style="margin-top:30px; text-align:center" class="center-block">
-    <option>John Jeffery</option>
-    <option>Jane Goodwin</option>
-    <option>Mark Hammel</option>
-    <option>Andrew Smith</option>
-</select>
+<div class="container">
+    <div class="row text-center panel-ep">
+
+        @{
+            if (Model.StudentList == null || !Model.StudentList.Any())
+            {
+                <br />
+                <p>No Mogwai in the System</p>
+                <br />
+            }
+            else
+            {
+
+                foreach (var item in Model.StudentList)
+                {
+                    if (item.Status == studentStatusEnum1)
+                    {
+
+                    <div class="col-xs-3">
+                        <div class="panel">
+
+                            @{count++; string id = "" + count; }
+                            <img src="~/image/@item.AvatarId" width="75" height="75" />
+                            <button id="@item.Id" type="button" onclick="location.href='@Url.Action("Activate", "Admin", new {id = @item.Id })'" class="btn-market">activate</button>
 
 
+                            <br />
+                            <span>
+                                @item.Name
+                            </span>
 
-<div display="block" style="margin-top:100px;text-align:center" class="center-block">
-@Html.ActionLink("Reactivate", "Andrew", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-</div>
+                        </div>
+                    </div>
+                                            }
+                                        }
+                                    }
+                                }
 
-<div  display="block" style="margin-top:15px; margin-bottom:10px; text-align:center" class="center-block">
-    @Html.ActionLink("Generate Report", "GenerateReports", "Admin", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
-</div>
-
-
+    </div>
 </div>
