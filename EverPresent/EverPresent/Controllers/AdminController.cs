@@ -100,7 +100,41 @@ namespace EverPresent.Controllers
             return RedirectToAction("InactiveStudents", "Admin");
 
         }
+        /// <summary>
+        /// This updates the student based on the information posted from the udpate page
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        // POST: student/Update/5
+        [HttpPost]
+        public ActionResult Roster([Bind(Prefix= "Item1"
+                                    )] EverPresent.Models.StudentModel data)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Send back for edit
+                return View(data);
+            }
 
+            if (data == null)
+            {
+                // Send to error page
+                return RedirectToAction("Error", new { route = "Home", action = "Error" });
+            }
+
+            if (string.IsNullOrEmpty(data.Id))
+            {
+                // Send back for Edit
+                return View(data);
+            }
+
+            studentBackend.Update(data);
+
+            var myData = studentBackend.Read("1");
+            var myDataList = studentBackend.Index();
+            studentViewModel = new Models.StudentViewModel(myDataList);
+            return View(Tuple.Create(myData, studentViewModel));
+        }
 
 
     }
