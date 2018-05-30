@@ -29,23 +29,23 @@
                 {
                     if (item.Status != studentStatusEnum1)
                     {
-                    <div class="col-sm-2">
-                        @{ count++; string id = "id" + count;}
-                        <!--If a student is clicked, the header and line graph will change-->
-                        <p id=@id value=@item.Name onclick="clickedStudent(this)">
-                            <img src="~/image/@item.AvatarId" width="75" height="75" />
-                        </p>
+                        <div class="col-sm-2">
+                            @{ count++; string id = "id" + count;}
+                            <!--If a student is clicked, the header and line graph will change-->
+                            <p id=@id value=@item.Name onclick="clickedStudent(this)">
+                                <img src="~/image/@item.AvatarId" width="75" height="75" />
+                            </p>
 
-                        <br />
-                        <span>
-                            @item.Name
-                        </span>
+                            <br />
+                            <span>
+                                @item.Name
+                            </span>
 
-                    </div>
-                                        }
-                                    }
-                                }
-                            }
+                        </div>
+                    }
+                }
+            }
+        }
 
     </div>
     <br />
@@ -77,20 +77,6 @@
         </button>
 
     </div>
-
-</div>
-
-<head>
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <!-- Numeric JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
-</head>
-
-<body align="center">
-    @*Display line graph*@
-    <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-
     @*Display editable Attendance table -- only shown if "Edit Attendance" button is clicked*@
     <div id="time" class="container-fluid" style="width:50%; display:none" align="center">
         <div class="row">
@@ -115,7 +101,7 @@
                             <td id="inTime2" contenteditable="true">12:28 pm</td>
                             <td id="outTime2" contenteditable="true">2:45 pm</td>
                         </tr>
-                     </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -126,47 +112,47 @@
     @*Display Edit Student Form -- only shown if "Edit Student" button is clicked*@
     @using (Html.BeginForm())
     {
-    <div id="editStudent" class="container-fluid" style="display:none" align="center">
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.Item1.Id)
-        @Html.HiddenFor(m => m.Item1.Status)
-        @Html.HiddenFor(m => m.Item1.Tokens)
+        <div id="editStudent" class="container-fluid" style="display:none; margin-top:10px;" align="center">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Item1.Id)
+            @Html.HiddenFor(m => m.Item1.Status)
+            @Html.HiddenFor(m => m.Item1.Tokens)
 
-        <div class="row">
-            <div class="col-sm-3 text-right">
-                @Html.DisplayNameFor(m => m.Item1.Name)
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Item1.Name)
+                </div>
+                <div class="col-sm-2">
+                    @Html.EditorFor(m => m.Item1.Name)
+                    @Html.ValidationMessageFor(m => m.Item1.Name)
+                </div>
             </div>
-            <div class="col-sm-2">
-                @Html.EditorFor(m => m.Item1.Name)
-                @Html.ValidationMessageFor(m => m.Item1.Name)
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Item1.AvatarId)
+                </div>
+                <div class="col-sm-2">
+                    @Html.EditorFor(m => m.Item1.AvatarId)
+                    @Html.ValidationMessageFor(m => m.Item1.AvatarId)
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3 text-right">
-                @Html.DisplayNameFor(m => m.Item1.AvatarId)
+            <div>
+                @*Hide Tokens Form*@
+                <button type="submit" class="btn btn-default">
+                    Submit
+                </button>
+                <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
+                    Close
+                </button>
             </div>
-            <div class="col-sm-2">
-                @Html.EditorFor(m => m.Item1.AvatarId)
-                @Html.ValidationMessageFor(m => m.Item1.AvatarId)
-            </div>
-        </div>
-        <div>
-            @*Hide Tokens Form*@
-            <button type="submit" class="btn btn-default">
-                Submit
-            </button>
-            <button onclick="document.getElementById('editStudent').style.display = 'none'" class="btn btn-default">
-                Cancel
-            </button>
-        </div>
 
 
-    </div><!-- /.container -->
+        </div><!-- /.container -->
     }
     @*Display Add Tokens Form -- only shown if "Add Tokens" button is clicked*@
     @using (Html.BeginForm())
     {
-        <div id="addTokens" class="container-fluid" style="display:none">
+        <div id="addTokens" class="container-fluid" style="display:none; margin-top:10px">
             @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.Item1.Id)
             @Html.HiddenFor(m => m.Item1.AvatarId)
@@ -189,13 +175,28 @@
                     Submit
                 </button>
                 <button onclick="document.getElementById('addTokens').style.display = 'none'" class="btn btn-default">
-                    Cancel
+                    Close
                 </button>
             </div>
 
 
         </div><!-- /.container -->
     }
+
+</div>
+
+<head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Numeric JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+</head>
+
+<body align="center">
+    @*Display line graph*@
+    <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+    
     @*Display pie charts*@
     <div id="secondDiv" style="width:60%;" align="center"><!-- Plotly chart will be drawn inside this DIV --></div>
 
