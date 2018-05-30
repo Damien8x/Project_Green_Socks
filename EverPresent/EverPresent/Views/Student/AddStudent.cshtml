@@ -36,7 +36,22 @@
                     @Html.DisplayNameFor(m => m.AvatarId)
                 </div>
                 <div class="col-sm-2">
-                    @Html.EditorFor(m => m.AvatarId)
+                    @Html.DropDownListFor(m => m.AvatarId, new SelectList(
+         new List<Object>{
+              new { value = "avatar0.png" , text = "Jord"  },
+              new { value = "avatar1.png" , text = "Freya"  },
+              new { value = "avatar2.png" , text = "Hodr"  },
+              new { value = "avatar3.png" , text = "Vili"  },
+              new { value = "avatar4.png" , text = "Loki"  },
+              new { value = "avatar5.png" , text = "Frigg"  },
+              new { value = "avatar6.png" , text = "Sif"  },
+              new { value = "avatar7.png" , text = "Burr"  }
+
+           },
+         "value",
+         "text",
+          Model.AvatarId))
+
                     @Html.ValidationMessageFor(m => m.AvatarId)
                 </div>
             </div>
