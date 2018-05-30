@@ -239,11 +239,11 @@
     <Content Include="image\alien5.png" />
     <Content Include="image\alien9.png" />
     <Content Include="image\Attendance_vs_avg.png" />
-    <Content Include="image\avatar0.png.png" />
-    <Content Include="image\avatar1.png.png" />
-    <Content Include="image\avatar2.png.png" />
-    <Content Include="image\avatar3.png.png" />
-    <Content Include="image\avatar4.png.png" />
+    <Content Include="image\avatar0.png" />
+    <Content Include="image\avatar1.png" />
+    <Content Include="image\avatar2.png" />
+    <Content Include="image\avatar3.png" />
+    <Content Include="image\avatar4.png" />
     <Content Include="image\avatar5.png.png" />
     <Content Include="image\avatar6.png" />
     <Content Include="image\avatar7.png" />
