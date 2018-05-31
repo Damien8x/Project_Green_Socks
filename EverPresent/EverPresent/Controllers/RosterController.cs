@@ -27,11 +27,6 @@ namespace EverPresent.Controllers
 
         }
 
-        public ActionResult AndrewSignedIn()
-        {
-            return View();
-        }
-
         public ActionResult SetLogin(string id)
         {
             if (string.IsNullOrEmpty(id))
