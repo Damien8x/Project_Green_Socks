@@ -216,8 +216,12 @@
     <div id="secondDiv" style="width:60%;" align="center"><!-- Plotly chart will be drawn inside this DIV --></div>
 
     <script>
-        var n = 4;
-        var y = [];
+        var n = 6;
+        var yData = [];
+        var xData = [1, 2, 3, 4, 5, 6];
+        var avg = [100, 90, 95, 88, 80, 94];
+
+        var months = ['January', 'February', 'March', 'April', 'May', 'June'];
 
         function clickedStudent(student) {
             // make the calendar visible
@@ -227,23 +231,54 @@
 
             // randomize points on line graph
             for (i = 0; i < n; i++) {
-                y[i] = Math.random() * 100;
+                yData[i] = Math.random() * 100;
             }
+
+            var data = [];
+
+            for (var i = 0; i < xData.length; i++) {
+                var result = {
+                    x: xData[i],
+                    y: yData[i],
+                    type: 'scatter'
+                };
+                var result2 = {
+                    x: xData[i],
+                    y: avg[i],
+                    type: 'scatter'
+                };
+                data.push(result, result2);
+            }
+
             var StudentAttendance = {
-                x: [1, 2, 3, 4],
-                y: y,
+                x: xData,
+                y: yData,
                 type: 'scatter',
                 name: 'Student Attendance'
             };
             var AverageAttendance = {
-                x: [1, 2, 3, 4],
-                y: [100, 90, 95, 88],
+                x: xData,
+                y: avg,
                 type: 'scatter',
                 name: 'Average Attendance'
             };
             var data = [AverageAttendance, StudentAttendance];
-            // plot the data for the line graph
-            Plotly.newPlot('myDiv', data);
+
+            var layout = {
+                title: 'Student Attendance',
+                xaxis: {
+                    title: 'Months',
+                    tickvals: xData,
+                    ticktext: months
+                },
+                yaxis: {
+                    title: 'Attendance Percentage'
+                }
+            };
+
+            //plot the data for the line graph
+
+            Plotly.newPlot('myDiv', data, layout);
 
             var data = [{
                 values: [85, 15],
