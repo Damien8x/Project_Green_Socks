@@ -32,73 +32,18 @@ namespace EverPresent.Controllers
         /// Denied view based on token balance vs purchase.
         /// </summary>
         /// <returns></returns>
-        public ActionResult Token100()
+        public ActionResult MogwaiPurchase(int deduct)
         {
             var myData = studentBackend.Read("1");
-            if (myData.Tokens >= 100)
+            if (myData.Tokens >= deduct)
             {
-                myData.Tokens = myData.Tokens - 100;
+                myData.Tokens = myData.Tokens - deduct;
                 studentBackend.Update(myData);
                 return RedirectToAction("MarketplaceSuccess", "Student");
             }
             return RedirectToAction("MarketplaceDennied", "Student");
         }
-        /// <summary>
-        /// Once called a deduction of tokens will be made from 
-        /// Andrew's balance and user will be redirected to the 
-        /// student either a Marketplace Success view or Marketplace
-        /// Denied view based on token balance vs purchase.
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Token200()
-        {
-            var myData = studentBackend.Read("1");
-            if (myData.Tokens >= 200)
-            {
-                myData.Tokens = myData.Tokens - 200;
-                studentBackend.Update(myData);
-                return RedirectToAction("MarketplaceSuccess", "Student");
-            }
-            return RedirectToAction("MarketplaceDennied", "Student");
-        }
-
-        /// <summary>
-        /// Once called a deduction of tokens will be made from 
-        /// Andrew's balance and user will be redirected to the 
-        /// student either a Marketplace Success view or Marketplace
-        /// Denied view based on token balance vs purchase.
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Token300()
-        {
-            var myData = studentBackend.Read("1");
-            if (myData.Tokens >= 300)
-            {
-                myData.Tokens = myData.Tokens - 300;
-                studentBackend.Update(myData);
-                return RedirectToAction("MarketplaceSuccess", "Student");
-            }
-            return RedirectToAction("MarketplaceDennied", "Student");
-        }
-        /// <summary>
-        /// Once called a deduction of tokens will be made from 
-        /// Andrew's balance and user will be redirected to the 
-        /// student either a Marketplace Success view or Marketplace
-        /// Denied view based on token balance vs purchase.
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Token500()
-        {
-            var myData = studentBackend.Read("1");
-            if (myData.Tokens >= 500)
-            {
-                myData.Tokens = myData.Tokens - 500;
-                studentBackend.Update(myData);
-                return RedirectToAction("MarketplaceSuccess", "Student");
-            }
-            return RedirectToAction("MarketplaceDennied", "Student");
-        }
-
+      
         
 
         // Shows the Mogwai collection of student with ID 1
