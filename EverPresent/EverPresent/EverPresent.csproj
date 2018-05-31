@@ -358,7 +358,6 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Mogwai.cshtml" />
     <Content Include="Views\Student\Marketplace.cshtml" />
-    <Content Include="Views\Student\MogwaiReports.cshtml" />
     <Content Include="Views\Mogwai\Create.cshtml" />
     <Content Include="Views\Mogwai\Delete.cshtml" />
     <Content Include="Views\Mogwai\Index.cshtml" />

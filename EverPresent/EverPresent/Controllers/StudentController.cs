@@ -128,12 +128,6 @@ namespace EverPresent.Controllers
             var myData = studentBackend.Read("1");
             return View(myData);
         }
-        // Shows the Mogwai reports for the student with ID 1
-        public ActionResult MogwaiReports(string id = null)
-        {
-            var myData = studentBackend.Read("1");
-            return View(myData);
-        }
 
         // Shows editable data for student with ID 1
         public ActionResult EditAndrew(string id = null)
