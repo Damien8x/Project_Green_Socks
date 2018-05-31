@@ -12,9 +12,6 @@ namespace EverPresent.Models
 {
     public class StudentModel
     {
-
-     
-
         /// <summary>
         /// The ID for the Student, this is the key, and a required field
         /// </summary>
@@ -86,13 +83,13 @@ namespace EverPresent.Models
             Initialize();
         }
 
-            /// <summary>
-            /// Constructor for student with call to Initialize for ID creation
-            /// </summary>
-            /// <param name="avatarId"></param>
-            /// <param name="name"></param>
-            /// <param name="status"></param>
-            /// <param name="tokens"></param>
+        /// <summary>
+        /// Constructor for student with call to Initialize for ID creation
+        /// </summary>
+        /// <param name="avatarId"></param>
+        /// <param name="name"></param>
+        /// <param name="status"></param>
+        /// <param name="tokens"></param>
         public StudentModel(string avatarId, string name, StudentStatusEnum status, int tokens)
         {
             Initialize();
@@ -101,6 +98,7 @@ namespace EverPresent.Models
             Name = name;
             Tokens = tokens;
         }
+
         /// <summary>
         /// Overloaded constructor. Takes arguments for all StudentModel attributes
         /// </summary>
@@ -202,7 +200,6 @@ namespace EverPresent.Models
         /// </summary>
         public StudentDisplayViewModel() { }
 
-     
         /// <summary>
         /// Creates a Student Display View Model from a Student Model
         /// </summary>
