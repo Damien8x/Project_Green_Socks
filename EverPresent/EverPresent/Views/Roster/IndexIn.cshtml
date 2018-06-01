@@ -117,17 +117,8 @@
     function showAlert() {
         var x = document.getElementById("snackbar");
         x.className = "show";
-        setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
     }
-
-    // all students start out as already signed in
-    var f1 = false;
-    var f2 = false;
-    var f3 = false;
-    var f4 = false;
-    var f5 = false;
-    var f6 = false;
-    var f7 = false;
 
     // Generates snackbar message with different token counts
     function randomTokenGeneration() {
@@ -176,12 +167,11 @@
         var zeroOneOddsZero = 0;
         var zeroOneOddsOne = 1;
 
-        if (f1 == false) {
+        
             document.getElementById("clockInOut").innerHTML = "Clock out Success!";
             document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
             document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
-            f1 = true;
-        }
+          
         showAlert();
     }
 </script>
