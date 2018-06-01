@@ -43,8 +43,8 @@ namespace EverPresent.Controllers
             }
             return RedirectToAction("MarketplaceDennied", "Student");
         }
-      
-        
+
+
 
         // Shows the Mogwai collection of student with ID 1
         public ActionResult Mogwai(string id = null)
@@ -209,44 +209,44 @@ namespace EverPresent.Controllers
             return View(myData);
         }
 
-            /// <summary>
-            /// This deletes the student sent up as a post from the student delete page
-            /// </summary>
-            /// <param name="data"></param>
-            /// <returns></returns>
-            // POST: student/Delete/5
-            [HttpPost]
-            public ActionResult Delete([Bind(Include=
+        /// <summary>
+        /// This deletes the student sent up as a post from the student delete page
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        // POST: student/Delete/5
+        [HttpPost]
+        public ActionResult Delete([Bind(Include=
                                         "Id,"+
                                         "Name,"+
                                         "AvatarId,"+
                                         "Status,"+
                                          "Tokens," +
                                         "")] StudentModel data)
+        {
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    // Send back for edit
-                    return View(data);
-                }
-
-                if (data == null)
-                {
-                    // Send to Error Page
-                    return RedirectToAction("Error", new { route = "Home", action = "Error" });
-                }
-
-                if (string.IsNullOrEmpty(data.Id))
-                {
-                    // Send back for Edit
-                    return View(data);
-                }
-
-                studentBackend.Delete(data.Id);
-
-                return RedirectToAction("Index");
+                // Send back for edit
+                return View(data);
             }
+
+            if (data == null)
+            {
+                // Send to Error Page
+                return RedirectToAction("Error", new { route = "Home", action = "Error" });
+            }
+
+            if (string.IsNullOrEmpty(data.Id))
+            {
+                // Send back for Edit
+                return View(data);
+            }
+
+            studentBackend.Delete(data.Id);
+
+            return RedirectToAction("Index");
         }
     }
+}
 
 

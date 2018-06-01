@@ -18,7 +18,7 @@ namespace EverPresent.Controllers
         //A Model used for a specific student
         private Models.StudentModel studentModel = new Models.StudentModel();
 
-        
+
         /// <summary>
         /// Returns the index of the Admin
         /// </summary>
@@ -86,7 +86,7 @@ namespace EverPresent.Controllers
         {
             return View();
         }
-     
+
         public ActionResult Activate(string id)
         {
             if (string.IsNullOrEmpty(id))

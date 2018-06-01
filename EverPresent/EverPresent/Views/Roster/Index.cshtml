@@ -44,57 +44,57 @@
     <div class="row text-center panel-ep">
 
         @{
-        if (Model.StudentList == null || !Model.StudentList.Any())
-        {
-            <br />
-            <p>No Students in the System</p>
-            <br />
-    }
-    else
-    {
-        foreach (var item in Model.StudentList)
-        {
-
-            if (item.Status != EverPresent.Models.Enums.StudentStatusEnum.Hold)
-        {
-            <div class="col-xs-3">
-                <div class="panel">
-                    @{ count++; string id = "id" + count;
-                    if (item.Status == EverPresent.Models.Enums.StudentStatusEnum.Out)
-                    {
-                        <a id="@item.Id" href="~/Roster/SetLogIn/@item.Id">
-
-                            <p id="@id"> <img src="~/image/@item.AvatarId" width="80" height="120" style="filter:grayscale(100%)" /></p>
-
-                            <br />
-                            <span>
-                                @item.Name
-                            </span>
-                        </a>
-                }
-                if (item.Status == EverPresent.Models.Enums.StudentStatusEnum.In)
+            if (Model.StudentList == null || !Model.StudentList.Any())
+            {
+                <br />
+                <p>No Students in the System</p>
+                <br />
+            }
+            else
+            {
+                foreach (var item in Model.StudentList)
                 {
-                    <a id="@item.Id" href="~/Roster/SetLogOut/@item.Id">
 
-                        <p id="@id"> <img src="~/image/@item.AvatarId" width="80" height="120" /></p>
+                    if (item.Status != EverPresent.Models.Enums.StudentStatusEnum.Hold)
+                    {
+                        <div class="col-xs-3">
+                            <div class="panel">
+                                @{ count++; string id = "id" + count;
+                                    if (item.Status == EverPresent.Models.Enums.StudentStatusEnum.Out)
+                                    {
+                                        <a id="@item.Id" href="~/Roster/SetLogIn/@item.Id">
 
-                        <br />
-                        <span>
-                            @item.Name
-                        </span>
-                    </a>
-                   }
+                                            <p id="@id"> <img src="~/image/@item.AvatarId" width="80" height="120" style="filter:grayscale(100%)" /></p>
+
+                                            <br />
+                                            <span>
+                                                @item.Name
+                                            </span>
+                                        </a>
+                                    }
+                                    if (item.Status == EverPresent.Models.Enums.StudentStatusEnum.In)
+                                    {
+                                        <a id="@item.Id" href="~/Roster/SetLogOut/@item.Id">
+
+                                            <p id="@id"> <img src="~/image/@item.AvatarId" width="80" height="120" /></p>
+
+                                            <br />
+                                            <span>
+                                                @item.Name
+                                            </span>
+                                        </a>
+                                    }
+                                }
+
+                            </div>
+                        </div>
                     }
-
-                </div>
-            </div>
-         }
-    }
-}
+                }
+            }
         }
 
     </div>
- </div>
+</div>
 <br />
 <br />
 <div class="row">
@@ -113,7 +113,7 @@
     function showAlert() {
         var x = document.getElementById("snackbar");
         // x.className = "show";
-       // setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        // setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     }
 
     // all students start out as already signed in
@@ -167,161 +167,153 @@
 
     // When a student is clicked, a message will appear for a few seconds indicating that they have successfully signed in or out.
     // When signing out, their Mogwai character becomes gray. When signing in, their Mogwair character is in full color.
-        document.getElementById("id1").addEventListener("click", myFunction);
-        function myFunction()
-        {
-            var zeroOneOddsZero = 0;
-            var zeroOneOddsOne = 1;
+    document.getElementById("id1").addEventListener("click", myFunction);
+    function myFunction() {
+        var zeroOneOddsZero = 0;
+        var zeroOneOddsOne = 1;
 
-            if (f1 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
-                document.getElementById("id1").style = "filter:grayscale(100%)";
-                f1 = true;
+        if (f1 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id1").style = "filter:grayscale(100%)";
+            f1 = true;
+        } else {
+            var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
+
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+
+            if (randomNumberTokens == zeroOneOddsZero) {
+                document.getElementById("tokensEarned").innerHTML = "30 tokens earned from yesterday";
             } else {
-                var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
-
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-
-                if (randomNumberTokens == zeroOneOddsZero) {
-                    document.getElementById("tokensEarned").innerHTML = "30 tokens earned from yesterday";
-                } else {
-                    document.getElementById("tokensEarned").innerHTML = "20 tokens earned from yesterday";
-                }
-                document.getElementById("mogwaiEarned").innerHTML = "Legendary Mogwai Loki received!";
-                document.getElementById("id1").style = "filter:graryscale(0%)";
-                f1 = false;
+                document.getElementById("tokensEarned").innerHTML = "20 tokens earned from yesterday";
             }
-            showAlert();
+            document.getElementById("mogwaiEarned").innerHTML = "Legendary Mogwai Loki received!";
+            document.getElementById("id1").style = "filter:graryscale(0%)";
+            f1 = false;
         }
-
-        document.getElementById("id2").addEventListener("click", myFunction2);
-        function myFunction2()
-        {
-            if (f2 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id2").style = "filter:grayscale(100%)";
-                f2 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id2").style = "filter:graryscale(0%)";
-                f2 = false;
-            }
-            showAlert();
-        }
-
-        document.getElementById("id3").addEventListener("click", myFunction3);
-        function myFunction3()
-        {
-            if (f3 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id3").style = "filter:grayscale(100%)";
-                f3 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id3").style = "filter:graryscale(0%)";
-                f3 = false;
-            }
-            showAlert();
+        showAlert();
     }
-       document.getElementById("id4").addEventListener("click", myFunction4);
-        function myFunction4()
-        {
-            if (f4 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id4").style = "filter:grayscale(100%)";
-                f4 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id4").style = "filter:graryscale(0%)";
-                f4 = false;
-            }
-            showAlert();
+
+    document.getElementById("id2").addEventListener("click", myFunction2);
+    function myFunction2() {
+        if (f2 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id2").style = "filter:grayscale(100%)";
+            f2 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id2").style = "filter:graryscale(0%)";
+            f2 = false;
+        }
+        showAlert();
+    }
+
+    document.getElementById("id3").addEventListener("click", myFunction3);
+    function myFunction3() {
+        if (f3 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id3").style = "filter:grayscale(100%)";
+            f3 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id3").style = "filter:graryscale(0%)";
+            f3 = false;
+        }
+        showAlert();
+    }
+    document.getElementById("id4").addEventListener("click", myFunction4);
+    function myFunction4() {
+        if (f4 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id4").style = "filter:grayscale(100%)";
+            f4 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id4").style = "filter:graryscale(0%)";
+            f4 = false;
+        }
+        showAlert();
     }
     document.getElementById("id5").addEventListener("click", myFunction5);
-        function myFunction5()
-        {
-            if (f5 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id5").style = "filter:grayscale(100%)";
-                f5 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id5").style = "filter:graryscale(0%)";
-                f5 = false;
-            }
-            showAlert();
-    }
-       document.getElementById("id6").addEventListener("click", myFunction6);
-        function myFunction6()
-        {
-            if (f6 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id6").style = "filter:grayscale(100%)";
-                f6 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id6").style = "filter:graryscale(0%)";
-                f6 = false;
-            }
-            showAlert();
-    }
-       document.getElementById("id7").addEventListener("click", myFunction7);
-        function myFunction7()
-        {
-            if (f7 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id7").style = "filter:grayscale(100%)";
-
-                f7 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id7").style = "filter:graryscale(0%)";
-                f7 = false;
-            }
-            showAlert();
-    }
-       document.getElementById("id8").addEventListener("click", myFunction8);
-        function myFunction8()
-        {
-            if (f8 == false) {
-                document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-                document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-                document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned 
-                document.getElementById("id8").style = "filter:grayscale(100%)";
-                f8 = true;
-            } else {
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
-                randomTokenGeneration();
-                randomMogwaiGeneration();
-                document.getElementById("id8").style = "filter:graryscale(0%)";
-                f8 = false;
-            }
-            showAlert();
+    function myFunction5() {
+        if (f5 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id5").style = "filter:grayscale(100%)";
+            f5 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id5").style = "filter:graryscale(0%)";
+            f5 = false;
         }
+        showAlert();
+    }
+    document.getElementById("id6").addEventListener("click", myFunction6);
+    function myFunction6() {
+        if (f6 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id6").style = "filter:grayscale(100%)";
+            f6 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id6").style = "filter:graryscale(0%)";
+            f6 = false;
+        }
+        showAlert();
+    }
+    document.getElementById("id7").addEventListener("click", myFunction7);
+    function myFunction7() {
+        if (f7 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id7").style = "filter:grayscale(100%)";
+
+            f7 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id7").style = "filter:graryscale(0%)";
+            f7 = false;
+        }
+        showAlert();
+    }
+    document.getElementById("id8").addEventListener("click", myFunction8);
+    function myFunction8() {
+        if (f8 == false) {
+            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+            document.getElementById("id8").style = "filter:grayscale(100%)";
+            f8 = true;
+        } else {
+            document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+            randomTokenGeneration();
+            randomMogwaiGeneration();
+            document.getElementById("id8").style = "filter:graryscale(0%)";
+            f8 = false;
+        }
+        showAlert();
+    }
 </script>

@@ -169,25 +169,24 @@
 
     // When a student is clicked, a message will appear for a few seconds indicating that they have successfully signed in or out.
     // When signing out, their Mogwai character becomes gray. When signing in, their Mogwair character is in full color.
-        function myFunction()
-        {
-            var zeroOneOddsZero = 0;
-            var zeroOneOddsOne = 1;
+    function myFunction() {
+        var zeroOneOddsZero = 0;
+        var zeroOneOddsOne = 1;
 
 
-                var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
+        var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
 
-                document.getElementById("clockInOut").innerHTML = "Clock in Success!";
+        document.getElementById("clockInOut").innerHTML = "Clock in Success!";
 
-                if (randomNumberTokens == zeroOneOddsZero) {
-                    document.getElementById("tokensEarned").innerHTML = "30 tokens earned from yesterday";
-                } else {
-                    document.getElementById("tokensEarned").innerHTML = "20 tokens earned from yesterday";
-                }
-                document.getElementById("mogwaiEarned").innerHTML = "Legendary Mogwai Loki received!";
-
-            showAlert();
+        if (randomNumberTokens == zeroOneOddsZero) {
+            document.getElementById("tokensEarned").innerHTML = "30 tokens earned from yesterday";
+        } else {
+            document.getElementById("tokensEarned").innerHTML = "20 tokens earned from yesterday";
         }
+        document.getElementById("mogwaiEarned").innerHTML = "Legendary Mogwai Loki received!";
+
+        showAlert();
+    }
 
 
 

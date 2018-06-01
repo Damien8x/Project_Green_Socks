@@ -25,13 +25,13 @@ a purchase will complete and student's token amount will have the price of the M
             <div class="item active">
 
                 <div class="carousel-caption">
-                    <h3 class="h3black">Welcome To Mogwai Market. <br/> Choose Wisely ;)</h3>
+                    <h3 class="h3black">Welcome To Mogwai Market. <br /> Choose Wisely ;)</h3>
                 </div>
             </div>
             <div class="item">
                 <img src="~/image/avatar0.png" alt="Second Slide" height="300">
                 <div class="carousel-caption">
-                    <button id="Jord" type="button" onclick="location.href='@Url.Action("MogwaiPurchase", "Student",new {deduct = 100})'" class="btn-market">Jord<br />Family: Aegir<br />Rarity: 1<br />Cost: 100 Tokens<br/><p class="buyBox">Click to Buy</p></button>
+                    <button id="Jord" type="button" onclick="location.href='@Url.Action("MogwaiPurchase", "Student",new {deduct = 100})'" class="btn-market">Jord<br />Family: Aegir<br />Rarity: 1<br />Cost: 100 Tokens<br /><p class="buyBox">Click to Buy</p></button>
                 </div>
             </div>
 
@@ -112,13 +112,13 @@ a purchase will complete and student's token amount will have the price of the M
 
      document.getElementById("Jord").addEventListener("click", myFunctionSuccess);
      function myFunctionSuccess() {
-        
+
              document.getElementById("snackbar").innerHTML = "Mogwai Purchased! " + tokens + " Tokens Remain";
              var x = document.getElementById("snackbar");
              x.className = "show";
              setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
          }
-       
+
 
 </script>
 

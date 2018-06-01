@@ -2,16 +2,15 @@
 @model EverPresent.Models.StudentModel
 @{
     ViewBag.Title = "EditAndrew";
-  
+
 }
 
 <h1 style="text-align: center; font-size:xx-large; margin-top:200px; margin-bottom:200px" display="block"> Edit Student</h1>
 
 
-
 <div class="container">
     <div class="row">
-     
+
         @{
             if (Model == null)
             {
@@ -21,14 +20,12 @@
             else
             {
                 <div class="row">
-                
-
 
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(m => m.Id)
-                        @Html.HiddenFor(m=> m.AvatarId)
+                        @Html.HiddenFor(m => m.AvatarId)
                         @Html.HiddenFor(m => m.Status)
 
                         <div class="row">
@@ -50,7 +47,7 @@
                                 @Html.ValidationMessageFor(m => m.Tokens)
                             </div>
                         </div>
-                       
+
                         <br />
                         <br />
                         <div class="row">
@@ -64,11 +61,9 @@
 
                     }
 
-
                 </div>
             }
-
-        }
+                    }
     </div>
 </div>
 
