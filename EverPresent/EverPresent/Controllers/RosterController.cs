@@ -27,6 +27,13 @@ namespace EverPresent.Controllers
 
         }
 
+        /// <summary>
+        /// Toggles Status Enum of Student equal to the argument
+        /// by calling the ToggleStatusById() method.
+        /// Redirects to "IndexOut" view for appropriate toast
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult SetLogin(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -37,8 +44,13 @@ namespace EverPresent.Controllers
             StudentBackend.ToggleStatusById(id);
             return RedirectToAction("IndexOut");
         }
-
-        // GET: Kiosk/SetLogout/5
+        /// <summary>
+        /// Toggles Status Enum of Student equal to the argument
+        /// by calling the ToggleStatusById() method.
+        /// Redirects to "IndexIn" view for appropriate toast
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult SetLogout(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -49,18 +61,25 @@ namespace EverPresent.Controllers
             StudentBackend.ToggleStatusById(id);
             return RedirectToAction("IndexIn");
         }
+
+        /// <summary>
+        /// Method for IndexIn View. 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult IndexIn()
         {
-
             var myDataList = StudentBackend.Index();
             var StudentViewModel = new StudentViewModel(myDataList);
             return View(StudentViewModel);
 
         }
 
+        /// <summary>
+        /// Method for IndexOut View. 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult IndexOut()
         {
-
             var myDataList = StudentBackend.Index();
             var StudentViewModel = new StudentViewModel(myDataList);
             return View(StudentViewModel);
