@@ -12,8 +12,12 @@
             <h3>@DateTime.Now.ToString(@"MMM d yyyy") <span id="datetime"></span></h3>
         </div>
         <script>
-            var dt = new Date();
-            document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            function update() {
+                var dt = new Date();
+                document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            }
+            update();
+            window.setInterval(update, 1000);
         </script>
     </div>
 </div>
