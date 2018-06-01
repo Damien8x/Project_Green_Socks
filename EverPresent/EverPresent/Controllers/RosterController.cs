@@ -23,7 +23,7 @@ namespace EverPresent.Controllers
 
             var myDataList = StudentBackend.Index();
             var StudentViewModel = new StudentViewModel(myDataList);
-            return View(StudentViewModel); 
+            return View(StudentViewModel);
 
         }
 
@@ -35,7 +35,7 @@ namespace EverPresent.Controllers
             }
 
             StudentBackend.ToggleStatusById(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexOut");
         }
 
         // GET: Kiosk/SetLogout/5
@@ -47,7 +47,26 @@ namespace EverPresent.Controllers
             }
 
             StudentBackend.ToggleStatusById(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexIn");
         }
+        public ActionResult IndexIn()
+        {
+
+            var myDataList = StudentBackend.Index();
+            var StudentViewModel = new StudentViewModel(myDataList);
+            return View(StudentViewModel);
+
+        }
+
+        public ActionResult IndexOut()
+        {
+
+            var myDataList = StudentBackend.Index();
+            var StudentViewModel = new StudentViewModel(myDataList);
+            return View(StudentViewModel);
+
+        }
+
+
     }
 }

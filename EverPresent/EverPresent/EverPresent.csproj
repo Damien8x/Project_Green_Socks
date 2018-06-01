@@ -366,6 +366,8 @@
     <Content Include="Views\Student\AddStudent.cshtml" />
     <Content Include="Views\Student\MarketplaceSuccess.cshtml" />
     <Content Include="Views\Student\MarketplaceDennied.cshtml" />
+    <Content Include="Views\Roster\IndexIn.cshtml" />
+    <Content Include="Views\Roster\IndexOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
