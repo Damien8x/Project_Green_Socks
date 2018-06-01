@@ -40,23 +40,6 @@ namespace EverPresent.Controllers
             return View(Tuple.Create(myData, studentViewModel));
         }
 
-        /// <summary>
-        /// Shows Andrew's (student ID 1) profile page with graphs
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Andrew()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// Shows a page where Andrew (student ID 1) can be edited
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult EditAndrewAttendance()
-        {
-            return View();
-        }
 
         /// <summary>
         /// Shows a page of inactive students
