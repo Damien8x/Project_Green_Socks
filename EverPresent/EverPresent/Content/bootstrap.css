@@ -30,8 +30,19 @@ summary {
     display: block;
 }
 
+.h3black{
+    color:black;
+}
 
-
+.buyBox {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    color: white;
+    background-color: black;
+    width: 25%;
+}
 audio,
 canvas,
 progress,
