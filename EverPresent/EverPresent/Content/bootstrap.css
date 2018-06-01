@@ -77,9 +77,16 @@ template {
     list-style: none;
     opacity:.8;
 }
+.calendar_div {
+ margin-top:50px; text-align:center;
+}
+.calendar_h2 {
+    margin-bottom: 50px;
+}
 
-
-
+.calendar_figCaption {
+    margin-bottom: 100px;
+}
 .btn-info1 {
     color: #fff;
     background-color: #5bc0de;
