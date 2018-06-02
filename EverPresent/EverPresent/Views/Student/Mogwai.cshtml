@@ -1,57 +1,4 @@
-﻿@model EverPresent.Models.StudentModel
-
-@{
-                /**/
-
-                ViewBag.Title = "Mogwai";
-                Layout = "~/Views/Shared/_StudentLayout.cshtml";
-}
-
-@functions {
-
-    // Create a local Mogwai class to display student's current Mogwai
-    public class Mogwai
-    {
-        // Mogwai name
-        public string Name { get; set; }
-
-        // Mogwai Family
-        public string Family { get; set; }
-
-        // Image Uri of Mogwai
-        public string Uri { get; set; }
-
-        // Marketplace cost of Mogwai
-        public int Cost { get; set; }
-
-        // Rarity level of Mogwai (1 common, 5 rare)
-        public int RarityLevel { get; set; }
-
-        // General Mogwai level, all start at 1
-        public int Level { get; set; }
-
-        public Mogwai(string name, string family, string uri, int cost, int rarityLevel, int level)
-        {
-            Name = name;
-            Family = family;
-            Uri = uri;
-            Cost = cost;
-            RarityLevel = rarityLevel;
-            Level = level;
-        }
-
-    }
-
-    // Create mock Mogwai
-    Mogwai mogwai1 = new Mogwai("Jord", "Aegir", "avatar9.png", 100, 1, 1);
-    Mogwai mogwai2 = new Mogwai("Freya", "Aegir", "avatar1.png", 200, 2, 1);
-    Mogwai mogwai3 = new Mogwai("Hodr", "Tyr", "avatar2.png", 100, 1, 1);
-    Mogwai mogwai4 = new Mogwai("Vili", "Tyr", "avatar3.png", 300, 3, 4);
-    Mogwai mogwai5 = new Mogwai("Loki", "Odin", "avatar4.png", 500, 5, 1);
-    Mogwai mogwai6 = new Mogwai("Frigg", "Odin", "avatar5.png", 200, 2, 1);
-    Mogwai mogwai7 = new Mogwai("Sif", "Odin", "avatar6.png", 100, 4, 1);
-    Mogwai mogwai8 = new Mogwai("Burr", "Odin", "avatar7.png", 200, 1, 2);
-}
+﻿@model EverPresent.Models.MogwaiViewModel
 
 <!-- Show what Mogwai they earned today-->
 <div class="container">
@@ -59,17 +6,17 @@
         <div class="col-md-3">
             <div class="mogwai-info">
                 <h4>Mogwai Earned Today...</h4>
-                <img src="~/image/@mogwai5.Uri" alt="Loki" height="100" width="75" />
+                <img src="~/image/avatar4.png" alt="Loki" height="100" width="75" />
                 <br />
-                <b>@mogwai5.Name</b>
+                <b>Loki</b>
                 <br />
-                <b>Family: @mogwai5.Family</b>
+                <b>Family: Odin</b>
                 <br />
-                <b>Rarity: @mogwai5.RarityLevel</b>
+                <b>Rarity: 5</b>
             </div>
         </div>
         <div class="col-md-3 col-md-offset-6">
-            <h4>Current Tokens: @Html.DisplayFor(m => m.Tokens) </h4>
+            <h4>Current Tokens: </h4>
         </div>
     </div>
 </div>
@@ -79,107 +26,46 @@
     <h2>My Mogwai Collection</h2>
     <br />
     <div class="row">
-        <div class="col-sm-2">
-            <div class="mogwai-info">
-                <img src="~/image/@mogwai5.Uri" alt="Loki" height="100" width="75" />
+        @{
+            if (Model.MogwaiList == null || !Model.MogwaiList.Any())
+            {
                 <br />
-                <b>@mogwai5.Name</b>
+                <p>No Mogwai in the System</p>
                 <br />
-                <b>Family: @mogwai5.Family</b>
-                <br />
-                <b>Rarity: @mogwai5.RarityLevel</b>
-                <br />
-                <b>Level: @mogwai5.Level</b>
-                <br />
-                <br />
-                <button type="button" class="btn btn-info">Level Up</button>
-            </div>
-        </div>
+            }
+            else
+            {
+                foreach (var item in Model.MogwaiList)
+                {
+                    if (item.Name == "Loki" || item.Name == "Vili" || item.Name == "Frigg" || item.Name == "Jord" || item.Name == "Sif" | item.Name == "Burr")
+                    {
+                        <div class="col-sm-2">
+                            <img src="~/image/@item.Uri" class="mogwaiSizeSmall" />
+                            <br />
+                            <div class="mogwai-info">
+                                <span>
+                                    <br />
+                                    <b>@item.Name</b>
+                                    <br />
+                                    <b>Family: @item.Family</b>
+                                    <br />
+                                    <b>Rarity: @item.Rarity</b>
+                                    <br />
+                                    <b>Current Level: @item.Level</b>
+                                    <br />
+                                    <br />
+                                    <button type="button" class="btn btn-info">Level Up</button>
+                                    <br />
+                                </span>
+                            </div>
+                        </div>
+                    }
 
-        <div class="col-sm-2">
-            <div class="mogwai-info">
-                <img src="~/image/@mogwai4.Uri" alt="Vili" height="100" width="75" />
-                <br />
-                <b>@mogwai4.Name</b>
-                <br />
-                <b>Family: @mogwai4.Family</b>
-                <br />
-                <b>Rarity: @mogwai4.RarityLevel</b>
-                <br />
-                <b>Level: @mogwai4.Level</b>
-                <br />
-                <br />
-                <button type="button" class="btn btn-info">Level Up</button>
-            </div>
-        </div>
+                }
+            }
+        }
 
-        <div class="col-sm-2">
-            <div class="mogwai-info">
-                <img src="~/image/@mogwai6.Uri" alt="Frigg" height="100" width="75" />
-                <br />
-                <b>@mogwai6.Name</b>
-                <br />
-                <b>Family: @mogwai6.Family</b>
-                <br />
-                <b>Rarity: @mogwai6.RarityLevel</b>
-                <br />
-                <b>Level: @mogwai6.Level</b>
-                <br />
-                <br />
-                <button type="button" class="btn btn-info">Level Up</button>
-            </div>
-        </div>
 
-        <div class="col-sm-2">
-            <div class="mogwai-info">
-                <img src="~/image/@mogwai1.Uri" alt="Jord" height="100" width="75" />
-                <br />
-                <b>@mogwai1.Name</b>
-                <br />
-                <b>Family: @mogwai1.Family</b>
-                <br />
-                <b>Rarity: @mogwai1.RarityLevel</b>
-                <br />
-                <b>Level: @mogwai1.Level</b>
-                <br />
-                <br />
-                <button type="button" class="btn btn-info">Level Up</button>
-            </div>
-        </div>
-
-        <div class="col-sm-2">
-            <div class="mogwai-info">
-                <img src="~/image/@mogwai7.Uri" alt="Sif" height="100" width="75" />
-                <br />
-                <b>@mogwai7.Name</b>
-                <br />
-                <b>Family: @mogwai7.Family</b>
-                <br />
-                <b>Rarity: @mogwai7.RarityLevel</b>
-                <br />
-                <b>Level: @mogwai7.Level</b>
-                <br />
-                <br />
-                <button type="button" class="btn btn-info">Level Up</button>
-            </div>
-        </div>
-
-        <div class="col-sm-2">
-            <div class="mogwai-info">
-                <img src="~/image/@mogwai8.Uri" alt="Burr" height="100" width="75" />
-                <br />
-                <b>@mogwai8.Name</b>
-                <br />
-                <b>Family: @mogwai8.Family</b>
-                <br />
-                <b>Rarity: @mogwai8.RarityLevel</b>
-                <br />
-                <b>Level: @mogwai8.Level</b>
-                <br />
-                <br />
-                <button type="button" class="btn btn-info">Level Up</button>
-            </div>
-        </div>
     </div>
 </div>
 <br />
