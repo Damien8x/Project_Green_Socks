@@ -1,12 +1,20 @@
 ﻿@model EverPresent.Models.MogwaiViewModel
 
+
+@{
+    var studentBackend = EverPresent.Backend.StudentDataSourceMock.Instance;
+    var studentAndrew = studentBackend.Read("1");
+}
+
+
 <!-- Show what Mogwai they earned today-->
 <div class="container">
     <div class="row">
         <div class="col-md-3">
             <div class="mogwai-info">
                 <h4>Mogwai Earned Today...</h4>
-                <img src="~/image/avatar4.png" alt="Loki" height="100" width="75" />
+                <img src="~/image/avatar4.png" class="mogwaiSizeSmall" />
+                <br />
                 <br />
                 <b>Loki</b>
                 <br />
@@ -16,7 +24,7 @@
             </div>
         </div>
         <div class="col-md-3 col-md-offset-6">
-            <h4>Current Tokens: </h4>
+            <h4>Current Tokens: @studentAndrew.Tokens</h4>
         </div>
     </div>
 </div>
@@ -37,6 +45,7 @@
             {
                 foreach (var item in Model.MogwaiList)
                 {
+                    // Create a 'collection' for Andrew
                     if (item.Name == "Loki" || item.Name == "Vili" || item.Name == "Frigg" || item.Name == "Jord" || item.Name == "Sif" | item.Name == "Burr")
                     {
                         <div class="col-sm-2">
