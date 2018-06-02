@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 <div>
-    <h2 style="text-align:center;">Mogwai Market </h2>
+    <h2 class="studentMarketplaceHeader">Mogwai Market </h2>
 </div>
 
 
@@ -89,8 +89,11 @@ a purchase will complete and student's token amount will have the price of the M
     </div>
 </div>
 
-<div style="text-align:center; font-size:larger" class="col-md-4 col-md-offset-4">
+<div class="col-md-4 col-md-offset-4 studentMarketplaceCurrentTokens">
     <h2 id="clicked">Current Tokens: @Model.Tokens </h2>
+    <br />
+    <br />
+    <br />
 </div>
 
 

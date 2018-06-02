@@ -91,3 +91,13 @@ h2, h3, h4 {
 .studentsPersonalGraphs {
     margin-bottom: 30px;
 }
+
+/* Student / Marketplace styles*/
+.studentMarketplaceHeader {
+    text-align: center;
+}
+
+.studentMarketplaceCurrentTokens {
+    text-align: center;
+    font-size: larger;
+}
