@@ -72,8 +72,18 @@ h2, h3, h4 {
     border-color: #333;
 }
 
-    .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary {
-        color: #ffffff;
-        background-color: #444;
-        border-color: #555;
-    }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary {
+    color: #ffffff;
+    background-color: #444;
+    border-color: #555;
+}
+
+/* Student / Index view headers*/
+.mogwaiReportsHeader {
+    margin-top: 30px;
+}
+
+.studentIndexTokenCount {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
