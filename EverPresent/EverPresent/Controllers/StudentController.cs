@@ -18,6 +18,12 @@ namespace EverPresent.Controllers
         // The Backend Data source
         private StudentBackend studentBackend = StudentBackend.Instance;
 
+        // A ViewModel used for the Mogwai that contains the MogwaList
+        private MogwaiViewModel mogwaiViewModel = new MogwaiViewModel();
+
+        // The Backend Mogwai Data source
+        private MogwaiBackend mogwaiBackend = MogwaiBackend.Instance;
+
         // GET: Student (id "1"). Will show Andrew's Index page
         public ActionResult Index(string id = null)
         {
@@ -50,7 +56,11 @@ namespace EverPresent.Controllers
         public ActionResult Mogwai(string id = null)
         {
             var myData = studentBackend.Read("1");
-            return View(myData);
+
+            // Load the list of data into the AvatarList
+            mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
+
+            return View(mogwaiViewModel);
         }
 
         // Shows the Mogwai marketplace for student with ID 1

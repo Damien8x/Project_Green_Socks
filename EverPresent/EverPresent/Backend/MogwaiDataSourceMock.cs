@@ -84,8 +84,11 @@ namespace EverPresent.Backend
             }
             var myReturn = mogwaiList.Find(n => n.Id == data.Id);
             myReturn.Name = data.Name;
-            myReturn.Description = data.Description;
+            myReturn.Family = data.Family;
             myReturn.Uri = data.Uri;
+            myReturn.Cost = data.Cost;
+            myReturn.Level = data.Level;
+            myReturn.Rarity = data.Rarity;
 
             return myReturn;
         }
@@ -130,17 +133,15 @@ namespace EverPresent.Backend
         /// </summary>
         public void Initialize()
         {
-            var count = 0;
-            Create(new MogwaiModel("pokemon_bee.svg", "Nidoran", "Happy Officer"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Kunoichi", "Ninja Lady"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Angry", "Angry, but happy"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Playfull", "Anyone want a ride?"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Pirate", "Where is my ship?"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Blue", "Having a Blue Day"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Pigtails", "Love my hair"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Ninja", "Taste my Katana"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Circus", "Swinging from the Trapeese"));
-            Create(new MogwaiModel("avatar" + count++.ToString() + ".png", "Chief", "I love to cook"));
+            // Create 8 Mock Mogwai
+            Create(new MogwaiModel("avatar9.png", "Jord", "Aegir", 100, 1, 1));
+            Create(new MogwaiModel("avatar1.png", "Frey", "Aegir", 200, 2, 1));
+            Create(new MogwaiModel("avatar2.png", "Hodr", "Tyr", 100, 1, 1));
+            Create(new MogwaiModel("avatar3.png", "Vili", "Tyr", 300, 3, 4));
+            Create(new MogwaiModel("avatar4.png", "Loki", "Odin", 500, 5, 1));
+            Create(new MogwaiModel("avatar5.png", "Frigg", "Odin", 200, 2, 1));
+            Create(new MogwaiModel("avatar6.png", "Sif", "Odin", 100, 4, 1));
+            Create(new MogwaiModel("avatar7.png", "Burr", "Odin", 200, 1, 2));
         }
     }
 }
