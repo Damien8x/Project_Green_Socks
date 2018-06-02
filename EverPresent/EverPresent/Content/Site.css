@@ -78,7 +78,7 @@ h2, h3, h4 {
     border-color: #555;
 }
 
-/* Student / Index view headers*/
+/* Student / Index styles*/
 .mogwaiReportsHeader {
     margin-top: 30px;
 }
@@ -86,4 +86,8 @@ h2, h3, h4 {
 .studentIndexTokenCount {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.studentsPersonalGraphs {
+    margin-bottom: 30px;
 }
