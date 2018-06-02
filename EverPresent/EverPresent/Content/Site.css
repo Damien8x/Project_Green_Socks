@@ -49,11 +49,17 @@ h2, h3, h4 {
 /* Mogwai image size small*/
 .mogwaiSizeSmall {
     height: 100px;
-    width: 75;
+    width: 75px;
 }
 
 /* Mogwai image size medium */
 .mogwaiSizeMedium {
     height: 120px;
     width: 80px;
+}
+
+.mogwaiMediumGrayscale {
+    height: 120px;
+    width: 80px;
+    filter: grayscale(100%);
 }
