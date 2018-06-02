@@ -45,3 +45,15 @@ h2, h3, h4 {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
 }
+
+/* Mogwai image size small*/
+.mogwaiSizeSmall {
+    height: 100px;
+    width: 75;
+}
+
+/* Mogwai image size medium */
+.mogwaiSizeMedium {
+    height: 120px;
+    width: 80px;
+}
