@@ -58,8 +58,22 @@ h2, h3, h4 {
     width: 80px;
 }
 
+/* Mogwai Image Medium Grayscaling */
 .mogwaiMediumGrayscale {
     height: 120px;
     width: 80px;
     filter: grayscale(100%);
 }
+
+/* Dark bootstrap button */
+.btn-dark {
+    color: #ffffff;
+    background-color: #333;
+    border-color: #333;
+}
+
+    .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary {
+        color: #ffffff;
+        background-color: #444;
+        border-color: #555;
+    }
