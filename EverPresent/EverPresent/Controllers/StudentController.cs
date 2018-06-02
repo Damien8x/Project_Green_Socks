@@ -24,6 +24,12 @@ namespace EverPresent.Controllers
         // The Backend Mogwai Data source
         private MogwaiBackend mogwaiBackend = MogwaiBackend.Instance;
 
+        // return login view
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         // GET: Student (id "1"). Will show Andrew's Index page
         public ActionResult Index(string id = null)
         {
