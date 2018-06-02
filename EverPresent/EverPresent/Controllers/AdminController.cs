@@ -18,6 +18,11 @@ namespace EverPresent.Controllers
         //A Model used for a specific student
         private Models.StudentModel studentModel = new Models.StudentModel();
 
+        // return login page
+        public ActionResult Login()
+        {
+            return View();
+        }
 
         /// <summary>
         /// Returns the index of the Admin
