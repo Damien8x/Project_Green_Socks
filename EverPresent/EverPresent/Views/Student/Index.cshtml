@@ -56,7 +56,11 @@
 
     <div class="container">
         <div class="row text-center mogwaiReportsHeader"><h2>Mogwai Reports</h2></div>
-        <div class="row text-center studentIndexTokenCount"><h4>Current Tokens: @Html.DisplayFor(m => m.Tokens)</h4></div>
+        <div class="row text-center studentIndexTokenCount">
+            <button type="button" onclick="location.href='@Url.Action("Marketplace", "Student", null)'" class="btn btn-success">
+            <h4>Current Tokens: @Html.DisplayFor(m => m.Tokens)</h4>
+</button>
+        </div>
     </div>
 
     <!-- Show Students Mogwai Graphs -->
