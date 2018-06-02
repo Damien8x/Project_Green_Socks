@@ -33,7 +33,7 @@
                             <div class="panel">
 
                                 @{count++; string id = "" + count; }
-                                <img src="~/image/@item.AvatarId" width="75" height="75" />
+                                <img src="~/image/@item.AvatarId" class="mogwaiSizeSmall" />
                                 <button id="@item.Id" type="button" onclick="location.href='@Url.Action("Activate", "Admin", new {id = @item.Id })'" class="btn-info1">activate</button>
 
 
