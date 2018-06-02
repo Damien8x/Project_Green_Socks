@@ -311,7 +311,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\studentGraphs.js" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\InactiveStudents.cshtml" />
     <Content Include="Views\Admin\Calendar.cshtml" />
