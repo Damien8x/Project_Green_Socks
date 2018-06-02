@@ -72,22 +72,29 @@ namespace EverPresent.Controllers
         // Shows the Mogwai marketplace for student with ID 1
         public ActionResult Marketplace(string id = null)
         {
+          
             var myData = studentBackend.Read("1");
-            return View(myData);
+            mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
+            return View(Tuple.Create(myData, mogwaiViewModel));
+
         }
         //Shows the Mogwai marketplace for student with ID 1 with a toast message
         //displaying a successful transaction has been made
         public ActionResult MarketplaceSuccess(string id = null)
         {
             var myData = studentBackend.Read("1");
-            return View(myData);
+            var myDataList = studentBackend.Index();
+            mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
+            return View(Tuple.Create(myData, mogwaiViewModel));
         }
         //Shows the Mogwai marketplace for student with ID 1 with a toast message
         //displaying a transaction has not been made
         public ActionResult MarketplaceDennied(string id = null)
         {
             var myData = studentBackend.Read("1");
-            return View(myData);
+            var myDataList = studentBackend.Index();
+            mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
+            return View(Tuple.Create(myData, mogwaiViewModel));
         }
 
         // Shows editable data for student with ID 1
