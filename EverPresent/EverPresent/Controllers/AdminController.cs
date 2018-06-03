@@ -58,15 +58,6 @@ namespace EverPresent.Controllers
         }
 
         /// <summary>
-        /// Shows a generic student report
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult GenerateReports()
-        {
-            return View();
-        }
-
-        /// <summary>
         /// Shows the school calendar
         /// </summary>
         /// <returns></returns>
