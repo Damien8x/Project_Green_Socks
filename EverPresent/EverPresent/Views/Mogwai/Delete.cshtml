@@ -25,7 +25,7 @@
                         <div class="col-sm-3 text-right">
                         </div>
                         <div class="col-sm-4">
-                            <img src="~/image/@Model.Uri" width="75" height="75" />
+                            <img src="~/image/@Model.Uri" class="mogwaiSizeSmall" />
                             <br />
                             <span>
                                 @Model.Name
@@ -43,6 +43,10 @@
                         @Html.HiddenFor(m => m.Name)
                         @Html.HiddenFor(m => m.Description)
                         @Html.HiddenFor(m => m.Uri)
+                        @Html.HiddenFor(m => m.Family)
+                        @Html.HiddenFor(m => m.Cost)
+                        @Html.HiddenFor(m => m.Rarity)
+                        @Html.HiddenFor(m => m.Level)
 
                         <div class="row">
                             <div class="col-sm-3 text-right">
