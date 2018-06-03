@@ -17,7 +17,7 @@ namespace EverPresent.Controllers
 
         // GET: Mogwai
         /// <summary>
-        /// Index, the page that shows all the mogwais
+        /// Index, the page that shows all the Mogwais
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
@@ -28,11 +28,11 @@ namespace EverPresent.Controllers
         }
 
         /// <summary>
-        /// Read information on a single mogwai
+        /// Read information on a single Mogwai
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Mogwai/Details/5
+        // GET: Mogwai
         public ActionResult Read(string id = null)
         {
             var myData = mogwaiBackend.Read(id);
@@ -51,9 +51,9 @@ namespace EverPresent.Controllers
         }
 
         /// <summary>
-        /// Make a new mogwai sent in by the create mogwai screen
+        /// Creates a new Mogwai based on info passed in
         /// </summary>
-        /// <param name="collection"></param>
+        /// <param name="data">The info for the new Mogwai</param>
         /// <returns></returns>
         // POST: Mogwai/Create
         [HttpPost]
@@ -96,7 +96,7 @@ namespace EverPresent.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Mogwai/Edit/5
+        // GET: Mogwai/Update
         public ActionResult Update(string id = null)
         {
             var myData = mogwaiBackend.Read(id);
@@ -104,9 +104,9 @@ namespace EverPresent.Controllers
         }
 
         /// <summary>
-        /// This updates the mogwai based on the information posted from the udpate page
+        /// This updates the mogwai based on the information posted from the update page
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">The details of the Mogwai to update</param>
         /// <returns></returns>
         // POST: Mogwai/Update
         [HttpPost]
@@ -155,7 +155,7 @@ namespace EverPresent.Controllers
         /// <summary>
         /// This shows the mogwai info to be deleted
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The ID of the Mogwai to delete</param>
         /// <returns></returns>
         // GET: Mogwai/Delete
         public ActionResult Delete(string id = null)
@@ -167,9 +167,9 @@ namespace EverPresent.Controllers
         /// <summary>
         /// This deletes the mogwai sent up as a post from the mogwai delete page
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">The info of the Mogwai to delete</param>
         /// <returns></returns>
-        // POST: Mogwai/Delete/5
+        // POST: Mogwai/Delete
         [HttpPost]
         public ActionResult Delete([Bind(Include=
                                         "Id,"+
