@@ -206,6 +206,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Models\SystemGlobals.cs" />
     <Compile Include="Models\Enums\DataSourceEnum.cs" />
@@ -369,6 +370,8 @@
     <Content Include="Views\Roster\IndexOut.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Student\Login.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ContactSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

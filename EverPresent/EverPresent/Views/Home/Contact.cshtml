@@ -1,0 +1,53 @@
+﻿
+@model EverPresent.Models.ContactModel
+
+
+    @using (Html.BeginForm())
+    {
+        <div id="editStudent" class="container-fluid" margin-top:10px;" align="center">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Name)
+                </div>
+                <div class="col-sm-2">
+                    @Html.EditorFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Email)
+                </div>
+                <div class="col-sm-2">
+                    @Html.EditorFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Message)
+                </div>
+                <div class="col-sm-2">
+                    @Html.TextAreaFor(m => m.Message)
+                    @Html.ValidationMessageFor(m => m.Message)
+                </div>
+            </div>
+
+
+            <div>
+
+                <button type="submit" class="btn btn-default">
+                    Submit
+                </button>
+
+            </div>
+
+
+        </div><!-- /.container -->
+    }
