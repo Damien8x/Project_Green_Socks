@@ -1,7 +1,9 @@
 ﻿@model EverPresent.Models.MogwaiModel
 
 @{
-    ViewBag.Title = "Update";
+                /**/
+
+                ViewBag.Title = "Update";
 }
 
 
@@ -16,78 +18,45 @@
 
             else
             {
-                <div class="row">
+                <div class="row text-center">
                     <h2>Update Mogwai</h2>
                     <br />
                     <br />
 
-                    <div class="row">
-                        <div class="col-sm-3 text-right">
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="~/image/@Model.Uri" width="75" height="75" />
+                    <div class="row text-center mogwai-info">
+                        <img src="~/image/@Model.Uri" class="mogwaiSizeSmall" />
+                        <br />
+                        <br />
+                        <span>
+                            <h4><b>@Model.Name</b></h4>
                             <br />
-                            <span>
-                                @Model.Name
-                                <br />
-                                <br />
-                                <br />
-                            </span>
-                        </div>
+                        </span>
                     </div>
 
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(m => m.Id)
-
-                        <div class="row">
-                            <div class="col-sm-3 text-right">
-                                @Html.DisplayNameFor(m => m.Name)
-                            </div>
-                            <div class="col-sm-4">
-                                @Html.EditorFor(m => m.Name)
-                                @Html.ValidationMessageFor(m => m.Name)
-                            </div>
+                        @Html.HiddenFor(m => m.Uri)
+                        @Html.HiddenFor(m => m.Name)
+                        @Html.HiddenFor(m => m.Family)
+                        @Html.HiddenFor(m => m.Description)
+                        @Html.HiddenFor(m => m.Cost)
+                        @Html.HiddenFor(m => m.Rarity)
+                        <div class="row text-center">
+                            <b>@Html.DisplayNameFor(m => m.Level)</b>
+                            @Html.EditorFor(m => m.Level)
+                            @Html.ValidationMessageFor(m => m.Level)
+                            <br />
+                            <br />
                         </div>
-
-                        <div class="row">
-                            <div class="col-sm-3 text-right">
-                                @Html.DisplayNameFor(m => m.Description)
-                            </div>
-                            <div class="col-sm-4">
-                                @Html.EditorFor(m => m.Description)
-                                @Html.ValidationMessageFor(m => m.Description)
-                            </div>
+                        <div class="row text-center">
+                            @Html.ActionLink("Cancel", "Mogwai", "Student", new { id = Model.Id }, new { @class = "btn btn-dark" })
+                            <input type="submit" value="Update" class="btn btn-primary">
                         </div>
-
-                        <div class="row">
-                            <div class="col-sm-3 text-right">
-                                @Html.DisplayNameFor(m => m.Uri)
-                            </div>
-                            <div class="col-sm-4">
-                                @Html.EditorFor(m => m.Uri)
-                                @Html.ValidationMessageFor(m => m.Uri)
-                            </div>
-                        </div>
-
-                        <br />
-                        <br />
-                        <div class="row">
-                            <div class="col-sm-3 text-right">
-                            </div>
-                            <div class="col-sm-4">
-                                @Html.ActionLink("Cancel", "Index", new { id = Model.Id }, new { @class = "btn btn-success" })
-                                <input type="submit" value="Update" class="btn btn-primary">
-                            </div>
-                        </div>
-
                     }
-
-
                 </div>
             }
-
         }
     </div>
 </div>

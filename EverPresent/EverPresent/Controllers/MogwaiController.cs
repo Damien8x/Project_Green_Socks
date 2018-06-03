@@ -62,6 +62,10 @@ namespace EverPresent.Controllers
                                         "Name,"+
                                         "Description,"+
                                         "Uri,"+
+                                        "Cost,"+
+                                        "Family,"+
+                                        "Rarity,"+
+                                        "Level,"+
                                         "")] MogwaiModel data)
         {
             if (!ModelState.IsValid)
@@ -104,13 +108,17 @@ namespace EverPresent.Controllers
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        // POST: Mogwai/Update/5
+        // POST: Mogwai/Update
         [HttpPost]
         public ActionResult Update([Bind(Include=
                                         "Id,"+
                                         "Name,"+
                                         "Description,"+
                                         "Uri,"+
+                                        "Cost,"+
+                                        "Family,"+
+                                        "Rarity,"+
+                                        "Level,"+
                                         "")] MogwaiModel data)
         {
             if (!ModelState.IsValid)
@@ -131,9 +139,17 @@ namespace EverPresent.Controllers
                 return View(data);
             }
 
+            var myData = mogwaiBackend.Read(data.Id);
+
+            // Check if new Mogwai level is less than current level
+            if (data.Level < myData.Level)
+            {
+                return View(data);
+            }
+
             mogwaiBackend.Update(data);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Mogwai", "Student");
         }
 
         /// <summary>
@@ -141,7 +157,7 @@ namespace EverPresent.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Mogwai/Delete/5
+        // GET: Mogwai/Delete
         public ActionResult Delete(string id = null)
         {
             var myData = mogwaiBackend.Read(id);
@@ -160,6 +176,10 @@ namespace EverPresent.Controllers
                                         "Name,"+
                                         "Description,"+
                                         "Uri,"+
+                                        "Cost,"+
+                                        "Family,"+
+                                        "Rarity,"+
+                                        "Level,"+
                                         "")] MogwaiModel data)
         {
             if (!ModelState.IsValid)
