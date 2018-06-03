@@ -89,7 +89,7 @@ namespace EverPresent.Controllers
 
         }
         /// <summary>
-        /// This updates the student based on the information posted from the udpate page
+        /// This updates the student based on the information posted from the update page
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -123,7 +123,5 @@ namespace EverPresent.Controllers
             studentViewModel = new Models.StudentViewModel(myDataList);
             return View(Tuple.Create(myData, studentViewModel));
         }
-
-
     }
 }
