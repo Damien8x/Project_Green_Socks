@@ -128,8 +128,6 @@ namespace EverPresent.Controllers
             return View(myData);
         }
 
-
-
         /// <summary>
         /// Make a new Student sent in by the create Student screen
         /// </summary>
@@ -167,8 +165,6 @@ namespace EverPresent.Controllers
 
             return RedirectToAction("Index", "Roster");
         }
-
-
 
         /// <summary>
         /// This will show the details of the student to update

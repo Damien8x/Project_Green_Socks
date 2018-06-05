@@ -17,7 +17,7 @@
             else
             {
                 <div class="row">
-                    <h2>Read Mogwai</h2>
+                    <h2>Current Mogwai</h2>
                     <br />
                     <br />
 
@@ -25,7 +25,7 @@
                         <div class="col-sm-3 text-right">
                         </div>
                         <div class="col-sm-4">
-                            <img src="~/image/@Model.Uri" width="75" height="75" />
+                            <img src="~/image/@Model.Uri" class="mogwaiSizeSmall" />
                             <br />
                             <span>
                                 @Model.Name
@@ -47,19 +47,46 @@
 
                     <div class="row">
                         <div class="col-sm-3 text-right">
-                            @Html.DisplayNameFor(m => m.Description)
+                            @Html.DisplayNameFor(m => m.Uri)
                         </div>
                         <div class="col-sm-4">
-                            @Html.DisplayFor(m => m.Description)
+                            @Html.DisplayFor(m => m.Uri)
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-3 text-right">
-                            @Html.DisplayNameFor(m => m.Uri)
+                            @Html.DisplayNameFor(m => m.Family)
                         </div>
                         <div class="col-sm-4">
-                            @Html.DisplayFor(m => m.Uri)
+                            @Html.DisplayFor(m => m.Family)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+                            @Html.DisplayNameFor(m => m.Cost)
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.DisplayFor(m => m.Cost)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+                            @Html.DisplayNameFor(m => m.Rarity)
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.DisplayFor(m => m.Rarity)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+                            @Html.DisplayNameFor(m => m.Level)
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.DisplayFor(m => m.Level)
                         </div>
                     </div>
 

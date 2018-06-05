@@ -58,15 +58,6 @@ namespace EverPresent.Controllers
         }
 
         /// <summary>
-        /// Shows a generic student report
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult GenerateReports()
-        {
-            return View();
-        }
-
-        /// <summary>
         /// Shows the school calendar
         /// </summary>
         /// <returns></returns>
@@ -89,7 +80,7 @@ namespace EverPresent.Controllers
 
         }
         /// <summary>
-        /// This updates the student based on the information posted from the udpate page
+        /// This updates the student based on the information posted from the update page
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -123,7 +114,5 @@ namespace EverPresent.Controllers
             studentViewModel = new Models.StudentViewModel(myDataList);
             return View(Tuple.Create(myData, studentViewModel));
         }
-
-
     }
 }

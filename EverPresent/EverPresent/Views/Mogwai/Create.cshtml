@@ -48,6 +48,46 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Family)
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.Family)
+                    @Html.ValidationMessageFor(m => m.Family)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Cost)
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.Cost)
+                    @Html.ValidationMessageFor(m => m.Cost)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Rarity)
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.Rarity)
+                    @Html.ValidationMessageFor(m => m.Rarity)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @Html.DisplayNameFor(m => m.Level)
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.Level)
+                    @Html.ValidationMessageFor(m => m.Level)
+                </div>
+            </div>
+
             <br />
             <br />
             <div class="row">
@@ -61,10 +101,4 @@
         }
     </div>
 </div>
-
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
 
