@@ -280,6 +280,7 @@
     <Content Include="image\stGraph.svg" />
     <Content Include="image\TyrFamilyPieChart.png" />
     <Content Include="image\weekly_attendance.png" />
+    <Content Include="image\wtep.png" />
     <Content Include="js\bootstrap.bundle.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
