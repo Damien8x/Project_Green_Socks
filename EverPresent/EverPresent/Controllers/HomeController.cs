@@ -66,7 +66,7 @@ namespace EverPresent.Controllers
 
             if (string.IsNullOrEmpty(data.Id))
             {
-                // Sind back for Edit
+                // Send back for Edit
                 return View(data);
             }
 

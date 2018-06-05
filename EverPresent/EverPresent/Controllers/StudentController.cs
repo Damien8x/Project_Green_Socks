@@ -125,6 +125,7 @@ namespace EverPresent.Controllers
         public ActionResult AddStudent()
         {
             var myData = new StudentModel();
+            myData.AvatarId = "avatar0.png";
             return View(myData);
         }
 
