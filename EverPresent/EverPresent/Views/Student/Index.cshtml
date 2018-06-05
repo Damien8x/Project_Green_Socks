@@ -33,7 +33,7 @@
         <div class="row text-center studentIndexTokenCount">
             <button type="button" onclick="location.href='@Url.Action("Marketplace", "Student", null)'" class="btn btn-success">
             <h4>Current Tokens: @Html.DisplayFor(m => m.Tokens)</h4>
-</button>
+            </button>
         </div>
     </div>
 
@@ -74,26 +74,41 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="panel" style="margin-bottom:0px; ">
+                        <div class="row">
+                            <div id="showGraphs" style="display:none">
+                                @*Display line graph*@
+                                <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+                            </div>
+                        </div>
+                        <div class="row" style="background: #f5f5f5">
+                            @*Open Attendance History button*@
+                            <button class="btn btn-default" onclick="showGraph()">
+                                Attendance History
+                            </button>
+
+                            @*Close grpah button*@
+                            <button id="graphCloseButton" class="btn btn-default" onclick="closeGraph()" style="visibility:hidden">
+                                Close
+                            </button>
+
+                            @*Generate Report button*@
+                            <button id="print" class="btn btn-default" onclick="printContent('showGraphs');" style="visibility:hidden">
+                                Print Attendance
+                            </button>
+                        </div>
+                            
+                        
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div id="showGraphs" style="display:none">
-        @*Display line graph*@
-        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-    </div>
-
-    @*Open Attendance History button*@
-    <button class="btn btn-default" onclick="showGraph()">
-        Attendance History
-    </button>
-
-    @*Close grpah button*@
-    <button id="graphCloseButton" class="btn btn-default" onclick="closeGraph()" style="visibility:hidden">
-        Close
-    </button>
-
-    @*Generate Report button*@
-    <button id="print" class="btn btn-default" onclick="printContent('showGraphs');" style="visibility:hidden">Print Attendance</button>
-
 </div>
 
 
