@@ -30,6 +30,21 @@ summary {
     display: block;
 }
 
+.contactP{
+    margin-top:50px;
+}
+.contactH4{
+    margin-bottom:15px;
+}
+.contactPBottom{
+    margin-bottom:100px;
+}
+
+.contactH5{
+    margin-top:50px;
+    margin-bottom:30px;
+}
+
 .h3black{
     color:black;
 }
