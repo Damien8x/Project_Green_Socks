@@ -140,8 +140,8 @@ namespace EverPresent.Backend
             StudentList.Add(new StudentModel("1" ,"avatar1.png", "Andrew", studentStatusEnum3, 1200));
             StudentList.Add(new StudentModel("avatar2.png", "Bernard", studentStatusEnum3, 700));
             StudentList.Add(new StudentModel("avatar3.png", "Jeff", studentStatusEnum3, 500));
-            StudentList.Add(new StudentModel("avatar5.png", "Megan", studentStatusEnum3, 300));
-            StudentList.Add(new StudentModel("avatar0.png", "Britney", studentStatusEnum3, 1100));
+            StudentList.Add(new StudentModel("avatar9.png", "Megan", studentStatusEnum3, 300));
+            StudentList.Add(new StudentModel("avatar7.png", "Britney", studentStatusEnum3, 1100));
             StudentList.Add(new StudentModel("2", "avatar4.png", "Dane", studentStatusEnum1, 0));
             StudentList.Add(new StudentModel("3", "avatar5.png", "Daniel", studentStatusEnum1, 0));
             StudentList.Add(new StudentModel("4", "avatar6.png", "Shelly", studentStatusEnum1, 0));
