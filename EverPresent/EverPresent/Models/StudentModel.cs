@@ -98,7 +98,7 @@ namespace EverPresent.Models
             Name = name;
             Tokens = tokens;
         }
-
+     
         /// <summary>
         /// Overloaded constructor. Takes arguments for all StudentModel attributes
         /// </summary>
