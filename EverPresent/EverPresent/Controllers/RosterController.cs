@@ -27,6 +27,12 @@ namespace EverPresent.Controllers
 
         }
 
+        // return login view
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         /// <summary>
         /// Toggles Status Enum of Student equal to the argument
         /// by calling the ToggleStatusById() method.

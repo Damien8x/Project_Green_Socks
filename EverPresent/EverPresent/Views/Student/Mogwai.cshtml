@@ -10,9 +10,18 @@
 <!-- Show what Mogwai they earned today-->
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4 col-md-offset-4">
+            <h3>Mogwai Earned Today...</h3>
+        </div>
+        <span class="pull-right">
+            <button type="button" onclick="location.href='@Url.Action("Marketplace", "Student", null)'" class="btn btn-success">
+                <h4>Current Tokens: @studentAndrew.Tokens</h4>
+            </button>
+        </span>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
             <div class="mogwai-info">
-                <h4>Mogwai Earned Today...</h4>
                 <img src="~/image/avatar4.png" class="mogwaiSizeSmall" />
                 <br />
                 <br />
@@ -23,17 +32,14 @@
                 <b>Rarity: 5</b>
             </div>
         </div>
-        <div class="col-md-3 col-md-offset-6">
-            <button type="button" onclick="location.href='@Url.Action("Marketplace", "Student", null)'" class="btn btn-success">
-                <h4>Current Tokens: @studentAndrew.Tokens</h4>
-            </button>
-        </div>
     </div>
 </div>
 
 
 <div class="container">
-    <h2>My Mogwai Collection</h2>
+    <div class="row text-center">
+        <h2>My Mogwai Collection</h2>
+    </div>
     <br />
     <div class="row">
         @{
