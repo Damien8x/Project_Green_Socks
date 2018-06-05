@@ -15,7 +15,7 @@ Marketplace carousel, slides show a unique mogwai available for purchase. Button
 a purchase will complete and student's token amount will have the price of the Mogwai deducted from
  their token balance.'
 -->
-<<div class="bs-example">
+<div class="bs-example">
     <div id="myCarousel" data-interval="false" class="carousel slide" data-ride="carousel">
         <!-- Carousel indicators -->
         <!-- Wrapper for carousel items -->
@@ -34,7 +34,7 @@ a purchase will complete and student's token amount will have the price of the M
                 <div class="item">
                     <img src="~/image/@item.Uri" alt="Second Slide" height="300">
                     <div class="carousel-caption">
-                        <button id="@item.Name" type="button" onclick="location.href='@Url.Action("MogwaiPurchase", "Student", new { deduct = 100 })'" class="btn-market">@item.Name<br />Family: @item.Family<br />Rarity: @item.Rarity<br />Cost: @item.Cost Tokens<br /><p class="buyBox">Click to Buy</p></button>
+                        <button id="@item.Name" type="button" onclick="location.href='@Url.Action("MogwaiPurchase", "Student", new { deduct = item.Cost })'" class="btn-market">@item.Name<br />Family: @item.Family<br />Rarity: @item.Rarity<br />Cost: @item.Cost Tokens<br /><p class="buyBox">Click to Buy</p></button>
                     </div>
                 </div>
             }
