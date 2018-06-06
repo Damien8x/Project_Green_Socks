@@ -11,6 +11,8 @@
 
 
 <h2 align="center">Students</h2>
+<br />
+<br />
 
 <head>
     <!-- Plotly.js -->
@@ -59,6 +61,8 @@
     <br />
 
     <h2 id="head" align="center">Click a Student above to view Attendance Profile</h2>
+    <br />
+    <br />
 
     @*Hidden until a student is clicked*@
     <div id="cal" style="visibility:hidden" align="center">
@@ -83,34 +87,45 @@
             document.getElementById('addTokens').style.display = 'block'">
             Add Tokens
         </button>
+        <br />
+        <br />
+        <br />
 
     </div>
 
     <div>
         @*Display editable Attendance table -- only shown if "Edit Attendance" button is clicked*@
-        <div id="time" class="container-fluid" style="width:50%; display:none" align="center">
+        <div id="time" class="container-fluid" style="width:60%; display:none" align="center">
             <div class="row">
 
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>@DateTime.Today.ToString("D")</th>
+                                <th></th>
                                 <th>Signed In</th>
                                 <th>Signed Out</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td id="inTime1" contenteditable="true">9:15 am</td>
-                                <td id="outTime1" contenteditable="true">11:09 am</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td id="inTime2" contenteditable="true">12:28 pm</td>
-                                <td id="outTime2" contenteditable="true">2:45 pm</td>
-                            </tr>
+                            @{
+                                Random r = new Random();
+
+                                for (int i = 0; i < 10; i++)
+                                {
+                                    DateTime time = new DateTime(2018, 6, 7, 7, 0, 0);
+                                    double hrs = r.Next(4);
+                                    time = time.AddHours(hrs);
+                                    time = time.AddMinutes(r.Next(120));
+                                    string first = time.ToString("t");
+                                    time = time.AddHours(6 - hrs);
+                                    time = time.AddMinutes(r.Next(120));
+                                    string second = time.ToString("t");
+
+                                    <tr><td>@DateTime.Today.AddDays(-i).ToString("d")</td><td contenteditable="true">@first</td><td contenteditable="true">@second</td></tr>
+                                }
+                            }
+
                         </tbody>
                     </table>
                 </div>
@@ -143,20 +158,20 @@
                     </div>
                     <div class="col-sm-2">
                         @Html.DropDownListFor(m => m.Item1.AvatarId, new SelectList(
-                               new List<Object>{
-                                         new { value = "avatar0.png" , text = "Jord"  },
-                                         new { value = "avatar1.png" , text = "Freya"  },
-                                         new { value = "avatar2.png" , text = "Hodr"  },
-                                         new { value = "avatar3.png" , text = "Vili"  },
-                                         new { value = "avatar4.png" , text = "Loki"  },
-                                         new { value = "avatar5.png" , text = "Frigg"  },
-                                         new { value = "avatar6.png" , text = "Sif"  },
-                                         new { value = "avatar7.png" , text = "Burr"  }
+                                                   new List<Object>{
+                                                                         new { value = "avatar0.png" , text = "Jord"  },
+                                                                         new { value = "avatar1.png" , text = "Freya"  },
+                                                                         new { value = "avatar2.png" , text = "Hodr"  },
+                                                                         new { value = "avatar3.png" , text = "Vili"  },
+                                                                         new { value = "avatar4.png" , text = "Loki"  },
+                                                                         new { value = "avatar5.png" , text = "Frigg"  },
+                                                                         new { value = "avatar6.png" , text = "Sif"  },
+                                                                         new { value = "avatar7.png" , text = "Burr"  }
 
-                                 },
-                               "value",
-                               "text",
-                                Model.Item1.AvatarId), new { @style = "width: 180px;" })
+                                                     },
+                                                   "value",
+                                                   "text",
+                                                    Model.Item1.AvatarId), new { @style = "width: 180px;" })
 
                         @Html.ValidationMessageFor(m => m.Item1.AvatarId)
                     </div>
