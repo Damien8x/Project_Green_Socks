@@ -19,6 +19,9 @@
             <div class="col-md-4 col-md-offset-2">
                 <h2> Welcome, @Model.Name  </h2>
                 <p> <img src="~/image/@Model.AvatarId" class="studentIndexAvatar mogwaiSizeSmall" /></p>
+                <button type="button" onclick="location.href='@Url.Action("Update", "Student", null)'" class="btn btn-info">
+                    Edit
+                </button>
             </div>
             <div class="col-md-4">
                 <h2>Today's Attendance</h2>

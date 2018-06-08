@@ -248,7 +248,7 @@
     <Content Include="image\avatar9.png" />
     <Content Include="image\avg_attendance.png" />
     <Content Include="image\BankAccountSimple1200Tokens.png" />
-	<Content Include="image\collectionGraph.png" />
+    <Content Include="image\collectionGraph.png" />
     <Content Include="image\dayattendance.png" />
     <Content Include="image\EditAndrewAttendanceNoBorder.png" />
     <Content Include="image\ep logo.png" />
@@ -373,6 +373,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\ContactSuccess.cshtml" />
     <Content Include="Views\Roster\Login.cshtml" />
+    <Content Include="Views\Student\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

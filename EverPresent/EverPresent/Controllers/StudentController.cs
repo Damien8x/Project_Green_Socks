@@ -56,8 +56,6 @@ namespace EverPresent.Controllers
             return RedirectToAction("MarketplaceDennied", "Student");
         }
 
-
-
         // Shows the Mogwai collection of student with ID 1
         public ActionResult Mogwai(string id = null)
         {
@@ -78,6 +76,7 @@ namespace EverPresent.Controllers
             return View(Tuple.Create(myData, mogwaiViewModel));
 
         }
+
         //Shows the Mogwai marketplace for student with ID 1 with a toast message
         //displaying a successful transaction has been made
         public ActionResult MarketplaceSuccess(string id = null)
@@ -87,6 +86,7 @@ namespace EverPresent.Controllers
             mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
             return View(Tuple.Create(myData, mogwaiViewModel));
         }
+
         //Shows the Mogwai marketplace for student with ID 1 with a toast message
         //displaying a transaction has not been made
         public ActionResult MarketplaceDennied(string id = null)
@@ -110,7 +110,7 @@ namespace EverPresent.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Student/Details/5
+        // GET: Student/Details
         public ActionResult Read(string id = null)
         {
             var myData = studentBackend.Read(id);
@@ -168,23 +168,63 @@ namespace EverPresent.Controllers
         }
 
         /// <summary>
-        /// This will show the details of the student to update
+        /// This will show the details of the student to update, currently defaults to
+        /// student with ID "1" (Andrew)
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: student/Edit/5
+        // GET: Student/Update
         public ActionResult Update(string id = null)
         {
-            var myData = studentBackend.Read(id);
+            var myData = studentBackend.Read("1");
             return View(myData);
         }
 
         /// <summary>
-        /// This updates the student based on the information posted from the udpate page
+        /// Posts updated Avatar picture for Andrew and redirects to Student/Index
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">The student data to be updated</param>
         /// <returns></returns>
-        // POST: student/Update/5
+        // POST: Student/Update
+        [HttpPost]
+        public ActionResult Update([Bind(Include=
+                                    "Id,"+
+                                    "Name,"+
+                                    "AvatarId,"+
+                                    "Status,"+
+                                    "Tokens," +
+                                    "")] StudentModel data)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Send back for edit, with Error Message
+                return View(data);
+            }
+
+            if (data == null)
+            {
+                // Send to Error Page
+                return RedirectToAction("Error", new { route = "Home", action = "Error" });
+            }
+
+            if (string.IsNullOrEmpty(data.Id))
+            {
+                // Sind back for Edit
+                return View(data);
+            }
+
+            studentBackend.Update(data);
+
+            return RedirectToAction("Index", "Student");
+        }
+
+        /// <summary>
+        /// This updates the student based on the information posted from the update page
+        /// </summary>
+        /// <param name="data">The student data to be updated (currently for student
+        /// with ID 1 (Andrew)</param>
+        /// <returns></returns>
+        // POST: student/Update
         [HttpPost]
         public ActionResult EditAndrew([Bind(Include=
                                     "Id,"+
@@ -222,7 +262,7 @@ namespace EverPresent.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: student/Delete/5
+        // GET: student/Delete
         public ActionResult Delete(string id = null)
         {
             var myData = studentBackend.Read(id);
@@ -234,7 +274,7 @@ namespace EverPresent.Controllers
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        // POST: student/Delete/5
+        // POST: student/Delete/
         [HttpPost]
         public ActionResult Delete([Bind(Include=
                                         "Id,"+
