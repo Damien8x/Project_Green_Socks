@@ -8,8 +8,9 @@
         <img src="~/image/@Model.AvatarId" class="mogwaiSizeSmall" />
         <br />
         <br />
+        <br />
     </div>
-    
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -37,11 +38,12 @@
                                 "text",
                                 Model.AvatarId),
                                 new { @style = "width: 180px;" })
-            @Html.ValidationMessageFor(m => m.AvatarId)
+            @Html.ValidationMessageFor(m => m.AvatarId)         
         </div>
         <br />
         <div class="row">
-            <input type="submit" value="Submit" class="btn btn-primary">
+            <input type="submit" value="Submit" class="btn btn-success">
+            @Html.ActionLink("Cancel", "Index", "Student", routeValues: null, htmlAttributes: new { @class = "btn btn-dark" })
         </div>
     }
 </div>
