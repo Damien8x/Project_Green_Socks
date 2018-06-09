@@ -136,7 +136,6 @@ namespace EverPresent.Backend
             StudentStatusEnum studentStatusEnum2 = StudentStatusEnum.In;
             StudentStatusEnum studentStatusEnum3 = StudentStatusEnum.Out;
 
-            
             StudentList.Add(new StudentModel("1" ,"avatar1.png", "Andrew", studentStatusEnum3, 1200));
             StudentList.Add(new StudentModel("avatar2.png", "Bernard", studentStatusEnum3, 700));
             StudentList.Add(new StudentModel("avatar3.png", "Jeff", studentStatusEnum3, 500));
@@ -146,10 +145,6 @@ namespace EverPresent.Backend
             StudentList.Add(new StudentModel("3", "avatar5.png", "Daniel", studentStatusEnum1, 0));
             StudentList.Add(new StudentModel("4", "avatar6.png", "Shelly", studentStatusEnum1, 0));
             StudentList.Add(new StudentModel("5", "avatar7.png", "Sarah", studentStatusEnum1, 0));
-
         }
     }
-
-
-
 }
