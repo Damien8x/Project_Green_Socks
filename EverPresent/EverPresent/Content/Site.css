@@ -152,3 +152,8 @@ h2, h3, h4 {
 .contactEmailField {
     margin-bottom:15px;
 }
+
+/* Home / Index styles */
+.homeLogo {
+    width: 45%;
+}
