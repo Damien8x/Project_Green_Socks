@@ -65,6 +65,7 @@ namespace EverPresent.Models
             AvatarLevel = 0;
             Status = StudentStatusEnum.Out;
         }
+
         /// <summary>
         /// Updates token value of Student
         /// </summary>
@@ -75,6 +76,7 @@ namespace EverPresent.Models
             Tokens = Tokens - deduction;
             return true;
         }
+
         /// <summary>
         /// Constructor for a student
         /// </summary>
