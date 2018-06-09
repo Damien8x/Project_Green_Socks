@@ -10,7 +10,6 @@ using EverPresent.Backend;
 namespace EverPresent.Controllers
 {
     public class StudentController : Controller
-
     {
         // A ViewModel used for the Avatar that contains the AvatarList
         private StudentViewModel studentViewModel = new StudentViewModel();
@@ -70,11 +69,8 @@ namespace EverPresent.Controllers
         // Shows the Mogwai marketplace for student with ID 1
         public ActionResult Marketplace(string id = null)
         {
-          
             var myData = studentBackend.Read("1");
             mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
-            return View(Tuple.Create(myData, mogwaiViewModel));
-
         }
 
         //Shows the Mogwai marketplace for student with ID 1 with a toast message
@@ -100,7 +96,6 @@ namespace EverPresent.Controllers
         // Shows editable data for student with ID 1
         public ActionResult EditAndrew(string id = null)
         {
-
             var myData = studentBackend.Read("1");
             return View(myData);
         }
