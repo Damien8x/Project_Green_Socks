@@ -70,9 +70,7 @@ namespace EverPresent.Controllers
                 return View(data);
             }
 
-
             return RedirectToAction("ContactSuccess", "Home", data);
         }
-
     }
 }
