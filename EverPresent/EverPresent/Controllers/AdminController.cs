@@ -45,7 +45,6 @@ namespace EverPresent.Controllers
             return View(Tuple.Create(myData, studentViewModel));
         }
 
-
         /// <summary>
         /// Shows a page of inactive students
         /// </summary>
@@ -77,7 +76,6 @@ namespace EverPresent.Controllers
             myData.Status = Models.Enums.StudentStatusEnum.Out;
             studentBackend.Update(myData);
             return RedirectToAction("InactiveStudents", "Admin");
-
         }
         /// <summary>
         /// This updates the student based on the information posted from the update page
