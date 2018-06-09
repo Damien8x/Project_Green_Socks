@@ -138,3 +138,17 @@ h2, h3, h4 {
 .loginFields {
     margin-bottom: 20px;
 }
+
+/* Home / Contact styles */
+.contactFormTop {
+    margin-top: 10px;
+}
+
+.contactNameField {
+    margin-top:20px; 
+    margin-bottom:15px;
+}
+
+.contactEmailField {
+    margin-bottom:15px;
+}
