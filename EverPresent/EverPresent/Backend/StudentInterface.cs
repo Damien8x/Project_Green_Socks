@@ -8,7 +8,6 @@ namespace EverPresent.Backend
 {
     public class StudentInterface
     {
-
         /// <summary>
         /// Datasource interface for students
         /// </summary>
@@ -21,9 +20,6 @@ namespace EverPresent.Backend
             List<StudentModel> Index();
             void Reset();
         }
-
-
-
     }
 }
 
