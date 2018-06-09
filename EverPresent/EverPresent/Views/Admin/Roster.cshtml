@@ -13,17 +13,16 @@
 <br />
 <br />
 
-<head>
+<div class="head" class="text-center">
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <!-- Numeric JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
-</head>
+</div>
 
 @*Display Students names and their favorite Mogwai*@
-<div class="container" align="center">
-    <div class="row text-center" align="center">
-
+<div class="container text-center">
+    <div class="row text-center">
         @{
             if (Model.Item2.StudentList == null || !Model.Item2.StudentList.Any())
             {
@@ -59,12 +58,12 @@
     </div>
     <br />
 
-    <h2 id="head" align="center">Click a Student above to view Attendance Profile</h2>
+    <h2 id="head" class="text-center">Click a Student above to view Attendance Profile</h2>
     <br />
     <br />
 
     @*Hidden until a student is clicked*@
-    <div id="cal" style="visibility:hidden" align="center">
+    <div id="cal" style="visibility:hidden" clas="text-center">
 
         @*Generate Report button*@
         <button id="print" class="btn btn-default" onclick="printContent('printGraphs');">Print Report</button>
@@ -89,12 +88,11 @@
         <br />
         <br />
         <br />
-
     </div>
 
     <div>
         @*Display editable Attendance table -- only shown if "Edit Attendance" button is clicked*@
-        <div id="time" class="container-fluid" style="width:60%; display:none" align="center">
+        <div id="time" class="container-fluid text-center attendanceTable" style="display:none">
             <div class="row">
 
                 <div class="table-responsive">
@@ -136,7 +134,7 @@
         @*Display Edit Student Form -- only shown if "Edit Student" button is clicked*@
         @using (Html.BeginForm())
         {
-            <div id="editStudent" class="container-fluid" style="display:none; margin-top:10px;" align="center">
+            <div id="editStudent" class="container-fluid text-center editStudent" style="display:none;">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(m => m.Item1.Id)
                 @Html.HiddenFor(m => m.Item1.Status)
@@ -191,7 +189,7 @@
         @*Display Add Tokens Form -- only shown if "Add Tokens" button is clicked*@
         @using (Html.BeginForm())
         {
-            <div id="addTokens" class="container-fluid" style="display:none; margin-top:10px">
+            <div id="addTokens" class="container-fluid addStudentTokens" style="display:none;">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(m => m.Item1.Id)
                 @Html.HiddenFor(m => m.Item1.AvatarId)
@@ -217,20 +215,16 @@
                         Close
                     </button>
                 </div>
-
-
             </div><!-- /.container -->
         }
-
     </div>
 
     <div id="printGraphs">
         @*Display line graph*@
         <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
 
-
         @*Display pie charts*@
-        <div id="secondDiv" style="width:60%;" align="center"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <div id="secondDiv" class="text-center pieCharts"><!-- Plotly chart will be drawn inside this DIV --></div>
     </div>
 </div>
 

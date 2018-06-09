@@ -112,6 +112,23 @@ h2, h3, h4 {
     height:300px; 
 }
 
+/* Admin / Roster layouts */
+.attendanceTable {
+    width:60%;
+}
+
+.editStudent {
+    margin-top: 10px;
+}
+
+.addStudentTokens {
+    margin-top: 10px;
+}
+
+.pieCharts {
+    width: 60%;
+}
+
 /* Login pages layout */
 .loginHeader {
     margin-top:100px;
