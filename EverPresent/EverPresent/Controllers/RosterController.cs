@@ -91,7 +91,5 @@ namespace EverPresent.Controllers
             return View(StudentViewModel);
 
         }
-
-
     }
 }
