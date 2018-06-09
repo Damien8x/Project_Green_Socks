@@ -1,11 +1,9 @@
 ﻿@model EverPresent.Models.MogwaiViewModel
 
-
 @{
     var studentBackend = EverPresent.Backend.StudentDataSourceMock.Instance;
     var studentAndrew = studentBackend.Read("1");
 }
-
 
 <!-- Show what Mogwai they earned today-->
 <div class="container">
@@ -34,7 +32,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container">
     <div class="row text-center">

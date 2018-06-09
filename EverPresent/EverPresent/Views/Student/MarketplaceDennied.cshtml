@@ -2,13 +2,11 @@
 @model Tuple<EverPresent.Models.StudentModel, EverPresent.Models.MogwaiViewModel>
 @{
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
-
-
 }
+
 <div>
     <h2 class="studentMarketplaceHeader">Mogwai Market </h2>
 </div>
-
 
 <!--
 Marketplace carousel, slides show a unique mogwai available for purchase. Button click will
@@ -22,9 +20,7 @@ a purchase will complete and student's token amount will have the price of the M
         <!-- Wrapper for carousel items -->
 
         <div class="carousel-inner">
-
             <div class="item active">
-
                 <div class="carousel-caption">
                     <h3 class="h3black">Welcome To Mogwai Market. <br /> Choose Wisely ;)</h3>
                 </div>
@@ -35,7 +31,12 @@ a purchase will complete and student's token amount will have the price of the M
                 <div class="item">
                     <img src="~/image/@item.Uri" alt="Second Slide" height="300">
                     <div class="carousel-caption">
-                        <button id="@item.Name" type="button" onclick="location.href='@Url.Action("MogwaiPurchase", "Student", new { deduct = item.Cost })'" class="btn-market">@item.Name<br />Family: @item.Family<br />Rarity: @item.Rarity<br />Cost: @item.Cost Tokens<br /><p class="buyBox">Click to Buy</p></button>
+                        <button id="@item.Name" type="button" onclick="location.href='@Url.Action("MogwaiPurchase", "Student", new { deduct = item.Cost })'" class="btn-market">@item.Name
+                        <br />Family: @item.Family
+                        <br />Rarity: @item.Rarity
+                        <br />Cost: @item.Cost Tokens
+                        <br />
+                        <p class="buyBox">Click to Buy</p></button>
                     </div>
                 </div>
             }
@@ -60,28 +61,21 @@ a purchase will complete and student's token amount will have the price of the M
 
 <div id="snackbar"></div>
 
-
 <!--JS functions tied to carousel button clicks. Each function alerts the user
     through a JS alert either confirming a purchase or stating token balance is insufficient.
     to the Mogwai clicked and updates a JS token total displayed to the user
     -->
-
-
 <script type="text/javascript">
-
     window.onload = myFunctionSuccess;
 
     var tokens = @Model.Item1.Tokens;
 
+    document.getElementById("Jord").addEventListener("click", myFunctionSuccess);
+    function myFunctionSuccess() {
 
-     document.getElementById("Jord").addEventListener("click", myFunctionSuccess);
-     function myFunctionSuccess() {
-
-             document.getElementById("snackbar").innerHTML = "Need More Tokens! " + tokens + " Tokens Remain";
-             var x = document.getElementById("snackbar");
-             x.className = "show";
-             setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-         }
-
-
+            document.getElementById("snackbar").innerHTML = "Need More Tokens! " + tokens + " Tokens Remain";
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+    }
 </script>
