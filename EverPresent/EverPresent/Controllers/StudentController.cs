@@ -71,6 +71,7 @@ namespace EverPresent.Controllers
         {
             var myData = studentBackend.Read("1");
             mogwaiViewModel.MogwaiList = mogwaiBackend.Index();
+            return View(Tuple.Create(myData, mogwaiViewModel));
         }
 
         //Shows the Mogwai marketplace for student with ID 1 with a toast message
