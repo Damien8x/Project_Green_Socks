@@ -5,6 +5,7 @@
     ViewData["Title"] = "Home Page";
     int count = 0;
 }
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
@@ -46,7 +47,6 @@
 
 <div class="container">
     <div class="row text-center panel-ep">
-
         @{
             if (Model.StudentList == null || !Model.StudentList.Any())
             {
@@ -58,7 +58,6 @@
             {
                 foreach (var item in Model.StudentList)
                 {
-
                     if (item.Status != EverPresent.Models.Enums.StudentStatusEnum.Hold)
                     {
                         <div class="col-xs-3">
@@ -118,8 +117,6 @@
         setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
     }
 
-
-
     // Generates snackbar message with different token counts
     function randomTokenGeneration() {
         var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
@@ -135,7 +132,6 @@
         else {
             document.getElementById("tokensEarned").innerHTML = "25 tokens earned from yesterday";
         }
-
     }
 
     // Generates snackbar message with different Mogwai collected
@@ -168,7 +164,6 @@
         var zeroOneOddsZero = 0;
         var zeroOneOddsOne = 1;
 
-
         var randomNumberTokens = Math.floor(Math.random() * 2); // Generate random number to simulate different token counts
 
         document.getElementById("clockInOut").innerHTML = "Clock in Success!";
@@ -182,7 +177,4 @@
 
         showAlert();
     }
-
-
-
 </script>

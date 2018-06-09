@@ -5,6 +5,7 @@
     ViewData["Title"] = "Home Page";
     int count = 0;
 }
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
@@ -46,7 +47,6 @@
 
 <div class="container">
     <div class="row text-center panel-ep">
-
         @{
             if (Model.StudentList == null || !Model.StudentList.Any())
             {
@@ -89,14 +89,12 @@
                                         </a>
                                     }
                                 }
-
                             </div>
                         </div>
                     }
                 }
             }
         }
-
     </div>
 </div>
 <br />
@@ -135,7 +133,6 @@
         else {
             document.getElementById("tokensEarned").innerHTML = "25 tokens earned from yesterday";
         }
-
     }
 
     // Generates snackbar message with different Mogwai collected
@@ -160,17 +157,15 @@
         }
     }
 
-
     window.onload = myFunction;
 
     function myFunction() {
         var zeroOneOddsZero = 0;
         var zeroOneOddsOne = 1;
-
         
-            document.getElementById("clockInOut").innerHTML = "Clock out Success!";
-            document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
-            document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
+        document.getElementById("clockInOut").innerHTML = "Clock out Success!";
+        document.getElementById("tokensEarned").innerHTML = ""; // Don't show a token count when clocking out
+        document.getElementById("mogwaiEarned").innerHTML = ""; // Don't show any Mogwai earned
           
         showAlert();
     }
